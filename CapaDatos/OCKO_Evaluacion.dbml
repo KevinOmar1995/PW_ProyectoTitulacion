@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="OCKO_EvaluacionPersonal" Class="OCKO_EvaluacionDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-04FTIL89\SQLEXPRESS;Initial Catalog=OCKO_EvaluacionPersonal;Integrated Security=True" SettingsObjectName="CapaDatos.Properties.Settings" SettingsPropertyName="OCKO_EvaluacionPersonalConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.OCKO_GrupoConceptos" Member="OCKO_GrupoConceptos">
+    <Type Name="OCKO_GrupoConceptos">
+      <Column Name="gr" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OCKO_TblAsignacion" Member="OCKO_TblAsignacion">
+    <Type Name="OCKO_TblAsignacion">
+      <Column Name="AsiId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AsiDescripcion" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="AsiFormulario" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="AsiRuta" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Column Name="AsiFechaDesarrollo" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="AsiEstado" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Column Name="CodProceso" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CodSeccion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CodEmpleado" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="OCKO_TblEmpleado_OCKO_TblAsignacion" Member="OCKO_TblEmpleado" ThisKey="CodEmpleado" OtherKey="EmpId" Type="OCKO_TblEmpleado" IsForeignKey="true" />
+      <Association Name="OCKO_TblProceso_OCKO_TblAsignacion" Member="OCKO_TblProceso" ThisKey="CodProceso" OtherKey="ProId" Type="OCKO_TblProceso" IsForeignKey="true" />
+      <Association Name="OCKO_TblSeccion_OCKO_TblAsignacion" Member="OCKO_TblSeccion" ThisKey="CodSeccion" OtherKey="SecId" Type="OCKO_TblSeccion" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OCKO_TblCargo" Member="OCKO_TblCargo">
+    <Type Name="OCKO_TblCargo">
+      <Column Name="CarId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CarNombre" Type="System.String" DbType="NChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DepCod" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CargEstado" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="OCKO_TblCargo_OCKO_TblEmpleado" Member="OCKO_TblEmpleado" ThisKey="CarId" OtherKey="CodCargo" Type="OCKO_TblEmpleado" />
+      <Association Name="OCKO_TblDepartamento_OCKO_TblCargo" Member="OCKO_TblDepartamento" ThisKey="DepCod" OtherKey="DepId" Type="OCKO_TblDepartamento" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OCKO_TblCategoriaPregunta" Member="OCKO_TblCategoriaPregunta">
+    <Type Name="OCKO_TblCategoriaPregunta">
+      <Column Name="CatId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CatNombre" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Column Name="CatDescripcion" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Column Name="CodGrupoConceptos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="OCKO_TblCategoriaPregunta_OCKO_TblPreguntas" Member="OCKO_TblPreguntas" ThisKey="CatId" OtherKey="CodCategoria" Type="OCKO_TblPreguntas" />
+      <Association Name="OCKO_TblGrupoConceptos_OCKO_TblCategoriaPregunta" Member="OCKO_TblGrupoConceptos" ThisKey="CodGrupoConceptos" OtherKey="GruId" Type="OCKO_TblGrupoConceptos" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OCKO_TblDepartamento" Member="OCKO_TblDepartamento">
+    <Type Name="OCKO_TblDepartamento">
+      <Column Name="DepId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DepNombre" Type="System.String" DbType="NChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DepEstado" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="OCKO_TblDepartamento_OCKO_TblCargo" Member="OCKO_TblCargo" ThisKey="DepId" OtherKey="DepCod" Type="OCKO_TblCargo" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OCKO_TblEmpleado" Member="OCKO_TblEmpleado">
+    <Type Name="OCKO_TblEmpleado">
+      <Column Name="EmpId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EmpCedula" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="EmpPrimerNombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EmpSegundoNombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EmpPrimerApellido" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EmpSegundoApellidos" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EmpEmail" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EmpDireccion" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EmpGenero" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="EmpFechaNacimiento" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="EmpTelefono" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EmpJefeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EmpJefe" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="CodCargo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CodEmpresa" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EmpFechaContratacion" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="OCKO_TblEmpleado_OCKO_TblAsignacion" Member="OCKO_TblAsignacion" ThisKey="EmpId" OtherKey="CodEmpleado" Type="OCKO_TblAsignacion" />
+      <Association Name="OCKO_TblEmpleado_OCKO_TblEvaluacionEmpleado" Member="OCKO_TblEvaluacionEmpleado" ThisKey="EmpId" OtherKey="CodEmpleado" Type="OCKO_TblEvaluacionEmpleado" />
+      <Association Name="OCKO_TblEmpleado_OCKO_TblRespuestasEmpleado" Member="OCKO_TblRespuestasEmpleado" ThisKey="EmpId" OtherKey="CodEmpleado" Type="OCKO_TblRespuestasEmpleado" />
+      <Association Name="OCKO_TblEmpleado_OCKO_TblUsuario" Member="OCKO_TblUsuario" ThisKey="EmpId" OtherKey="UsuId" Type="OCKO_TblUsuario" Cardinality="One" />
+      <Association Name="OCKO_TblCargo_OCKO_TblEmpleado" Member="OCKO_TblCargo" ThisKey="CodCargo" OtherKey="CarId" Type="OCKO_TblCargo" IsForeignKey="true" />
+      <Association Name="OCKO_TblEmpresa_OCKO_TblEmpleado" Member="OCKO_TblEmpresa" ThisKey="CodEmpresa" OtherKey="EmpId" Type="OCKO_TblEmpresa" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OCKO_TblEmpresa" Member="OCKO_TblEmpresa">
+    <Type Name="OCKO_TblEmpresa">
+      <Column Name="EmpId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EmpNombre" Type="System.String" DbType="NChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EmpDireccion" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Association Name="OCKO_TblEmpresa_OCKO_TblEmpleado" Member="OCKO_TblEmpleado" ThisKey="EmpId" OtherKey="CodEmpresa" Type="OCKO_TblEmpleado" />
+      <Association Name="OCKO_TblEmpresa_OCKO_TblMinimos" Member="OCKO_TblMinimos" ThisKey="EmpId" OtherKey="CodEmpresa" Type="OCKO_TblMinimos" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OCKO_TblEvaluacionEmpleado" Member="OCKO_TblEvaluacionEmpleado">
+    <Type Name="OCKO_TblEvaluacionEmpleado">
+      <Column Name="EvaId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CodEmpleado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CodTipoEvaluacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EvaFecha" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="EvaResultado" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="CodPeriodo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EvaDesempeno" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EvaActitud" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EvaHabilidades" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="OCKO_TblEmpleado_OCKO_TblEvaluacionEmpleado" Member="OCKO_TblEmpleado" ThisKey="CodEmpleado" OtherKey="EmpId" Type="OCKO_TblEmpleado" IsForeignKey="true" />
+      <Association Name="OCKO_TblPeriodo_OCKO_TblEvaluacionEmpleado" Member="OCKO_TblPeriodo" ThisKey="CodPeriodo" OtherKey="PerId" Type="OCKO_TblPeriodo" IsForeignKey="true" />
+      <Association Name="OCKO_TblTipoEvaluacion_OCKO_TblEvaluacionEmpleado" Member="OCKO_TblTipoEvaluacion" ThisKey="CodTipoEvaluacion" OtherKey="TipId" Type="OCKO_TblTipoEvaluacion" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OCKO_TblFase" Member="OCKO_TblFase">
+    <Type Name="OCKO_TblFase">
+      <Column Name="FasId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FasNombre" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="FasDescripcion" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Association Name="OCKO_TblFase_OCKO_TblProceso" Member="OCKO_TblProceso" ThisKey="FasId" OtherKey="CodFase" Type="OCKO_TblProceso" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OCKO_TblGrupoConceptos" Member="OCKO_TblGrupoConceptos">
+    <Type Name="OCKO_TblGrupoConceptos">
+      <Column Name="GruId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GruNombre" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="GruMinimo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GruPeso" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="OCKO_TblGrupoConceptos_OCKO_TblCategoriaPregunta" Member="OCKO_TblCategoriaPregunta" ThisKey="GruId" OtherKey="CodGrupoConceptos" Type="OCKO_TblCategoriaPregunta" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OCKO_TblMinimos" Member="OCKO_TblMinimos">
+    <Type Name="OCKO_TblMinimos">
+      <Column Name="MinId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MinMinimo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MinMaximo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MinEstado" Type="System.String" DbType="NChar(5)" CanBeNull="true" />
+      <Column Name="CodEmpresa" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="OCKO_TblEmpresa_OCKO_TblMinimos" Member="OCKO_TblEmpresa" ThisKey="CodEmpresa" OtherKey="EmpId" Type="OCKO_TblEmpresa" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OCKO_TblModulos" Member="OCKO_TblModulos">
+    <Type Name="OCKO_TblModulos">
+      <Column Name="ModId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ModNombre" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="ModDescripcion" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Association Name="OCKO_TblModulos_OCKO_TblSeccion" Member="OCKO_TblSeccion" ThisKey="ModId" OtherKey="CodModulos" Type="OCKO_TblSeccion" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OCKO_TblParametroItems" Member="OCKO_TblParametroItems">
+    <Type Name="OCKO_TblParametroItems">
+      <Column Name="parID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="parNombre" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="parPuntaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OCKO_TblPeriodo" Member="OCKO_TblPeriodo">
+    <Type Name="OCKO_TblPeriodo">
+      <Column Name="PerId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PerPeriodo" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Column Name="PerDescripcion" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Column Name="PerFechaInicio" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="PerFechaFin" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="PerEstado" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="PerActivar" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="OCKO_TblPeriodo_OCKO_TblEvaluacionEmpleado" Member="OCKO_TblEvaluacionEmpleado" ThisKey="PerId" OtherKey="CodPeriodo" Type="OCKO_TblEvaluacionEmpleado" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OCKO_TblPreguntas" Member="OCKO_TblPreguntas">
+    <Type Name="OCKO_TblPreguntas">
+      <Column Name="PreId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PrePregunta" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CodTipoEvaluacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CodCategoria" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="OCKO_TblPreguntas_OCKO_TblRespuestas" Member="OCKO_TblRespuestas" ThisKey="PreId" OtherKey="CodPregunta" Type="OCKO_TblRespuestas" />
+      <Association Name="OCKO_TblPreguntas_OCKO_TblRespuestasEmpleado" Member="OCKO_TblRespuestasEmpleado" ThisKey="PreId" OtherKey="CodPregunta" Type="OCKO_TblRespuestasEmpleado" />
+      <Association Name="OCKO_TblCategoriaPregunta_OCKO_TblPreguntas" Member="OCKO_TblCategoriaPregunta" ThisKey="CodCategoria" OtherKey="CatId" Type="OCKO_TblCategoriaPregunta" IsForeignKey="true" />
+      <Association Name="OCKO_TblTipoEvaluacion_OCKO_TblPreguntas" Member="OCKO_TblTipoEvaluacion" ThisKey="CodTipoEvaluacion" OtherKey="TipId" Type="OCKO_TblTipoEvaluacion" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OCKO_TblPreguntasEvaluacion" Member="OCKO_TblPreguntasEvaluacion">
+    <Type Name="OCKO_TblPreguntasEvaluacion">
+      <Column Name="FilId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FilItemPregunta" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CodPregunta" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OCKO_TblProceso" Member="OCKO_TblProceso">
+    <Type Name="OCKO_TblProceso">
+      <Column Name="ProId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProNombre" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="ProDescripcion" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="CodFase" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="OCKO_TblProceso_OCKO_TblAsignacion" Member="OCKO_TblAsignacion" ThisKey="ProId" OtherKey="CodProceso" Type="OCKO_TblAsignacion" />
+      <Association Name="OCKO_TblFase_OCKO_TblProceso" Member="OCKO_TblFase" ThisKey="CodFase" OtherKey="FasId" Type="OCKO_TblFase" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OCKO_TblProgramacion" Member="OCKO_TblProgramacion">
+    <Type Name="OCKO_TblProgramacion">
+      <Column Name="ProId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProFechaInicio" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ProFechaFin" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ProMensaje" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="ProDias" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OCKO_TblProyecto" Member="OCKO_TblProyecto">
+    <Type Name="OCKO_TblProyecto">
+      <Column Name="ProId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProNombre" Type="System.String" DbType="NChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ProDescripcion" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="ProFechaIncio" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ProFechaFinal" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ProAvance" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="OCKO_TblProyecto_OCKO_TblSeccion" Member="OCKO_TblSeccion" ThisKey="ProId" OtherKey="CodProyecto" Type="OCKO_TblSeccion" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OCKO_TblRespuestas" Member="OCKO_TblRespuestas">
+    <Type Name="OCKO_TblRespuestas">
+      <Column Name="ResId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CodPregunta" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="resRespuesta" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="resPuntos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="OCKO_TblPreguntas_OCKO_TblRespuestas" Member="OCKO_TblPreguntas" ThisKey="CodPregunta" OtherKey="PreId" Type="OCKO_TblPreguntas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OCKO_TblRespuestasEmpleado" Member="OCKO_TblRespuestasEmpleado">
+    <Type Name="OCKO_TblRespuestasEmpleado">
+      <Column Name="RemId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RemCodEvaluacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CodPregunta" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RemCodRespuesta" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CodEmpleado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RemPesoAbsoluto" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Association Name="OCKO_TblEmpleado_OCKO_TblRespuestasEmpleado" Member="OCKO_TblEmpleado" ThisKey="CodEmpleado" OtherKey="EmpId" Type="OCKO_TblEmpleado" IsForeignKey="true" />
+      <Association Name="OCKO_TblPreguntas_OCKO_TblRespuestasEmpleado" Member="OCKO_TblPreguntas" ThisKey="CodPregunta" OtherKey="PreId" Type="OCKO_TblPreguntas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OCKO_TblRol" Member="OCKO_TblRol">
+    <Type Name="OCKO_TblRol">
+      <Column Name="RolId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RolNombre" Type="System.String" DbType="NChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="RolDescripcion" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="RolEstado" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="OCKO_TblRol_OCKO_TblUsuario" Member="OCKO_TblUsuario" ThisKey="RolId" OtherKey="RolCod" Type="OCKO_TblUsuario" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OCKO_TblSeccion" Member="OCKO_TblSeccion">
+    <Type Name="OCKO_TblSeccion">
+      <Column Name="SecId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SecNombre" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="SecDescripcion" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="CodModulos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CodProyecto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="OCKO_TblSeccion_OCKO_TblAsignacion" Member="OCKO_TblAsignacion" ThisKey="SecId" OtherKey="CodSeccion" Type="OCKO_TblAsignacion" />
+      <Association Name="OCKO_TblModulos_OCKO_TblSeccion" Member="OCKO_TblModulos" ThisKey="CodModulos" OtherKey="ModId" Type="OCKO_TblModulos" IsForeignKey="true" />
+      <Association Name="OCKO_TblProyecto_OCKO_TblSeccion" Member="OCKO_TblProyecto" ThisKey="CodProyecto" OtherKey="ProId" Type="OCKO_TblProyecto" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OCKO_TblTipoEvaluacion" Member="OCKO_TblTipoEvaluacion">
+    <Type Name="OCKO_TblTipoEvaluacion">
+      <Column Name="TipId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TipEvaluacion" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TipDescripcion" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="OCKO_TblTipoEvaluacion_OCKO_TblEvaluacionEmpleado" Member="OCKO_TblEvaluacionEmpleado" ThisKey="TipId" OtherKey="CodTipoEvaluacion" Type="OCKO_TblEvaluacionEmpleado" />
+      <Association Name="OCKO_TblTipoEvaluacion_OCKO_TblPreguntas" Member="OCKO_TblPreguntas" ThisKey="TipId" OtherKey="CodTipoEvaluacion" Type="OCKO_TblPreguntas" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OCKO_TblUsuario" Member="OCKO_TblUsuario">
+    <Type Name="OCKO_TblUsuario">
+      <Column Name="UsuId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Usunombre" Type="System.String" DbType="NChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UsuContraseña" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UsuEstado" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="RolCod" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="OCKO_TblEmpleado_OCKO_TblUsuario" Member="OCKO_TblEmpleado" ThisKey="UsuId" OtherKey="EmpId" Type="OCKO_TblEmpleado" IsForeignKey="true" />
+      <Association Name="OCKO_TblRol_OCKO_TblUsuario" Member="OCKO_TblRol" ThisKey="RolCod" OtherKey="RolId" Type="OCKO_TblRol" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

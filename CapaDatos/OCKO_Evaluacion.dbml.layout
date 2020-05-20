@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 15, 20" name="OCKO_Evaluacion">
+  <DataContextMoniker Name="/OCKO_EvaluacionDataContext" />
+  <nestedChildShapes>
+    <classShape Id="cd078773-5845-4cf9-a343-ffe7930d23ae" absoluteBounds="11.75, 5, 2, 1.0016910807291666">
+      <DataClassMoniker Name="/OCKO_EvaluacionDataContext/OCKO_GrupoConceptos" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3f80f723-078a-456f-af53-39bf208c7948" absoluteBounds="11.765, 5.46, 1.9700000000000002, 0.44169108072916669" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3b8a73c6-0154-482d-87eb-7d19fe9940b2" absoluteBounds="9.25, 10.25, 2, 2.5401025390624987">
+      <DataClassMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblAsignacion" />
+      <nestedChildShapes>
+        <elementListCompartment Id="69ae6375-73e2-46dc-a252-a6d91575b467" absoluteBounds="9.265, 10.71, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="29ec49d0-904f-44fb-ab36-42cdc22be684" absoluteBounds="3.75, 4.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblCargo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="21b7fc14-7976-40e7-80e6-c5ab0899a955" absoluteBounds="3.765, 5.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d9bea1c3-ac4b-40ce-a3c2-2ae72f650d52" absoluteBounds="3.75, 10.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblCategoriaPregunta" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e9b19fac-0a58-48a2-9ca2-f7043da0af81" absoluteBounds="3.765, 11.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="feba4343-f42b-4d2d-adcc-3a9cf1d0c5e0" absoluteBounds="1, 4.875, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblDepartamento" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ba7c0f93-4970-4769-a273-85f2768ac517" absoluteBounds="1.0150000000000001, 5.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dab87882-6f59-4d24-b49e-a372ea404b67" absoluteBounds="6.5, 6.625, 2, 3.8862125651041666">
+      <DataClassMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblEmpleado" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0b7f9659-53cb-49b1-b8a6-fb8fea8e434a" absoluteBounds="6.515, 7.085, 1.9700000000000002, 3.3262125651041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4973877b-09f5-41e2-a77d-359cd090172d" absoluteBounds="0.75, 7.875, 2, 1.3862939453124996">
+      <DataClassMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblEmpresa" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b12b12a7-4485-4b17-b3c9-7addef75c45b" absoluteBounds="0.765, 8.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="57f3f500-068e-4513-b6f3-8c347753df22" absoluteBounds="12.25, 7.25, 2, 2.5401025390624996">
+      <DataClassMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblEvaluacionEmpleado" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c4ffa6f0-4d1a-455a-82c5-8a26bced54fd" absoluteBounds="12.265, 7.71, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b3b859db-8f04-4ae9-b50c-03f9279b99b6" absoluteBounds="3.75, 13.375, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblFase" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2109bdab-0652-4657-862a-8dd3baecff12" absoluteBounds="3.765, 13.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b3153130-f5f5-41f3-bcb3-2114c5381662" absoluteBounds="1, 10.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblGrupoConceptos" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3801ecd4-5491-4ee7-b8b4-130edef99e1a" absoluteBounds="1.0150000000000001, 11.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="de61791c-fba2-402b-afde-bb68f8a4e047" absoluteBounds="3.5, 7.625, 2, 1.7708968098958335">
+      <DataClassMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblMinimos" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c400b21b-2d4d-4853-a797-81504b013214" absoluteBounds="3.515, 8.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7986a56b-841d-4c90-bfa2-268b84779db3" absoluteBounds="3.75, 15.625, 2, 1.3862939453125023">
+      <DataClassMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblModulos" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4e383344-51c8-4aff-af64-dfd965a89027" absoluteBounds="3.765, 16.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="127c5f98-a1ac-4a2f-92c4-f68c841300b1" absoluteBounds="11.75, 11, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblParametroItems" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0e10b785-ef82-4b75-a97a-01aadbddc326" absoluteBounds="11.765, 11.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ac740431-5854-4006-97c9-29e04bdfca71" absoluteBounds="9.5, 1.5, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblPeriodo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="09c0aeea-bb73-428e-9288-b15df2db17df" absoluteBounds="9.515, 1.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b875c7bb-2aff-4875-b9d7-da15130f61f3" absoluteBounds="6.5, 0.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblPreguntas" />
+      <nestedChildShapes>
+        <elementListCompartment Id="82f25edb-987e-49fb-8df3-822312486c60" absoluteBounds="6.515, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4be66b26-72ac-47db-a2ba-a77115cd186d" absoluteBounds="12.75, 1, 2, 1.3862939453125003">
+      <DataClassMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblPreguntasEvaluacion" />
+      <nestedChildShapes>
+        <elementListCompartment Id="83acda13-d19d-4eb2-bb9a-34364e20e3b0" absoluteBounds="12.765, 1.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a93afcba-b2b9-489d-b941-4e2b60571d7f" absoluteBounds="6.5, 13.375, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblProceso" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cba7db1a-4637-443f-b6d9-6683f7699300" absoluteBounds="6.515, 13.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="faee1827-4406-4f5e-9bed-019f994945a8" absoluteBounds="11.75, 14, 2, 1.7708968098958344">
+      <DataClassMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblProgramacion" />
+      <nestedChildShapes>
+        <elementListCompartment Id="673a2d7a-a296-4291-aac9-1be1026f2e90" absoluteBounds="11.765, 14.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1233e855-00ce-4dbe-b6b8-bc9cca45ba58" absoluteBounds="3.75, 17.75, 2, 1.9631982421875023">
+      <DataClassMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblProyecto" />
+      <nestedChildShapes>
+        <elementListCompartment Id="94c850df-89a1-409d-9d2d-c33f55a7d351" absoluteBounds="3.765, 18.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="80a38088-3c88-49e5-82b0-295c8192541e" absoluteBounds="9.25, 13.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblRespuestas" />
+      <nestedChildShapes>
+        <elementListCompartment Id="98f555b9-2904-42d0-91be-366490d8e392" absoluteBounds="9.265, 14.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="db0644c4-6edd-4f25-aba8-1a8d2d0c3074" absoluteBounds="9.25, 4.5, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblRespuestasEmpleado" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d95cd605-36b7-493d-96ae-e593f51c790c" absoluteBounds="9.265, 4.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1917580b-2634-4861-992c-e805086754a9" absoluteBounds="6.5, 3.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblRol" />
+      <nestedChildShapes>
+        <elementListCompartment Id="03ab8d5e-1106-4054-b859-f14f9b3b910f" absoluteBounds="6.515, 4.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="eab3607e-954d-44d5-9f19-90a5bb4a5246" absoluteBounds="6.5, 16.875, 2, 1.7708968098958309">
+      <DataClassMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblSeccion" />
+      <nestedChildShapes>
+        <elementListCompartment Id="63950b3e-26ad-4049-ab04-bfdde02f493c" absoluteBounds="6.515, 17.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="321c6717-2761-4887-9dec-992bbf6fb514" absoluteBounds="3.75, 1.625, 2, 1.3862939453125003">
+      <DataClassMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblTipoEvaluacion" />
+      <nestedChildShapes>
+        <elementListCompartment Id="acbc58ca-a369-4641-ac62-60a96c3b8ff0" absoluteBounds="3.765, 2.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="161bd973-5cd0-4752-812d-f4c1eb4bed4a" absoluteBounds="9.25, 7.625, 2, 1.7708968098958335">
+      <DataClassMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblUsuario" />
+      <nestedChildShapes>
+        <elementListCompartment Id="81d7ce2f-bbf5-449a-a552-06e516a383fa" absoluteBounds="9.265, 8.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3 : 5.56814697265625); (3.75 : 5.56814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblDepartamento/OCKO_TblDepartamento_OCKO_TblCargo" />
+      <nodes>
+        <classShapeMoniker Id="feba4343-f42b-4d2d-adcc-3a9cf1d0c5e0" />
+        <classShapeMoniker Id="29ec49d0-904f-44fb-ab36-42cdc22be684" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.5 : 10.5112125651042); (7.5 : 11.6506580520833); (8.85416666666667 : 11.6506580520833 : JumpStart); (9.14583333333333 : 11.6506580520833 : JumpEnd); (9.25 : 11.6506580520833)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblEmpleado/OCKO_TblEmpleado_OCKO_TblAsignacion" />
+      <nodes>
+        <classShapeMoniker Id="dab87882-6f59-4d24-b49e-a372ea404b67" />
+        <classShapeMoniker Id="3b8a73c6-0154-482d-87eb-7d19fe9940b2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.65625 : 6.32859537760417); (5.65625 : 9.9848046875); (6.04166666666667 : 9.9848046875 : JumpStart); (6.20833333333333 : 9.9848046875 : JumpEnd); (6.5 : 9.9848046875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblCargo/OCKO_TblCargo_OCKO_TblEmpleado" />
+      <nodes>
+        <classShapeMoniker Id="29ec49d0-904f-44fb-ab36-42cdc22be684" />
+        <classShapeMoniker Id="dab87882-6f59-4d24-b49e-a372ea404b67" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 9.2612939453125); (1.75 : 9.69034824869792); (6.04166666666667 : 9.69034824869792 : JumpStart); (6.20833333333333 : 9.69034824869792 : JumpEnd); (6.5 : 9.69034824869792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblEmpresa/OCKO_TblEmpresa_OCKO_TblEmpleado" />
+      <nodes>
+        <classShapeMoniker Id="4973877b-09f5-41e2-a77d-359cd090172d" />
+        <classShapeMoniker Id="dab87882-6f59-4d24-b49e-a372ea404b67" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 9.62424967447917); (8.97916666666667 : 9.62424967447917 : JumpStart); (9.14583333333333 : 9.62424967447917 : JumpEnd); (12.25 : 9.62424967447917)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblEmpleado/OCKO_TblEmpleado_OCKO_TblEvaluacionEmpleado" />
+      <nodes>
+        <classShapeMoniker Id="dab87882-6f59-4d24-b49e-a372ea404b67" />
+        <classShapeMoniker Id="57f3f500-068e-4513-b6f3-8c347753df22" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3 : 11.5392976888021); (3.75 : 11.5392976888021)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblGrupoConceptos/OCKO_TblGrupoConceptos_OCKO_TblCategoriaPregunta" />
+      <nodes>
+        <classShapeMoniker Id="b3153130-f5f5-41f3-bcb3-2114c5381662" />
+        <classShapeMoniker Id="d9bea1c3-ac4b-40ce-a3c2-2ae72f650d52" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 8.56814697265625); (3.5 : 8.56814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblEmpresa/OCKO_TblEmpresa_OCKO_TblMinimos" />
+      <nodes>
+        <classShapeMoniker Id="4973877b-09f5-41e2-a77d-359cd090172d" />
+        <classShapeMoniker Id="de61791c-fba2-402b-afde-bb68f8a4e047" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.40625 : 3.65549967447917); (11.40625 : 7.40625); (12.25 : 7.40625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblPeriodo/OCKO_TblPeriodo_OCKO_TblEvaluacionEmpleado" />
+      <nodes>
+        <classShapeMoniker Id="ac740431-5854-4006-97c9-29e04bdfca71" />
+        <classShapeMoniker Id="57f3f500-068e-4513-b6f3-8c347753df22" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 10.75); (6.125 : 10.375); (6.125 : 1.53929768880208); (6.5 : 1.53929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblCategoriaPregunta/OCKO_TblCategoriaPregunta_OCKO_TblPreguntas" />
+      <nodes>
+        <classShapeMoniker Id="d9bea1c3-ac4b-40ce-a3c2-2ae72f650d52" />
+        <classShapeMoniker Id="b875c7bb-2aff-4875-b9d7-da15130f61f3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 13.375); (8.875 : 13); (8.875 : 13.1651025390625); (9.00357443490112 : 13.0365281041614 : JumpStart); (9.12142556509888 : 12.9186769739636 : JumpEnd); (9.25 : 12.7901025390625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblProceso/OCKO_TblProceso_OCKO_TblAsignacion" />
+      <nodes>
+        <classShapeMoniker Id="a93afcba-b2b9-489d-b941-4e2b60571d7f" />
+        <classShapeMoniker Id="3b8a73c6-0154-482d-87eb-7d19fe9940b2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 14.0681469726562); (6.5 : 14.0681469726562)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblFase/OCKO_TblFase_OCKO_TblProceso" />
+      <nodes>
+        <classShapeMoniker Id="b3b859db-8f04-4ae9-b50c-03f9279b99b6" />
+        <classShapeMoniker Id="a93afcba-b2b9-489d-b941-4e2b60571d7f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 2.2654505625); (9.0625 : 2.8279505625); (9.0625 : 14.6642976888021); (9.25 : 14.6642976888021)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblPreguntas/OCKO_TblPreguntas_OCKO_TblRespuestas" />
+      <nodes>
+        <classShapeMoniker Id="b875c7bb-2aff-4875-b9d7-da15130f61f3" />
+        <classShapeMoniker Id="80a38088-3c88-49e5-82b0-295c8192541e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 6.625); (8.875 : 6.25); (8.875 : 6.8381982421875); (8.87857443490112 : 6.83462380728638 : JumpStart); (8.99642556509888 : 6.71677267708862 : JumpEnd); (9.00357443490112 : 6.70962380728638 : JumpStart); (9.12142556509888 : 6.59177267708862 : JumpEnd); (9.25 : 6.4631982421875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblEmpleado/OCKO_TblEmpleado_OCKO_TblRespuestasEmpleado" />
+      <nodes>
+        <classShapeMoniker Id="dab87882-6f59-4d24-b49e-a372ea404b67" />
+        <classShapeMoniker Id="db0644c4-6edd-4f25-aba8-1a8d2d0c3074" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 1.09375); (9.34375 : 1.09375); (9.34375 : 4.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblPreguntas/OCKO_TblPreguntas_OCKO_TblRespuestasEmpleado" />
+      <nodes>
+        <classShapeMoniker Id="b875c7bb-2aff-4875-b9d7-da15130f61f3" />
+        <classShapeMoniker Id="db0644c4-6edd-4f25-aba8-1a8d2d0c3074" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 16.9362992741887); (8.9375 : 16.4987992741887); (8.9375 : 10.9190770260417); (8.97916666666667 : 10.9190770260417 : JumpStart); (9.14583333333333 : 10.9190770260417 : JumpEnd); (9.25 : 10.9190770260417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblSeccion/OCKO_TblSeccion_OCKO_TblAsignacion" />
+      <nodes>
+        <classShapeMoniker Id="eab3607e-954d-44d5-9f19-90a5bb4a5246" />
+        <classShapeMoniker Id="3b8a73c6-0154-482d-87eb-7d19fe9940b2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 16.2499995); (7.5 : 16.2499995); (7.5 : 16.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblModulos/OCKO_TblModulos_OCKO_TblSeccion" />
+      <nodes>
+        <classShapeMoniker Id="7986a56b-841d-4c90-bfa2-268b84779db3" />
+        <classShapeMoniker Id="eab3607e-954d-44d5-9f19-90a5bb4a5246" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 18.1979484049479); (6.5 : 18.1979484049479)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblProyecto/OCKO_TblProyecto_OCKO_TblSeccion" />
+      <nodes>
+        <classShapeMoniker Id="1233e855-00ce-4dbe-b6b8-bc9cca45ba58" />
+        <classShapeMoniker Id="eab3607e-954d-44d5-9f19-90a5bb4a5246" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 2.31814697265625); (6.04166666666667 : 2.31814697265625 : JumpStart); (6.20833333333333 : 2.31814697265625 : JumpEnd); (6.25 : 2.31814697265625); (6.25 : 2.57859537760417); (8.875 : 2.57859537760417); (8.875 : 3.90549967447917); (8.97916666666667 : 3.90549967447917 : JumpStart); (9.14583333333333 : 3.90549967447917 : JumpEnd); (11.3229166666667 : 3.90549967447917 : JumpStart); (11.4895833333333 : 3.90549967447917 : JumpEnd); (14 : 3.90549967447917); (14 : 6.875); (13.25 : 6.875); (13.25 : 7.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblTipoEvaluacion/OCKO_TblTipoEvaluacion_OCKO_TblEvaluacionEmpleado" />
+      <nodes>
+        <classShapeMoniker Id="321c6717-2761-4887-9dec-992bbf6fb514" />
+        <classShapeMoniker Id="57f3f500-068e-4513-b6f3-8c347753df22" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 1.90907348632813); (6.04166666666667 : 1.90907348632813 : JumpStart); (6.20833333333333 : 1.90907348632813 : JumpEnd); (6.5 : 1.90907348632813)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblTipoEvaluacion/OCKO_TblTipoEvaluacion_OCKO_TblPreguntas" />
+      <nodes>
+        <classShapeMoniker Id="321c6717-2761-4887-9dec-992bbf6fb514" />
+        <classShapeMoniker Id="b875c7bb-2aff-4875-b9d7-da15130f61f3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 8.51044840494792); (9.25 : 8.51044840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblEmpleado/OCKO_TblEmpleado_OCKO_TblUsuario" />
+      <nodes>
+        <classShapeMoniker Id="dab87882-6f59-4d24-b49e-a372ea404b67" />
+        <classShapeMoniker Id="161bd973-5cd0-4752-812d-f4c1eb4bed4a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 5.26666486663662); (8.9375 : 5.70416486663662); (8.9375 : 8.03647220247396); (8.97916666666667 : 8.03647220247396 : JumpStart); (9.14583333333333 : 8.03647220247396 : JumpEnd); (9.25 : 8.03647220247396)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblRol/OCKO_TblRol_OCKO_TblUsuario" />
+      <nodes>
+        <classShapeMoniker Id="1917580b-2634-4861-992c-e805086754a9" />
+        <classShapeMoniker Id="161bd973-5cd0-4752-812d-f4c1eb4bed4a" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
