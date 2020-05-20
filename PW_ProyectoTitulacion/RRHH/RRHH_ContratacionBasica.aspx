@@ -184,8 +184,10 @@
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-facebook">Aplicas Para :</label>
                     <div class="col-sm-9">
                         <asp:DropDownList ID="ddlCargoAplicar" OnSelectedIndexChanged="ddlCargoAplicar_SelectedIndexChanged" runat="server" Width="145px">
+                            <asp:ListItem Value="Empleado">--Seleccionar--</asp:ListItem>
                             <asp:ListItem Value="Empleado">Empleado</asp:ListItem>
                             <asp:ListItem Value="Jefe">Jefe</asp:ListItem>
+                            <asp:ListItem Value="Jefe">PM</asp:ListItem>
                         </asp:DropDownList>
                     </div>
                 </div>
