@@ -248,6 +248,7 @@
     <Content Include="Login1.aspx" />
     <Content Include="PM\PM_ERROR.aspx" />
     <Content Include="PM\PM_Fase.aspx" />
+    <Content Include="PM\PM_IniciarProyecto.aspx" />
     <Content Include="PM\PM_Inicio.aspx" />
     <Content Include="PM\PM_Modulos.aspx" />
     <Content Include="PM\PM_Procesos.aspx" />
@@ -426,6 +427,13 @@
     </Compile>
     <Compile Include="PM\PM_Fase.aspx.designer.cs">
       <DependentUpon>PM_Fase.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PM\PM_IniciarProyecto.aspx.cs">
+      <DependentUpon>PM_IniciarProyecto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PM\PM_IniciarProyecto.aspx.designer.cs">
+      <DependentUpon>PM_IniciarProyecto.aspx</DependentUpon>
     </Compile>
     <Compile Include="PM\PM_Inicio.aspx.cs">
       <DependentUpon>PM_Inicio.aspx</DependentUpon>

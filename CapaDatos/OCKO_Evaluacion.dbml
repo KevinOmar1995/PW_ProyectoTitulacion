@@ -9,14 +9,17 @@
     <Type Name="OCKO_TblAsignacion">
       <Column Name="AsiId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="AsiDescripcion" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="AsiFormulario" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
-      <Column Name="AsiRuta" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
-      <Column Name="AsiFechaDesarrollo" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="AsiFechaAsignacion" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="AsiEstado" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
       <Column Name="CodProceso" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="CodSeccion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CodJefe" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="CodEmpleado" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="OCKO_TblEmpleado_OCKO_TblAsignacion" Member="OCKO_TblEmpleado" ThisKey="CodEmpleado" OtherKey="EmpId" Type="OCKO_TblEmpleado" IsForeignKey="true" />
+      <Column Name="AsiFechaInicio" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="AsiFechafin" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="AsiAvanceTecnico" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AsiAvanceFuncional" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="OCKO_TblEmpleado_OCKO_TblAsignacion" Member="OCKO_TblEmpleado" ThisKey="CodJefe" OtherKey="EmpId" Type="OCKO_TblEmpleado" IsForeignKey="true" />
       <Association Name="OCKO_TblProceso_OCKO_TblAsignacion" Member="OCKO_TblProceso" ThisKey="CodProceso" OtherKey="ProId" Type="OCKO_TblProceso" IsForeignKey="true" />
       <Association Name="OCKO_TblSeccion_OCKO_TblAsignacion" Member="OCKO_TblSeccion" ThisKey="CodSeccion" OtherKey="SecId" Type="OCKO_TblSeccion" IsForeignKey="true" />
     </Type>
@@ -67,11 +70,13 @@
       <Column Name="CodCargo" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="CodEmpresa" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="EmpFechaContratacion" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Association Name="OCKO_TblEmpleado_OCKO_TblAsignacion" Member="OCKO_TblAsignacion" ThisKey="EmpId" OtherKey="CodEmpleado" Type="OCKO_TblAsignacion" />
+      <Association Name="OCKO_TblEmpleado_OCKO_TblAsignacion" Member="OCKO_TblAsignacion" ThisKey="EmpId" OtherKey="CodJefe" Type="OCKO_TblAsignacion" />
+      <Association Name="OCKO_TblEmpleado_OCKO_TblEmpleado" Member="OCKO_TblEmpleado2" ThisKey="EmpId" OtherKey="EmpJefeId" Type="OCKO_TblEmpleado" />
       <Association Name="OCKO_TblEmpleado_OCKO_TblEvaluacionEmpleado" Member="OCKO_TblEvaluacionEmpleado" ThisKey="EmpId" OtherKey="CodEmpleado" Type="OCKO_TblEvaluacionEmpleado" />
       <Association Name="OCKO_TblEmpleado_OCKO_TblRespuestasEmpleado" Member="OCKO_TblRespuestasEmpleado" ThisKey="EmpId" OtherKey="CodEmpleado" Type="OCKO_TblRespuestasEmpleado" />
       <Association Name="OCKO_TblEmpleado_OCKO_TblUsuario" Member="OCKO_TblUsuario" ThisKey="EmpId" OtherKey="UsuId" Type="OCKO_TblUsuario" Cardinality="One" />
       <Association Name="OCKO_TblCargo_OCKO_TblEmpleado" Member="OCKO_TblCargo" ThisKey="CodCargo" OtherKey="CarId" Type="OCKO_TblCargo" IsForeignKey="true" />
+      <Association Name="OCKO_TblEmpleado_OCKO_TblEmpleado" Member="OCKO_TblEmpleado1" ThisKey="EmpJefeId" OtherKey="EmpId" Type="OCKO_TblEmpleado" IsForeignKey="true" />
       <Association Name="OCKO_TblEmpresa_OCKO_TblEmpleado" Member="OCKO_TblEmpresa" ThisKey="CodEmpresa" OtherKey="EmpId" Type="OCKO_TblEmpresa" IsForeignKey="true" />
     </Type>
   </Table>
@@ -103,8 +108,8 @@
   <Table Name="dbo.OCKO_TblFase" Member="OCKO_TblFase">
     <Type Name="OCKO_TblFase">
       <Column Name="FasId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="FasNombre" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
-      <Column Name="FasDescripcion" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="FasNombre" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FasDescripcion" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Association Name="OCKO_TblFase_OCKO_TblProceso" Member="OCKO_TblProceso" ThisKey="FasId" OtherKey="CodFase" Type="OCKO_TblProceso" />
     </Type>
   </Table>
@@ -130,8 +135,8 @@
   <Table Name="dbo.OCKO_TblModulos" Member="OCKO_TblModulos">
     <Type Name="OCKO_TblModulos">
       <Column Name="ModId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ModNombre" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
-      <Column Name="ModDescripcion" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="ModNombre" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ModDescripcion" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Association Name="OCKO_TblModulos_OCKO_TblSeccion" Member="OCKO_TblSeccion" ThisKey="ModId" OtherKey="CodModulos" Type="OCKO_TblSeccion" />
     </Type>
   </Table>
@@ -176,8 +181,8 @@
   <Table Name="dbo.OCKO_TblProceso" Member="OCKO_TblProceso">
     <Type Name="OCKO_TblProceso">
       <Column Name="ProId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ProNombre" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
-      <Column Name="ProDescripcion" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="ProNombre" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ProDescripcion" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="CodFase" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="OCKO_TblProceso_OCKO_TblAsignacion" Member="OCKO_TblAsignacion" ThisKey="ProId" OtherKey="CodProceso" Type="OCKO_TblAsignacion" />
       <Association Name="OCKO_TblFase_OCKO_TblProceso" Member="OCKO_TblFase" ThisKey="CodFase" OtherKey="FasId" Type="OCKO_TblFase" IsForeignKey="true" />
@@ -195,8 +200,8 @@
   <Table Name="dbo.OCKO_TblProyecto" Member="OCKO_TblProyecto">
     <Type Name="OCKO_TblProyecto">
       <Column Name="ProId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ProNombre" Type="System.String" DbType="NChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="ProDescripcion" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="ProNombre" Type="System.String" DbType="NChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ProDescripcion" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
       <Column Name="ProFechaIncio" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="ProFechaFinal" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="ProAvance" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -236,8 +241,8 @@
   <Table Name="dbo.OCKO_TblSeccion" Member="OCKO_TblSeccion">
     <Type Name="OCKO_TblSeccion">
       <Column Name="SecId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="SecNombre" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
-      <Column Name="SecDescripcion" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="SecNombre" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SecDescripcion" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="CodModulos" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="CodProyecto" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="OCKO_TblSeccion_OCKO_TblAsignacion" Member="OCKO_TblAsignacion" ThisKey="SecId" OtherKey="CodSeccion" Type="OCKO_TblAsignacion" />

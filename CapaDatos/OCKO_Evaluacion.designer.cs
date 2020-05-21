@@ -372,11 +372,7 @@ namespace CapaDatos
 		
 		private string _AsiDescripcion;
 		
-		private string _AsiFormulario;
-		
-		private string _AsiRuta;
-		
-		private System.Nullable<System.DateTime> _AsiFechaDesarrollo;
+		private System.Nullable<System.DateTime> _AsiFechaAsignacion;
 		
 		private string _AsiEstado;
 		
@@ -384,7 +380,17 @@ namespace CapaDatos
 		
 		private System.Nullable<int> _CodSeccion;
 		
+		private System.Nullable<int> _CodJefe;
+		
 		private System.Nullable<int> _CodEmpleado;
+		
+		private System.Nullable<System.DateTime> _AsiFechaInicio;
+		
+		private System.Nullable<System.DateTime> _AsiFechafin;
+		
+		private System.Nullable<int> _AsiAvanceTecnico;
+		
+		private System.Nullable<int> _AsiAvanceFuncional;
 		
 		private EntityRef<OCKO_TblEmpleado> _OCKO_TblEmpleado;
 		
@@ -400,20 +406,26 @@ namespace CapaDatos
     partial void OnAsiIdChanged();
     partial void OnAsiDescripcionChanging(string value);
     partial void OnAsiDescripcionChanged();
-    partial void OnAsiFormularioChanging(string value);
-    partial void OnAsiFormularioChanged();
-    partial void OnAsiRutaChanging(string value);
-    partial void OnAsiRutaChanged();
-    partial void OnAsiFechaDesarrolloChanging(System.Nullable<System.DateTime> value);
-    partial void OnAsiFechaDesarrolloChanged();
+    partial void OnAsiFechaAsignacionChanging(System.Nullable<System.DateTime> value);
+    partial void OnAsiFechaAsignacionChanged();
     partial void OnAsiEstadoChanging(string value);
     partial void OnAsiEstadoChanged();
     partial void OnCodProcesoChanging(System.Nullable<int> value);
     partial void OnCodProcesoChanged();
     partial void OnCodSeccionChanging(System.Nullable<int> value);
     partial void OnCodSeccionChanged();
+    partial void OnCodJefeChanging(System.Nullable<int> value);
+    partial void OnCodJefeChanged();
     partial void OnCodEmpleadoChanging(System.Nullable<int> value);
     partial void OnCodEmpleadoChanged();
+    partial void OnAsiFechaInicioChanging(System.Nullable<System.DateTime> value);
+    partial void OnAsiFechaInicioChanged();
+    partial void OnAsiFechafinChanging(System.Nullable<System.DateTime> value);
+    partial void OnAsiFechafinChanged();
+    partial void OnAsiAvanceTecnicoChanging(System.Nullable<int> value);
+    partial void OnAsiAvanceTecnicoChanged();
+    partial void OnAsiAvanceFuncionalChanging(System.Nullable<int> value);
+    partial void OnAsiAvanceFuncionalChanged();
     #endregion
 		
 		public OCKO_TblAsignacion()
@@ -464,62 +476,22 @@ namespace CapaDatos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AsiFormulario", DbType="NChar(50)")]
-		public string AsiFormulario
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AsiFechaAsignacion", DbType="Date")]
+		public System.Nullable<System.DateTime> AsiFechaAsignacion
 		{
 			get
 			{
-				return this._AsiFormulario;
+				return this._AsiFechaAsignacion;
 			}
 			set
 			{
-				if ((this._AsiFormulario != value))
+				if ((this._AsiFechaAsignacion != value))
 				{
-					this.OnAsiFormularioChanging(value);
+					this.OnAsiFechaAsignacionChanging(value);
 					this.SendPropertyChanging();
-					this._AsiFormulario = value;
-					this.SendPropertyChanged("AsiFormulario");
-					this.OnAsiFormularioChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AsiRuta", DbType="NChar(100)")]
-		public string AsiRuta
-		{
-			get
-			{
-				return this._AsiRuta;
-			}
-			set
-			{
-				if ((this._AsiRuta != value))
-				{
-					this.OnAsiRutaChanging(value);
-					this.SendPropertyChanging();
-					this._AsiRuta = value;
-					this.SendPropertyChanged("AsiRuta");
-					this.OnAsiRutaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AsiFechaDesarrollo", DbType="Date")]
-		public System.Nullable<System.DateTime> AsiFechaDesarrollo
-		{
-			get
-			{
-				return this._AsiFechaDesarrollo;
-			}
-			set
-			{
-				if ((this._AsiFechaDesarrollo != value))
-				{
-					this.OnAsiFechaDesarrolloChanging(value);
-					this.SendPropertyChanging();
-					this._AsiFechaDesarrollo = value;
-					this.SendPropertyChanged("AsiFechaDesarrollo");
-					this.OnAsiFechaDesarrolloChanged();
+					this._AsiFechaAsignacion = value;
+					this.SendPropertyChanged("AsiFechaAsignacion");
+					this.OnAsiFechaAsignacionChanged();
 				}
 			}
 		}
@@ -592,6 +564,30 @@ namespace CapaDatos
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodJefe", DbType="Int")]
+		public System.Nullable<int> CodJefe
+		{
+			get
+			{
+				return this._CodJefe;
+			}
+			set
+			{
+				if ((this._CodJefe != value))
+				{
+					if (this._OCKO_TblEmpleado.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodJefeChanging(value);
+					this.SendPropertyChanging();
+					this._CodJefe = value;
+					this.SendPropertyChanged("CodJefe");
+					this.OnCodJefeChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodEmpleado", DbType="Int")]
 		public System.Nullable<int> CodEmpleado
 		{
@@ -603,10 +599,6 @@ namespace CapaDatos
 			{
 				if ((this._CodEmpleado != value))
 				{
-					if (this._OCKO_TblEmpleado.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnCodEmpleadoChanging(value);
 					this.SendPropertyChanging();
 					this._CodEmpleado = value;
@@ -616,7 +608,87 @@ namespace CapaDatos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OCKO_TblEmpleado_OCKO_TblAsignacion", Storage="_OCKO_TblEmpleado", ThisKey="CodEmpleado", OtherKey="EmpId", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AsiFechaInicio", DbType="Date")]
+		public System.Nullable<System.DateTime> AsiFechaInicio
+		{
+			get
+			{
+				return this._AsiFechaInicio;
+			}
+			set
+			{
+				if ((this._AsiFechaInicio != value))
+				{
+					this.OnAsiFechaInicioChanging(value);
+					this.SendPropertyChanging();
+					this._AsiFechaInicio = value;
+					this.SendPropertyChanged("AsiFechaInicio");
+					this.OnAsiFechaInicioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AsiFechafin", DbType="Date")]
+		public System.Nullable<System.DateTime> AsiFechafin
+		{
+			get
+			{
+				return this._AsiFechafin;
+			}
+			set
+			{
+				if ((this._AsiFechafin != value))
+				{
+					this.OnAsiFechafinChanging(value);
+					this.SendPropertyChanging();
+					this._AsiFechafin = value;
+					this.SendPropertyChanged("AsiFechafin");
+					this.OnAsiFechafinChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AsiAvanceTecnico", DbType="Int")]
+		public System.Nullable<int> AsiAvanceTecnico
+		{
+			get
+			{
+				return this._AsiAvanceTecnico;
+			}
+			set
+			{
+				if ((this._AsiAvanceTecnico != value))
+				{
+					this.OnAsiAvanceTecnicoChanging(value);
+					this.SendPropertyChanging();
+					this._AsiAvanceTecnico = value;
+					this.SendPropertyChanged("AsiAvanceTecnico");
+					this.OnAsiAvanceTecnicoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AsiAvanceFuncional", DbType="Int")]
+		public System.Nullable<int> AsiAvanceFuncional
+		{
+			get
+			{
+				return this._AsiAvanceFuncional;
+			}
+			set
+			{
+				if ((this._AsiAvanceFuncional != value))
+				{
+					this.OnAsiAvanceFuncionalChanging(value);
+					this.SendPropertyChanging();
+					this._AsiAvanceFuncional = value;
+					this.SendPropertyChanged("AsiAvanceFuncional");
+					this.OnAsiAvanceFuncionalChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OCKO_TblEmpleado_OCKO_TblAsignacion", Storage="_OCKO_TblEmpleado", ThisKey="CodJefe", OtherKey="EmpId", IsForeignKey=true)]
 		public OCKO_TblEmpleado OCKO_TblEmpleado
 		{
 			get
@@ -639,11 +711,11 @@ namespace CapaDatos
 					if ((value != null))
 					{
 						value.OCKO_TblAsignacion.Add(this);
-						this._CodEmpleado = value.EmpId;
+						this._CodJefe = value.EmpId;
 					}
 					else
 					{
-						this._CodEmpleado = default(Nullable<int>);
+						this._CodJefe = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("OCKO_TblEmpleado");
 				}
@@ -1323,6 +1395,8 @@ namespace CapaDatos
 		
 		private EntitySet<OCKO_TblAsignacion> _OCKO_TblAsignacion;
 		
+		private EntitySet<OCKO_TblEmpleado> _OCKO_TblEmpleado2;
+		
 		private EntitySet<OCKO_TblEvaluacionEmpleado> _OCKO_TblEvaluacionEmpleado;
 		
 		private EntitySet<OCKO_TblRespuestasEmpleado> _OCKO_TblRespuestasEmpleado;
@@ -1330,6 +1404,8 @@ namespace CapaDatos
 		private EntityRef<OCKO_TblUsuario> _OCKO_TblUsuario;
 		
 		private EntityRef<OCKO_TblCargo> _OCKO_TblCargo;
+		
+		private EntityRef<OCKO_TblEmpleado> _OCKO_TblEmpleado1;
 		
 		private EntityRef<OCKO_TblEmpresa> _OCKO_TblEmpresa;
 		
@@ -1374,10 +1450,12 @@ namespace CapaDatos
 		public OCKO_TblEmpleado()
 		{
 			this._OCKO_TblAsignacion = new EntitySet<OCKO_TblAsignacion>(new Action<OCKO_TblAsignacion>(this.attach_OCKO_TblAsignacion), new Action<OCKO_TblAsignacion>(this.detach_OCKO_TblAsignacion));
+			this._OCKO_TblEmpleado2 = new EntitySet<OCKO_TblEmpleado>(new Action<OCKO_TblEmpleado>(this.attach_OCKO_TblEmpleado2), new Action<OCKO_TblEmpleado>(this.detach_OCKO_TblEmpleado2));
 			this._OCKO_TblEvaluacionEmpleado = new EntitySet<OCKO_TblEvaluacionEmpleado>(new Action<OCKO_TblEvaluacionEmpleado>(this.attach_OCKO_TblEvaluacionEmpleado), new Action<OCKO_TblEvaluacionEmpleado>(this.detach_OCKO_TblEvaluacionEmpleado));
 			this._OCKO_TblRespuestasEmpleado = new EntitySet<OCKO_TblRespuestasEmpleado>(new Action<OCKO_TblRespuestasEmpleado>(this.attach_OCKO_TblRespuestasEmpleado), new Action<OCKO_TblRespuestasEmpleado>(this.detach_OCKO_TblRespuestasEmpleado));
 			this._OCKO_TblUsuario = default(EntityRef<OCKO_TblUsuario>);
 			this._OCKO_TblCargo = default(EntityRef<OCKO_TblCargo>);
+			this._OCKO_TblEmpleado1 = default(EntityRef<OCKO_TblEmpleado>);
 			this._OCKO_TblEmpresa = default(EntityRef<OCKO_TblEmpresa>);
 			OnCreated();
 		}
@@ -1613,6 +1691,10 @@ namespace CapaDatos
 			{
 				if ((this._EmpJefeId != value))
 				{
+					if (this._OCKO_TblEmpleado1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnEmpJefeIdChanging(value);
 					this.SendPropertyChanging();
 					this._EmpJefeId = value;
@@ -1710,7 +1792,7 @@ namespace CapaDatos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OCKO_TblEmpleado_OCKO_TblAsignacion", Storage="_OCKO_TblAsignacion", ThisKey="EmpId", OtherKey="CodEmpleado")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OCKO_TblEmpleado_OCKO_TblAsignacion", Storage="_OCKO_TblAsignacion", ThisKey="EmpId", OtherKey="CodJefe")]
 		public EntitySet<OCKO_TblAsignacion> OCKO_TblAsignacion
 		{
 			get
@@ -1720,6 +1802,19 @@ namespace CapaDatos
 			set
 			{
 				this._OCKO_TblAsignacion.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OCKO_TblEmpleado_OCKO_TblEmpleado", Storage="_OCKO_TblEmpleado2", ThisKey="EmpId", OtherKey="EmpJefeId")]
+		public EntitySet<OCKO_TblEmpleado> OCKO_TblEmpleado2
+		{
+			get
+			{
+				return this._OCKO_TblEmpleado2;
+			}
+			set
+			{
+				this._OCKO_TblEmpleado2.Assign(value);
 			}
 		}
 		
@@ -1812,6 +1907,40 @@ namespace CapaDatos
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OCKO_TblEmpleado_OCKO_TblEmpleado", Storage="_OCKO_TblEmpleado1", ThisKey="EmpJefeId", OtherKey="EmpId", IsForeignKey=true)]
+		public OCKO_TblEmpleado OCKO_TblEmpleado1
+		{
+			get
+			{
+				return this._OCKO_TblEmpleado1.Entity;
+			}
+			set
+			{
+				OCKO_TblEmpleado previousValue = this._OCKO_TblEmpleado1.Entity;
+				if (((previousValue != value) 
+							|| (this._OCKO_TblEmpleado1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._OCKO_TblEmpleado1.Entity = null;
+						previousValue.OCKO_TblEmpleado2.Remove(this);
+					}
+					this._OCKO_TblEmpleado1.Entity = value;
+					if ((value != null))
+					{
+						value.OCKO_TblEmpleado2.Add(this);
+						this._EmpJefeId = value.EmpId;
+					}
+					else
+					{
+						this._EmpJefeId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("OCKO_TblEmpleado1");
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OCKO_TblEmpresa_OCKO_TblEmpleado", Storage="_OCKO_TblEmpresa", ThisKey="CodEmpresa", OtherKey="EmpId", IsForeignKey=true)]
 		public OCKO_TblEmpresa OCKO_TblEmpresa
 		{
@@ -1876,6 +2005,18 @@ namespace CapaDatos
 		{
 			this.SendPropertyChanging();
 			entity.OCKO_TblEmpleado = null;
+		}
+		
+		private void attach_OCKO_TblEmpleado2(OCKO_TblEmpleado entity)
+		{
+			this.SendPropertyChanging();
+			entity.OCKO_TblEmpleado1 = this;
+		}
+		
+		private void detach_OCKO_TblEmpleado2(OCKO_TblEmpleado entity)
+		{
+			this.SendPropertyChanging();
+			entity.OCKO_TblEmpleado1 = null;
 		}
 		
 		private void attach_OCKO_TblEvaluacionEmpleado(OCKO_TblEvaluacionEmpleado entity)
@@ -2498,7 +2639,7 @@ namespace CapaDatos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FasNombre", DbType="NChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FasNombre", DbType="NVarChar(MAX)")]
 		public string FasNombre
 		{
 			get
@@ -2518,7 +2659,7 @@ namespace CapaDatos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FasDescripcion", DbType="NChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FasDescripcion", DbType="NVarChar(MAX)")]
 		public string FasDescripcion
 		{
 			get
@@ -2997,7 +3138,7 @@ namespace CapaDatos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModNombre", DbType="NChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModNombre", DbType="NVarChar(MAX)")]
 		public string ModNombre
 		{
 			get
@@ -3017,7 +3158,7 @@ namespace CapaDatos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModDescripcion", DbType="NChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModDescripcion", DbType="NVarChar(MAX)")]
 		public string ModDescripcion
 		{
 			get
@@ -3868,7 +4009,7 @@ namespace CapaDatos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProNombre", DbType="NChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProNombre", DbType="NVarChar(MAX)")]
 		public string ProNombre
 		{
 			get
@@ -3888,7 +4029,7 @@ namespace CapaDatos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProDescripcion", DbType="NChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProDescripcion", DbType="NVarChar(MAX)")]
 		public string ProDescripcion
 		{
 			get
@@ -4234,7 +4375,7 @@ namespace CapaDatos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProNombre", DbType="NChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProNombre", DbType="NChar(100) NOT NULL", CanBeNull=false)]
 		public string ProNombre
 		{
 			get
@@ -4254,7 +4395,7 @@ namespace CapaDatos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProDescripcion", DbType="NChar(10)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProDescripcion", DbType="NChar(100)")]
 		public string ProDescripcion
 		{
 			get
@@ -5047,7 +5188,7 @@ namespace CapaDatos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SecNombre", DbType="NChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SecNombre", DbType="NVarChar(MAX)")]
 		public string SecNombre
 		{
 			get
@@ -5067,7 +5208,7 @@ namespace CapaDatos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SecDescripcion", DbType="NChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SecDescripcion", DbType="NVarChar(MAX)")]
 		public string SecDescripcion
 		{
 			get

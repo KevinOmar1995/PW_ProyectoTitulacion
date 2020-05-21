@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Examen.cs" />
+    <Compile Include="OCKOAsignacion.cs" />
     <Compile Include="OCKOCargo.cs" />
     <Compile Include="OCKOCategoria.cs" />
     <Compile Include="OCKOEmpleadoUsuario.cs" />

@@ -15,7 +15,13 @@ namespace PW_ProyectoTitulacion
         OCKO_TblUsuario tblusuario = new OCKO_TblUsuario();
         OCKOModulos moduloClass = new OCKOModulos();
         OCKOProyecto proyectoClass = new OCKOProyecto();
+        OCKOProyecto proyectoClass2 = new OCKOProyecto();
         OCKOFases faseClass = new OCKOFases();
+        OCKO_Listar listarClass = new OCKO_Listar();
+        OCKO_Listar listarClassT = new OCKO_Listar();
+        OCKOAsignacion asignacionClass = new OCKOAsignacion();
+        OCKO_TblAsignacion asignacionTable = new OCKO_TblAsignacion();
+        OCKO_TblAsignacion asignacionTableT = new OCKO_TblAsignacion();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -69,6 +75,30 @@ namespace PW_ProyectoTitulacion
             ddlFase.DataValueField = "FasId";
             ddlFase.DataBind();
 
+
+            List<OCKO_TblEmpleado> ListEmpleaod = new List<OCKO_TblEmpleado>();
+            ListEmpleaod = listarClass.ListarJefeInmediato(2);
+            ListEmpleaod.Insert(0, new OCKO_TblEmpleado() { EmpPrimerNombre = "--Seleccionar--" });
+            ddlFuncional.DataSource = ListEmpleaod;
+            ddlFuncional.DataTextField = "EmpPrimerNombre";
+            ddlFuncional.DataValueField = "EmpId";
+            ddlFuncional.DataBind();
+
+            List<OCKO_TblEmpleado> ListEmpleadoT = new List<OCKO_TblEmpleado>();
+            ListEmpleadoT = listarClassT.ListarJefeInmediato(1);
+            ListEmpleadoT.Insert(0, new OCKO_TblEmpleado() { EmpPrimerNombre = "--Seleccionar--" });
+            ddlTecnico.DataSource = ListEmpleadoT;
+            ddlTecnico.DataTextField = "EmpPrimerNombre";
+            ddlTecnico.DataValueField = "EmpId";
+            ddlTecnico.DataBind();
+
+            List<OCKO_TblProyecto> listaProyectoInicio = new List<OCKO_TblProyecto>();
+            listaProyectoInicio = proyectoClass2.ListaProyecto();
+            listaProyectoInicio.Insert(0, new OCKO_TblProyecto() { ProNombre = "--Seleccionar--" });
+            ddlProyectoInicio.DataSource = listaProyecto;
+            ddlProyectoInicio.DataTextField = "ProNombre";
+            ddlProyectoInicio.DataValueField = "ProId";
+            ddlProyectoInicio.DataBind();
         }
      
         protected void ddlProyecto_SelectedIndexChanged(object sender, EventArgs e)
@@ -95,6 +125,44 @@ namespace PW_ProyectoTitulacion
             int faseId = Convert.ToInt32(ddlFase.SelectedValue);
             Session["FaseId"] = faseId;
             Response.Redirect("./PM_Procesos.aspx");
+        }
+
+        protected void Asignacion_Click(object sender, EventArgs e)
+        {
+            int proyectoId = int.Parse(ddlProyectoInicio.SelectedValue);
+            int encargadoFuncional = int.Parse(ddlFuncional.SelectedValue);
+            int encargadoTecnico = int.Parse(ddlTecnico.SelectedValue);
+            Session["ProyectoIdAsignacion"] = proyectoId;
+            Session["EncargadoFuncional"] = encargadoFuncional;
+            Session["EncargadoTecnico"] = encargadoTecnico;
+            Response.Redirect("./PM_IniciarProyecto.aspx");
+        }
+
+        protected void NewProject_Click(object sender, EventArgs e)
+        {
+            var dateAndTime = DateTime.Now;
+            var date = dateAndTime.Date;
+
+            int proyectoId = int.Parse(ddlProyectoInicio.SelectedValue);
+            int encargadoFuncional = int.Parse(ddlFuncional.SelectedValue);
+            int encargadoTecnico = int.Parse(ddlTecnico.SelectedValue);
+            Session["ProyectoIdAsignacion"] = proyectoId;
+            Session["EncargadoFuncional"] = encargadoFuncional;
+            Session["EncargadoTecnico"] = encargadoTecnico;
+
+            asignacionTable.CodJefe = encargadoFuncional;
+            asignacionTable.CodSeccion = 7;
+            asignacionTable.AsiFechaAsignacion = date;
+            asignacionClass.GuardarAsignacion(asignacionTable);
+
+            asignacionTableT.CodJefe = encargadoTecnico;
+            asignacionTableT.CodSeccion = 7;
+            asignacionTableT.AsiFechaAsignacion = date;
+            asignacionClass.GuardarAsignacion(asignacionTableT);
+
+            Response.Redirect("./PM_IniciarProyecto.aspx");
+
+
         }
     }
 }
