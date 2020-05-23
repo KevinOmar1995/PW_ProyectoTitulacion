@@ -87,7 +87,7 @@ namespace PW_ProyectoTitulacion.PM
                         asignacionTable.AsiFechaAsignacion = date;
                         asignacionTable.AsiFechaInicio = Convert.ToDateTime(dateFechaInicioCreate.Text).Date;
                         asignacionTable.AsiFechafin = Convert.ToDateTime(dateFechaFinCreate.Text).Date;
-                        asignacionTable.AsiEstado = "Asignado";
+                        asignacionTable.AsiEstado = "Pendiente";
                         asignacionTable.CodProceso = int.Parse(ddlProceso.SelectedValue);
                         asignacionTable.CodSeccion = int.Parse(ddlSeccion.SelectedValue);
                         asignacionTable.CodJefe = int.Parse(Session["EncargadoFuncional"].ToString());
@@ -103,7 +103,7 @@ namespace PW_ProyectoTitulacion.PM
                         asignacionTableTecnico.AsiFechaAsignacion = date;
                         asignacionTableTecnico.AsiFechaInicio = Convert.ToDateTime(dateFechaInicioCreate.Text).Date;
                         asignacionTableTecnico.AsiFechafin = Convert.ToDateTime(dateFechaFinCreate.Text).Date;
-                        asignacionTableTecnico.AsiEstado = "Asignado";
+                        asignacionTableTecnico.AsiEstado = "Pendiente";
                         asignacionTableTecnico.CodProceso = int.Parse(ddlProceso.SelectedValue);
                         asignacionTableTecnico.CodSeccion = int.Parse(ddlSeccion.SelectedValue);
                         asignacionTableTecnico.CodJefe = int.Parse(Session["EncargadoTecnico"].ToString());

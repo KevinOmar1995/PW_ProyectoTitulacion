@@ -36,5 +36,10 @@ namespace CapaNegocio
             var listaUsuario = ockoListar.OCKO_TblEmpleado.Where(li => li.CodCargo == cargo && li.EmpJefe.Equals("Y") );
             return listaUsuario.ToList();
         }
+        public List<OCKO_TblEmpleado> ListarACargoInmediato(int jefeId)
+        {
+            var listaUsuario = ockoListar.OCKO_TblEmpleado.Where(li => li.EmpJefeId == jefeId && li.EmpJefe.Equals("N"));
+            return listaUsuario.ToList();
+        }
     }
 }
