@@ -36,5 +36,10 @@ namespace CapaNegocio
             var pre = OckoDc.OCKO_TblSeccion.Any(u => u.SecNombre == Seccion);
             return pre;
         }
+        public List<OCKO_TblSeccion> ListaSeccion()
+        {
+            return OckoDc.OCKO_TblSeccion.ToList();
+        }
+
     }
 }

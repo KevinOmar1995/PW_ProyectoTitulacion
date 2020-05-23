@@ -152,21 +152,21 @@
         <elementListCompartment Id="034a08f1-f0c9-4d96-ad63-ae6980893c41" absoluteBounds="9.265, 8.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(3 : 5.56814697265625); (3.75 : 5.56814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(3 : 5.56814697265625); (3.75 : 5.56814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblDepartamento/OCKO_TblDepartamento_OCKO_TblCargo" />
       <nodes>
         <classShapeMoniker Id="d6784140-397c-41e6-be19-ef1f60b93981" />
         <classShapeMoniker Id="11d11d4e-2675-47d6-8477-04187978b027" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.5 : 7.34375); (8.85416666666667 : 7.34375 : JumpStart); (9.08333333333333 : 7.34375 : JumpEnd); (12.25 : 7.34375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.5 : 7.34375); (8.85416666666667 : 7.34375 : JumpStart); (9.02083333333333 : 7.34375 : JumpEnd); (12.25 : 7.34375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblEmpleado/OCKO_TblEmpleado_OCKO_TblAsignacion" />
       <nodes>
         <classShapeMoniker Id="880ba3e9-4fb0-4d86-afe0-177f304ecc68" />
         <classShapeMoniker Id="f2ee1166-f2e5-498b-a06d-3d78f75dc9d0" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.65625 : 6.45359537760417); (5.65625 : 7.15625); (6.04166666666667 : 7.15625 : JumpStart); (6.20833333333333 : 7.15625 : JumpEnd); (6.5 : 7.15625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.65625 : 6.45359537760417); (5.65625 : 7.15625); (6.5 : 7.15625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblCargo/OCKO_TblCargo_OCKO_TblEmpleado" />
       <nodes>
         <classShapeMoniker Id="11d11d4e-2675-47d6-8477-04187978b027" />
@@ -180,7 +180,7 @@
         <classShapeMoniker Id="880ba3e9-4fb0-4d86-afe0-177f304ecc68" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(1.75 : 9.2612939453125); (1.75 : 10.0473046875); (6.04166666666667 : 10.0473046875 : JumpStart); (6.20833333333333 : 10.0473046875 : JumpEnd); (6.5 : 10.0473046875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(1.75 : 9.2612939453125); (1.75 : 10.0473046875); (6.5 : 10.0473046875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblEmpresa/OCKO_TblEmpresa_OCKO_TblEmpleado" />
       <nodes>
         <classShapeMoniker Id="3f58de85-1e25-4abe-b9ff-b35d4e677459" />
@@ -194,84 +194,84 @@
         <classShapeMoniker Id="3811fd28-623f-468c-847c-c66b4ca4d593" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(3 : 11.6642976888021); (3.75 : 11.6642976888021)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(3 : 11.6642976888021); (3.75 : 11.6642976888021)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblGrupoConceptos/OCKO_TblGrupoConceptos_OCKO_TblCategoriaPregunta" />
       <nodes>
         <classShapeMoniker Id="d22cb86d-82d1-46f5-b5f2-57701bcd8683" />
         <classShapeMoniker Id="dbb7049c-d19c-402a-a12c-9917fa835c6f" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 8.56814697265625); (3.5 : 8.56814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 8.56814697265625); (3.5 : 8.56814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblEmpresa/OCKO_TblEmpresa_OCKO_TblMinimos" />
       <nodes>
         <classShapeMoniker Id="3f58de85-1e25-4abe-b9ff-b35d4e677459" />
         <classShapeMoniker Id="1ccf6a67-c26a-434a-9ea9-cabf800994f1" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.5 : 12.2075512695312); (9.25 : 12.2075512695312)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.5 : 12.2075512695312); (9.25 : 12.2075512695312)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblPeriodo/OCKO_TblPeriodo_OCKO_TblEvaluacionEmpleado" />
       <nodes>
         <classShapeMoniker Id="d98fbd82-fc8e-4ee1-8ed1-6ff7c0c2016b" />
         <classShapeMoniker Id="3811fd28-623f-468c-847c-c66b4ca4d593" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.75 : 10.875); (6.125 : 10.5); (6.125 : 1.66429768880208); (6.5 : 1.66429768880208)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.75 : 10.875); (6.125 : 10.5); (6.125 : 1.66429768880208); (6.5 : 1.66429768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblCategoriaPregunta/OCKO_TblCategoriaPregunta_OCKO_TblPreguntas" />
       <nodes>
         <classShapeMoniker Id="dbb7049c-d19c-402a-a12c-9917fa835c6f" />
         <classShapeMoniker Id="b08e12bf-0e06-48f4-8663-aa43f68b7987" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(11.40625 : 14.375); (11.40625 : 9.85020182291667); (12.25 : 9.85020182291667)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(11.40625 : 14.375); (11.40625 : 9.85020182291667); (12.25 : 9.85020182291667)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblProceso/OCKO_TblProceso_OCKO_TblAsignacion" />
       <nodes>
         <classShapeMoniker Id="4f0a934f-2d51-466c-99c0-ca6bfb79b0e2" />
         <classShapeMoniker Id="f2ee1166-f2e5-498b-a06d-3d78f75dc9d0" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.75 : 15.1931469726562); (9.5 : 15.1931469726562)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.75 : 15.1931469726562); (9.5 : 15.1931469726562)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblFase/OCKO_TblFase_OCKO_TblProceso" />
       <nodes>
         <classShapeMoniker Id="e9e1b1e4-f188-424f-b34a-429e86b85b7f" />
         <classShapeMoniker Id="4f0a934f-2d51-466c-99c0-ca6bfb79b0e2" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.5 : 1.66429768880208); (9.25 : 1.66429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.5 : 1.66429768880208); (9.25 : 1.66429768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblPreguntas/OCKO_TblPreguntas_OCKO_TblRespuestas" />
       <nodes>
         <classShapeMoniker Id="b08e12bf-0e06-48f4-8663-aa43f68b7987" />
         <classShapeMoniker Id="19c665bc-2687-4a42-99c0-cdae9bcc2fa1" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.5 : 6.625); (8.875 : 6.25); (8.875 : 6.9631982421875); (8.87857443490112 : 6.95962380728638 : JumpStart); (9.05892556509888 : 6.77927267708862 : JumpEnd); (9.25 : 6.5881982421875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(8.5 : 6.625); (8.875 : 6.25); (8.875 : 6.9631982421875); (8.87857443490112 : 6.95962380728638 : JumpStart); (8.99642556509888 : 6.84177267708862 : JumpEnd); (9.25 : 6.5881982421875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblEmpleado/OCKO_TblEmpleado_OCKO_TblRespuestasEmpleado" />
       <nodes>
         <classShapeMoniker Id="880ba3e9-4fb0-4d86-afe0-177f304ecc68" />
         <classShapeMoniker Id="e07588ae-e4bd-4ca4-ba13-ce4b9879d52d" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.5 : 2.45238007346755); (8.875 : 2.82738007346755); (8.875 : 5.57534712109375); (8.91666666666667 : 5.57534712109375 : JumpStart); (9.08333333333333 : 5.57534712109375 : JumpEnd); (9.25 : 5.57534712109375)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.5 : 2.45238007346755); (8.875 : 2.82738007346755); (8.875 : 5.57534712109375); (9.25 : 5.57534712109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblPreguntas/OCKO_TblPreguntas_OCKO_TblRespuestasEmpleado" />
       <nodes>
         <classShapeMoniker Id="b08e12bf-0e06-48f4-8663-aa43f68b7987" />
         <classShapeMoniker Id="e07588ae-e4bd-4ca4-ba13-ce4b9879d52d" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(11.5 : 18.7604484049479); (14.03125 : 18.7604484049479); (14.03125 : 10.1170068359375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(11.5 : 18.7604484049479); (14.03125 : 18.7604484049479); (14.03125 : 10.1170068359375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblSeccion/OCKO_TblSeccion_OCKO_TblAsignacion" />
       <nodes>
         <classShapeMoniker Id="6bffa40e-b020-49d7-86a0-6be8157cf955" />
         <classShapeMoniker Id="f2ee1166-f2e5-498b-a06d-3d78f75dc9d0" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.75 : 17.3124995); (10.5 : 17.3124995); (10.5 : 17.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.75 : 17.3124995); (10.5 : 17.3124995); (10.5 : 17.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblModulos/OCKO_TblModulos_OCKO_TblSeccion" />
       <nodes>
         <classShapeMoniker Id="443b3f58-1249-4585-9d1b-c4423ac9f3d0" />
         <classShapeMoniker Id="6bffa40e-b020-49d7-86a0-6be8157cf955" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.75 : 19.2604484049479); (9.5 : 19.2604484049479)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.75 : 19.2604484049479); (9.5 : 19.2604484049479)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblProyecto/OCKO_TblProyecto_OCKO_TblSeccion" />
       <nodes>
         <classShapeMoniker Id="9b553227-d8fe-4422-aa9a-3393707b70d0" />
@@ -285,21 +285,21 @@
         <classShapeMoniker Id="3811fd28-623f-468c-847c-c66b4ca4d593" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.75 : 2.10179768880208); (6.04166666666667 : 2.10179768880208 : JumpStart); (6.20833333333333 : 2.10179768880208 : JumpEnd); (6.5 : 2.10179768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.75 : 2.10179768880208); (6.5 : 2.10179768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblTipoEvaluacion/OCKO_TblTipoEvaluacion_OCKO_TblPreguntas" />
       <nodes>
         <classShapeMoniker Id="263ef12b-9d10-46f7-bb9c-19afd08ffe00" />
         <classShapeMoniker Id="b08e12bf-0e06-48f4-8663-aa43f68b7987" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.5 : 8.63544840494792); (8.91666666666667 : 8.63544840494792 : JumpStart); (9.08333333333333 : 8.63544840494792 : JumpEnd); (9.25 : 8.63544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.5 : 8.63544840494792); (8.91666666666667 : 8.63544840494792 : JumpStart); (9.08333333333333 : 8.63544840494792 : JumpEnd); (9.25 : 8.63544840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblEmpleado/OCKO_TblEmpleado_OCKO_TblUsuario" />
       <nodes>
         <classShapeMoniker Id="880ba3e9-4fb0-4d86-afe0-177f304ecc68" />
         <classShapeMoniker Id="2d618a13-4971-4e82-a1e9-8391efb2269e" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.5 : 5.39166486663662); (8.9375 : 5.82916486663662); (8.9375 : 8.16147220247396); (9.25 : 8.16147220247396)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.5 : 5.39166486663662); (8.9375 : 5.82916486663662); (8.9375 : 8.16147220247396); (9.25 : 8.16147220247396)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/OCKO_EvaluacionDataContext/OCKO_TblRol/OCKO_TblRol_OCKO_TblUsuario" />
       <nodes>
         <classShapeMoniker Id="63a25e3d-6f89-47b2-b76d-103bcd7c8878" />

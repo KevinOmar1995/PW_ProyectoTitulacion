@@ -241,6 +241,7 @@
     <Content Include="Empleados\Empleado_Inicio.aspx" />
     <Content Include="Empleados\Empleado_InicioEvaluacion.aspx" />
     <Content Include="Index.aspx" />
+    <Content Include="Jefes\Jefes_AsigActividades.aspx" />
     <Content Include="Jefes\Jefes_Evaluaciones.aspx" />
     <Content Include="Jefes\Jefes_FinEvaluacion.aspx" />
     <Content Include="Jefes\Jefes_Inicio.aspx" />
@@ -354,6 +355,13 @@
     </Compile>
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Jefes\Jefes_AsigActividades.aspx.cs">
+      <DependentUpon>Jefes_AsigActividades.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Jefes\Jefes_AsigActividades.aspx.designer.cs">
+      <DependentUpon>Jefes_AsigActividades.aspx</DependentUpon>
     </Compile>
     <Compile Include="Jefes\Jefes_Evaluaciones.aspx.cs">
       <DependentUpon>Jefes_Evaluaciones.aspx</DependentUpon>
