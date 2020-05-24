@@ -18,7 +18,11 @@ namespace PW_ProyectoTitulacion.Jefes
         String id, mensaje;
         protected void Page_Load(object sender, EventArgs e)
         {
-            FillListar();
+            if (!IsPostBack)
+            {
+                FillListar();
+            }
+            
         }
 
         protected void Eliminar_Click(object sender, EventArgs e)
@@ -31,7 +35,7 @@ namespace PW_ProyectoTitulacion.Jefes
             int JefeId = Convert.ToInt32(Session["IdJefe"].ToString());
             List<OCKO_TblEmpleado> ListEmpleaod = new List<OCKO_TblEmpleado>();
             ListEmpleaod = listarClass.ListarACargoInmediato(JefeId);
-            ListEmpleaod.Insert(0, new OCKO_TblEmpleado() { EmpPrimerNombre = "--Seleccionar--" });
+            ListEmpleaod.Insert(0, new OCKO_TblEmpleado() { EmpPrimerNombre  = "--Seleccionar--" });
             ddlPersonal.DataSource = ListEmpleaod;
             ddlPersonal.DataTextField = "EmpPrimerNombre";
             ddlPersonal.DataValueField = "EmpId";
@@ -66,7 +70,9 @@ namespace PW_ProyectoTitulacion.Jefes
                 id = row.Cells[1].Text;
                 hdId.Value = id;
 
-                //OCKO_TblAsignacion asignacionTable = asignacionClass.BuscarIdAsignacion(Convert.ToInt32(hdId.Value));
+                OCKO_TblAsignacion asignacionTable = asignacionClass.BuscarIdAsignacion(Convert.ToInt32(hdId.Value));
+                if(asignacionTable.CodEmpleado!= null)
+                    ddlPersonal.SelectedValue = asignacionTable.CodEmpleado.ToString();
                 //txtNombreEdit.Text = moduloLocal.ModNombre;
                 //txtDescripcionEdit.Text = moduloLocal.ModDescripcion;
 

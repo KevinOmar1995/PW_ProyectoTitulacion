@@ -235,6 +235,7 @@
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap1.css" />
     <Content Include="Default.aspx" />
+    <Content Include="Empleados\Empleado_Asignadas.aspx" />
     <Content Include="Empleados\Empleado_EvaluacionAsignadas.aspx" />
     <Content Include="Empleados\Empleado_EvaluacionPendientes.aspx" />
     <Content Include="Empleados\Empleado_EvaluacionRealizadas.aspx" />
@@ -306,6 +307,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Empleados\Empleado_Asignadas.aspx.cs">
+      <DependentUpon>Empleado_Asignadas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Empleados\Empleado_Asignadas.aspx.designer.cs">
+      <DependentUpon>Empleado_Asignadas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Empleados\Empleado_EvaluacionAsignadas.aspx.cs">
       <DependentUpon>Empleado_EvaluacionAsignadas.aspx</DependentUpon>

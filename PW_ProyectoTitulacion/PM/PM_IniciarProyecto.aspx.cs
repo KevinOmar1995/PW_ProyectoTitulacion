@@ -91,6 +91,7 @@ namespace PW_ProyectoTitulacion.PM
                         asignacionTable.CodProceso = int.Parse(ddlProceso.SelectedValue);
                         asignacionTable.CodSeccion = int.Parse(ddlSeccion.SelectedValue);
                         asignacionTable.CodJefe = int.Parse(Session["EncargadoFuncional"].ToString());
+                        asignacionTable.AsiAvanceFuncional = int.Parse(Session["ProyectoIdAsignacion"].ToString());
 
                         asignacionClass.GuardarAsignacion(asignacionTable);
                         mensaje = "Asignación Registrada para cargo FUNCIONAL <br/>";
@@ -107,6 +108,7 @@ namespace PW_ProyectoTitulacion.PM
                         asignacionTableTecnico.CodProceso = int.Parse(ddlProceso.SelectedValue);
                         asignacionTableTecnico.CodSeccion = int.Parse(ddlSeccion.SelectedValue);
                         asignacionTableTecnico.CodJefe = int.Parse(Session["EncargadoTecnico"].ToString());
+                        asignacionTableTecnico.AsiAvanceFuncional = int.Parse(Session["ProyectoIdAsignacion"].ToString());
 
                         asignacionClass.GuardarAsignacion(asignacionTableTecnico);
                         mensaje = "Asignación Registrada para cargo DESARROLLO ";

@@ -35,6 +35,16 @@
     <!-- inline styles related to this page -->
 
     <!-- ace settings handler -->
+    <script>
+        $('#AddDate').on('show.bs.modal', function (e) {
+            alert("Modal Mostrada con Evento de Boostrap");
+        })
+
+        function Mensaje(letra) {
+            alert(letra);
+            window.location.href = window.location.href;
+        }
+    </script>
     <script src="../assets/js/ace-extra.min.js"></script>
     <style>
         .table-condensed tr th {
@@ -499,7 +509,8 @@
 			</div><!-- /.main-content -->
         <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
             <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
-        </a><!-- /.main-container -->
+        </a>
+        <!-- /.main-container -->
 
         <!-- basic scripts -->
 
@@ -522,24 +533,24 @@
         <script src="../assets/js/ace-elements.min.js"></script>
         <script src="../assets/js/ace.min.js"></script>
         <div class="modal fade" id="AddDate2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
                     <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel2">Filtros Sección</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel2">Filtros Sección</h4>
                     </div>
-                         <div class="modal-body">
-                            <asp:Label ID="Label2" runat="server" Text="">Elegir Proyecto :                 </asp:Label>
-                            <asp:DropDownList ID="ddlPro"  runat="server" OnSelectedIndexChanged="ddlProyecto_SelectedIndexChanged"></asp:DropDownList>
-                             <br />
-                           </div>
-                         <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <asp:LinkButton runat="server" CssClass="btn btn-success" OnClick="btnGuardar_Click" ID="LinkButton1" Text="Filtrar" ></asp:LinkButton>
-                </div>
+                    <div class="modal-body">
+                        <asp:Label ID="Label2" runat="server" Text="">Elegir Proyecto :                 </asp:Label>
+                        <asp:DropDownList ID="ddlPro" runat="server" OnSelectedIndexChanged="ddlProyecto_SelectedIndexChanged"></asp:DropDownList>
+                        <br />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <asp:LinkButton runat="server" CssClass="btn btn-success" OnClick="btnGuardar_Click" ID="LinkButton1" Text="Filtrar"></asp:LinkButton>
                     </div>
                 </div>
             </div>
+        </div>
 
     </form>
 </body>

@@ -17,15 +17,17 @@ namespace PW_ProyectoTitulacion
         OCKO_TblProyecto proyectoTable = new OCKO_TblProyecto();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
                 CargarProyecto();
+            }
+               
 
             if (Session["Username"] != null)
             {
                 tblusuario = usu.OckoBbuscarPorNombre(Session["Username"].ToString());
 
                 sesion = tblusuario.Usunombre.ToUpper();
-                CargarProyecto();
             }
             else
             {
@@ -65,7 +67,7 @@ namespace PW_ProyectoTitulacion
             try
             {
 
-                int proyecto = 5;
+                int proyecto = Convert.ToInt32(ddlPro.SelectedValue);
                 Session["ProyectoId"] = proyecto;
                 Response.Redirect("./Jefes_AsigActividades.aspx");
             }

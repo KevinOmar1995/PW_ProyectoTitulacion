@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <asp:Panel runat="server" ID="pnlBotones" style="float:right" Visible="false" Width="90%" >
+    <asp:Panel runat="server" ID="pnlBotones"  Visible="false"  >
         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
             <a class="fa fa-plus"></a>
             Asignar
@@ -31,8 +31,7 @@
                 <asp:BoundField DataField="AsiAvanceFuncional" HeaderStyle-CssClass="hidden" ItemStyle-CssClass="hidden" HeaderText="AsiAvanceFuncional" SortExpression="AsiAvanceFuncional" />
                 <asp:BoundField DataField="CodJefe" HeaderText="CodJefe" HeaderStyle-CssClass="hidden" ItemStyle-CssClass="hidden" SortExpression="CodJefe" />
                 <asp:BoundField DataField="AsiEstado" HeaderText="AsiEstado" SortExpression="AsiEstado" />
-                <asp:CommandField ShowSelectButton="True"  ControlStyle-CssClass="btn btn-blue" ButtonType="Button" ShowHeader="True" HeaderText=""></asp:CommandField>
-            
+                <asp:CommandField ShowSelectButton="True"  SelectText="Iniciar"  ControlStyle-CssClass="btn btn-blue" ButtonType="Button" ShowHeader="True" HeaderText=""></asp:CommandField>
             </Columns>
         </asp:GridView>
 
@@ -56,10 +55,10 @@
                 <div class="modal-body">
 
                    <asp:Label ID="Label4" runat="server" Text="">Seleccciona :                 </asp:Label>
-                    <center>
+                  
                                 <asp:DropDownList ID="ddlPersonal"  runat="server" ></asp:DropDownList>
                                     <br />
-                    </center>
+                    
                        <asp:HiddenField runat="server" ID="hdId"   />
                 </div>
                 <div class="modal-footer">

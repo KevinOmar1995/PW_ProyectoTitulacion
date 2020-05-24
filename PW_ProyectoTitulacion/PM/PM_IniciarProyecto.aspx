@@ -12,7 +12,7 @@
                                 <i class="ace-icon fa fa-check green"></i>
                                 Arquitecto Software :<strong class="green"><%=ArquitectoSoftware %> </strong> <br/>
                                 <i class="ace-icon fa fa-check green"></i>
-                                Arquitecta Financiera  : <strong class="green"><%=ArquitectoSoftware %> </strong> <br />
+                                Arquitecta Financiera  : <strong class="green"><%=ArquitectaFinanciera %> </strong> <br />
 
 							</div>
 						</div>
