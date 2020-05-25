@@ -78,6 +78,37 @@ namespace CapaNegocio
         {
             OckoDc.SubmitChanges();
         }
+        //Validar por cedula
+        public OCKO_TblEmpleado VerificarCedula(string email)
+        {
+            var usua = OckoDc.OCKO_TblEmpleado.FirstOrDefault(usu => usu.EmpCedula.Equals(email));
+            return usua;
+        }
+        //Validar las Email
+        public static bool recuperarContraseña(string email)
+        {
+            bool verdadero = true;
+            try
+            {
+                var usua = OckoDc.OCKO_TblEmpleado.FirstOrDefault(usu => usu.EmpEmail.Equals(email));
+                if (usua == null)
+                    return verdadero = false;
+                else
+                    return verdadero;
+
+            }
+            catch (Exception ex)
+            {
+                return verdadero = false;
+            }
+             
+        }
+
+        public OCKO_TblEmpleado  recuperarContraseñas(string email)
+        {
+                var usua = OckoDc.OCKO_TblEmpleado.FirstOrDefault(usu => usu.EmpEmail.Equals(email));
+            return usua;
+        }
 
 
     }

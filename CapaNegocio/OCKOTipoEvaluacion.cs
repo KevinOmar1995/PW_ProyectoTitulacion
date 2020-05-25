@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using CapaDatos;
 namespace CapaNegocio
 {
-     public class OCKO_TipoEvaluacion
+     public class OCKOTipoEvaluacion
     {
 
         public static OCKO_EvaluacionDataContext OckoDc = new OCKO_EvaluacionDataContext();
@@ -18,12 +18,25 @@ namespace CapaNegocio
         }
         //Eliminar
 
-        public void eliminarEvaluacion(OCKO_TblTipoEvaluacion usu)
+        //public void eliminarEvaluacion(OCKO_TblTipoEvaluacion usu)
+        //{
+        //    OckoDc.OCKO_TblTipoEvaluacion.DeleteOnSubmit(usu);
+        //    OckoDc.SubmitChanges();
+        //}
+        public bool eliminarEvaluacion(OCKO_TblTipoEvaluacion usu)
         {
-            OckoDc.OCKO_TblTipoEvaluacion.DeleteOnSubmit(usu);
-            OckoDc.SubmitChanges();
+            bool respuesta = true;
+            try
+            {
+                OckoDc.OCKO_TblTipoEvaluacion.DeleteOnSubmit(usu);
+                OckoDc.SubmitChanges();
+                return respuesta;
+            }
+            catch (Exception )
+            {
+                return false;
+            }
         }
-
         //Editar 
         public void EditarEvaluacion(OCKO_TblTipoEvaluacion evaluacion)
         {

@@ -10,7 +10,7 @@ namespace PW_ProyectoTitulacion.RRHH
 {
     public partial class RRHH_TipoEvaluacion : System.Web.UI.Page
     {
-        OCKO_TipoEvaluacion tipoEvaluacion = new OCKO_TipoEvaluacion();
+        OCKOTipoEvaluacion tipoEvaluacionClass = new OCKOTipoEvaluacion();
         
         String idEvaluacion,mensaje;
         protected void Page_Load(object sender, EventArgs e)
@@ -23,15 +23,25 @@ namespace PW_ProyectoTitulacion.RRHH
             
             try
             {
-                OCKO_TblTipoEvaluacion evaluacion = tipoEvaluacion.BuscarIdTipoEvaluacion(Convert.ToInt32(hdId.Value));
-                tipoEvaluacion.eliminarEvaluacion(evaluacion);
-                mensaje = " " + evaluacion.TipEvaluacion + " Eliminada";
-                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "EvaluacionInicio('" + mensaje + "');", true);
+                bool respuesta;
+                OCKO_TblTipoEvaluacion evaluacion = tipoEvaluacionClass.BuscarIdTipoEvaluacion(Convert.ToInt32(hdId.Value));
+                respuesta = tipoEvaluacionClass.eliminarEvaluacion(evaluacion);
+                if (!respuesta)
+                {
+                    mensaje = "La " + evaluacion.TipEvaluacion + " està atada a una asignaciòn";
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "MensajeError('" + mensaje + "');", true);
+                }
+                else
+                {
+                    mensaje = " " + evaluacion.TipEvaluacion + " Eliminada";
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "MensajeEliminar('" + mensaje + "');", true);
+                    ClientScript.RegisterStartupScript(this.GetType(), "", " setTimeout('window.location.href = window.location.href', 3000);", true);
+                }
             }
             catch (Exception ex)
             {
-                mensaje = "Algo salio mal " + ex;
-                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "EvaluacionInicio('" + mensaje + "');", true);
+                Session["ERROR_RRHH"] = ex;
+                Response.Redirect("RRHH_ERROR.aspx");
             }
 
         }
@@ -45,52 +55,59 @@ namespace PW_ProyectoTitulacion.RRHH
                 idEvaluacion = row.Cells[1].Text;
                 hdId.Value = idEvaluacion;
 
-                OCKO_TblTipoEvaluacion eva = tipoEvaluacion.BuscarIdTipoEvaluacion(Convert.ToInt32(hdId.Value));
+                OCKO_TblTipoEvaluacion eva = tipoEvaluacionClass.BuscarIdTipoEvaluacion(Convert.ToInt32(hdId.Value));
                 txtEvaluacionEditar.Text        = eva.TipEvaluacion;
                 txtEvaDescripcionEditar.Text    = eva.TipDescripcion;
 
             }
             catch (Exception ex)
             {
-                mensaje = "Algo salio mal " + ex;
-                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "EvaluacionInicio('" + mensaje + "');", true);
+                Session["ERROR_RRHH"] = ex;
+                Response.Redirect("RRHH_ERROR.aspx");
             }
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            OCKO_TblTipoEvaluacion Evaluacion = new OCKO_TblTipoEvaluacion();
-            Evaluacion.TipEvaluacion = txtEvaluacionCreate.Text.ToUpper();
-            Evaluacion.TipDescripcion = txtEvaDescripcionCreate.Text.ToUpper();
+           
             try
             {
-                tipoEvaluacion.GuardarEvaluacion(Evaluacion);
-                mensaje = " Guardado Correctamente ";
-                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "EvaluacionInicio('" + mensaje + "');", true);
+                OCKO_TblTipoEvaluacion Evaluacion = new OCKO_TblTipoEvaluacion();
+
+                Evaluacion.TipEvaluacion = txtEvaluacionCreate.Text.ToUpper();
+                Evaluacion.TipDescripcion = txtEvaDescripcionCreate.Text.ToUpper();
+
+                tipoEvaluacionClass.GuardarEvaluacion(Evaluacion);
+                mensaje = "Evaluación";
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "MensajeGuardado('" + mensaje + "');", true);
+                ClientScript.RegisterStartupScript(this.GetType(), "", " setTimeout('window.location.href = window.location.href', 3000);", true);
             }
             catch (Exception ex)
             {
-                mensaje = "Algo salio mal " + ex;
-                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "EvaluacionInicio('" + mensaje + "');", true);
+                Session["ERROR_RRHH"] = ex;
+                Response.Redirect("RRHH_ERROR.aspx");
             }
 
         }
 
         protected void btnEditar_Click(object sender, EventArgs e)
         {
-            OCKO_TblTipoEvaluacion evaluacion = tipoEvaluacion.BuscarIdTipoEvaluacion(Convert.ToInt32(hdId.Value));
+            OCKO_TblTipoEvaluacion evaluacion = tipoEvaluacionClass.BuscarIdTipoEvaluacion(Convert.ToInt32(hdId.Value));
             evaluacion.TipEvaluacion    = txtEvaluacionEditar.Text;
             evaluacion.TipDescripcion   = txtEvaDescripcionEditar.Text;
             try
             {
-                tipoEvaluacion.EditarEvaluacion(evaluacion);
-                mensaje = " Se ha editado el Registro ";
-                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "EvaluacionInicio('" + mensaje + "');", true);
+                tipoEvaluacionClass.EditarEvaluacion(evaluacion);
+                mensaje = evaluacion.TipEvaluacion ;
+                //ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "EvaluacionInicio('" + mensaje + "');", true);
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "MensajeEditado('" + mensaje + "');", true);
+                ClientScript.RegisterStartupScript(this.GetType(), "", " setTimeout('window.location.href = window.location.href', 3000);", true);
+
             }
             catch (Exception ex)
             {
-                mensaje = "Algo salio mal "+ex;
-                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "EvaluacionInicio('" + mensaje + "');", true);
+                Session["ERROR_RRHH"] = ex;
+                Response.Redirect("RRHH_ERROR.aspx");
             }
 
         }

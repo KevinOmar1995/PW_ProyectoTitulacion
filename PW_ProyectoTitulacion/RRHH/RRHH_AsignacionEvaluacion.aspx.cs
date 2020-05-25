@@ -12,8 +12,8 @@ namespace PW_ProyectoTitulacion.RRHH
 {
     public partial class RRHH_AsignacionEvaluacion : System.Web.UI.Page
     {
-        OCKO_TipoEvaluacion evaluacion = new OCKO_TipoEvaluacion();
-        OCKO_EvaluacionEmpleado evaEmpleado = new OCKO_EvaluacionEmpleado();
+        OCKOTipoEvaluacion evaluacion = new OCKOTipoEvaluacion();
+        OCKOEvaluacionEmpleado evaEmpleado = new OCKOEvaluacionEmpleado();
         OCKO_TblEvaluacionEmpleado _OCKO_TblEvaluacionEmpleado = new OCKO_TblEvaluacionEmpleado();
         int codevaluacion;
         protected void Page_Load(object sender, EventArgs e)
@@ -56,7 +56,7 @@ namespace PW_ProyectoTitulacion.RRHH
                 _OCKO_TblEvaluacionEmpleado.CodEmpleado = idEmpleado;
                 _OCKO_TblEvaluacionEmpleado.EvaFecha = tiempo;
                 _OCKO_TblEvaluacionEmpleado.EvaResultado = resultado;
-                bool existe = OCKO_EvaluacionEmpleado.AsignacionEvaluacion(idEmpleado, codevaluacion);
+                bool existe = OCKOEvaluacionEmpleado.AsignacionEvaluacion(idEmpleado, codevaluacion);
                 if (!existe)
                 {
                     evaEmpleado.GuardarEvaluacionEmpleado(_OCKO_TblEvaluacionEmpleado);

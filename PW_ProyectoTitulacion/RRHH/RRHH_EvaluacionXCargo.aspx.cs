@@ -12,7 +12,7 @@ namespace PW_ProyectoTitulacion.RRHH
     public partial class RRHH_EvaluacionXCargo : System.Web.UI.Page
     {
         OCKOCargo cargo = new OCKOCargo();
-        OCKO_TipoEvaluacion evaluacion = new OCKO_TipoEvaluacion();
+        OCKOTipoEvaluacion evaluacion = new OCKOTipoEvaluacion();
         OCKO_StoreProcedureAction procedure = new OCKO_StoreProcedureAction();
         protected void Page_Load(object sender, EventArgs e)
         {

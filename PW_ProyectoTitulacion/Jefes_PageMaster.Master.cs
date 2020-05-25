@@ -20,6 +20,7 @@ namespace PW_ProyectoTitulacion
             if (!IsPostBack)
             {
                 CargarProyecto();
+               
             }
                
 

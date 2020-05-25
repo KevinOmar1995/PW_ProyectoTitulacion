@@ -11,7 +11,7 @@ namespace PW_ProyectoTitulacion.RRHH
 {
     public partial class RRHH_PreguntasLista : System.Web.UI.Page
     {
-        OCKO_Preguntas preguntas = new OCKO_Preguntas();
+        OCKOPreguntas preguntas = new OCKOPreguntas();
         OCKO_TblPreguntas tblPreguntas = new OCKO_TblPreguntas();
         OCKO_StoreProcedureAction spActions = new OCKO_StoreProcedureAction();
         String LocalAccion, mensaje;
@@ -64,7 +64,7 @@ namespace PW_ProyectoTitulacion.RRHH
             int evaluacion = Convert.ToInt32( Session["EvaluacionList"].ToString());
             int categoria = Convert.ToInt32(Session["CategoriaId"].ToString());
             string pregunta = txtPreguntaC.Text;
-            bool existe = OCKO_Preguntas.BuscarPregunta(pregunta);
+            bool existe = OCKOPreguntas.BuscarPregunta(pregunta);
             try
             {
                 if (!existe)

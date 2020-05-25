@@ -12,7 +12,7 @@ namespace PW_ProyectoTitulacion
 {
     public partial class RRHH_EmployeeList : System.Web.UI.Page
     {
-        OCKO_Listar ockoListar = new OCKO_Listar();
+        OCKOListar ockoListar = new OCKOListar();
         OCKOCargo cargo = new OCKOCargo();
         OCKOEmpleadoUsuario empleado = new OCKOEmpleadoUsuario();
         String id;

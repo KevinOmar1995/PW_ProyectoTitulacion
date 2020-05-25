@@ -226,6 +226,7 @@
     <Content Include="assets\js\select2.min.js" />
     <Content Include="assets\js\spin.js" />
     <Content Include="assets\js\spinbox.min.js" />
+    <Content Include="assets\js\SweetAlert.js" />
     <Content Include="assets\js\tree.min.js" />
     <Content Include="assets\js\wizard.min.js" />
     <Content Include="assets\swf\flashExport.swf" />
@@ -264,6 +265,7 @@
     <Content Include="RRHH\RRHH_ContratacionBasica.aspx" />
     <Content Include="RRHH\RRHH_EmployeCreate.aspx" />
     <Content Include="RRHH\RRHH_EmpleadosLista.aspx" />
+    <Content Include="RRHH\RRHH_ERROR.aspx" />
     <Content Include="RRHH\RRHH_EvaluacionesPendientes.aspx" />
     <Content Include="RRHH\RRHH_EvaluacionesRealizadas.aspx" />
     <Content Include="RRHH\RRHH_EvaluacionXCargo.aspx" />
@@ -556,6 +558,13 @@
     </Compile>
     <Compile Include="RRHH\RRHH_EmpleadosLista.aspx.designer.cs">
       <DependentUpon>RRHH_EmpleadosLista.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH\RRHH_ERROR.aspx.cs">
+      <DependentUpon>RRHH_ERROR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RRHH\RRHH_ERROR.aspx.designer.cs">
+      <DependentUpon>RRHH_ERROR.aspx</DependentUpon>
     </Compile>
     <Compile Include="RRHH\RRHH_EvaluacionesPendientes.aspx.cs">
       <DependentUpon>RRHH_EvaluacionesPendientes.aspx</DependentUpon>

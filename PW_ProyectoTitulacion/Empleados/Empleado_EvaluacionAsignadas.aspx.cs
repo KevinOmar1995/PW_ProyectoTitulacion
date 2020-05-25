@@ -10,7 +10,7 @@ namespace PW_ProyectoTitulacion.Empleados
 {
     public partial class Empleado_EvaluacionAsignadas : System.Web.UI.Page
     {
-        OCKO_TipoEvaluacion tipoEvaluacion = new OCKO_TipoEvaluacion();
+        OCKOTipoEvaluacion tipoEvaluacion = new OCKOTipoEvaluacion();
         OCKO_TblTipoEvaluacion tblevaluacion = new OCKO_TblTipoEvaluacion();
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -17,8 +17,8 @@ namespace PW_ProyectoTitulacion
         OCKOProyecto proyectoClass = new OCKOProyecto();
         OCKOProyecto proyectoClass2 = new OCKOProyecto();
         OCKOFases faseClass = new OCKOFases();
-        OCKO_Listar listarClass = new OCKO_Listar();
-        OCKO_Listar listarClassT = new OCKO_Listar();
+        OCKOListar listarClass = new OCKOListar();
+        OCKOListar listarClassT = new OCKOListar();
         OCKOAsignacion asignacionClass = new OCKOAsignacion();
         OCKO_TblAsignacion asignacionTable = new OCKO_TblAsignacion();
         OCKO_TblAsignacion asignacionTableT = new OCKO_TblAsignacion();

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using CapaDatos;
 namespace CapaNegocio
 {
-    public class OCKO_Listar
+    public class OCKOListar
     {
         OCKO_EvaluacionDataContext ockoListar = new OCKO_EvaluacionDataContext();
         //Listar todos empleados

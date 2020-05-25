@@ -27,7 +27,7 @@ namespace PW_ProyectoTitulacion.RRHH
         {
  
             string categoria = txtNombreCreate.Text;
-            bool existe = OCKO_Preguntas.BuscarPregunta(categoria);
+            bool existe = OCKOPreguntas.BuscarPregunta(categoria);
             try
             {
                 if (!existe)

@@ -11,9 +11,9 @@ namespace PW_ProyectoTitulacion.RRHH
     
     public partial class RRHH_RegistrarPreguntas : System.Web.UI.Page
     {
-        OCKO_TipoEvaluacion evaluacion = new OCKO_TipoEvaluacion();
-        OCKO_Preguntas preguntas = new OCKO_Preguntas();
-        OCKO_Listar ListarClass = new OCKO_Listar();
+        OCKOTipoEvaluacion evaluacion = new OCKOTipoEvaluacion();
+        OCKOPreguntas preguntas = new OCKOPreguntas();
+        OCKOListar ListarClass = new OCKOListar();
         protected void Page_Load(object sender, EventArgs e)
         {
             ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal();", true);

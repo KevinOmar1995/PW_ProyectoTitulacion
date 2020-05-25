@@ -13,7 +13,7 @@ namespace PW_ProyectoTitulacion
         public String sesion;
         OCKOEmpleadoUsuario usu = new OCKOEmpleadoUsuario();
         OCKO_TblUsuario tblusuario = new OCKO_TblUsuario();
-        OCKO_TipoEvaluacion evaluacion = new OCKO_TipoEvaluacion();
+        OCKOTipoEvaluacion evaluacion = new OCKOTipoEvaluacion();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

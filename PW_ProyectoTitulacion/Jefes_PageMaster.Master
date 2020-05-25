@@ -28,6 +28,18 @@
     <link rel="stylesheet" href="../assets/css/ace-skins.min.css" />
     <link rel="stylesheet" href="../assets/css/ace-rtl.min.css" />
 
+    <script src="assets/js/SweetAlert.js"></script>
+     <script src="sweetalert2.min.js"></script>
+    <script src="assets/js/SweetAlert.js"></script>
+    <!-- Optional: include a polyfill for ES6 Promises for IE11 -->
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+
+    <script>
+      $(window).load(function(){
+        swal("Good job!", "You clicked the button!", "success");
+      });
+  </script>
+
     <!--[if lte IE 9]>
 		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
 		<![endif]-->
@@ -35,6 +47,16 @@
     <!-- inline styles related to this page -->
 
     <!-- ace settings handler -->
+    <script>
+
+        function alertme() {
+            Swal.fire(
+                'Good job!',
+                'You clicked the button!',
+                'success'
+            )
+        }
+    </script>
     <script>
         $('#AddDate').on('show.bs.modal', function (e) {
             alert("Modal Mostrada con Evento de Boostrap");

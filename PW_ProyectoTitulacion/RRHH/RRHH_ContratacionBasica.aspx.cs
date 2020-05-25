@@ -10,7 +10,7 @@ namespace PW_ProyectoTitulacion.RRHH
 {
     public partial class RRHH_ContratacionBasica : System.Web.UI.Page
     {
-        OCKO_Listar listarClass = new OCKO_Listar();
+        OCKOListar listarClass = new OCKOListar();
         OCKOEmpleadoUsuario empleadoClass = new OCKOEmpleadoUsuario();
         OCKO_StoreProcedureAction storeProClass = new OCKO_StoreProcedureAction();
         OCKOCargo cargoClass = new OCKOCargo();

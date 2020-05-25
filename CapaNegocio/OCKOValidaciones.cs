@@ -26,18 +26,29 @@ namespace CapaNegocio
         
         public void enviarEmail(String email, String asusnto, String mensaje)
         {
-            MailMessage mail = new MailMessage("darkkeness1999@gmail.com", email);
+            MailMessage mail = new MailMessage("kordonezsystem@gmail.com", email);
             SmtpClient client = new SmtpClient();
             client.Port = 587;
             client.EnableSsl = true;
             client.DeliveryMethod = SmtpDeliveryMethod.Network;
             client.UseDefaultCredentials = false;
-            client.Credentials = new System.Net.NetworkCredential("darkkeness1999@gmail.com", "kodoku1999");
+            client.Credentials = new System.Net.NetworkCredential("kordonezsystem@gmail.com", "1723520670Kevin");
             client.Host = "smtp.gmail.com";
             mail.Subject = asusnto;
             mail.Body = mensaje;
             client.Send(mail);
 
+        }
+        public string CrearPasswordTmp(int length)
+        {
+            string valid = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+            StringBuilder res = new StringBuilder();
+            Random rnd = new Random();
+            while (0 < length--)
+            {
+                res.Append(valid[rnd.Next(valid.Length)]);
+            }
+            return res.ToString();
         }
         public bool ValidarCedula(String TxtNumeros)
         {

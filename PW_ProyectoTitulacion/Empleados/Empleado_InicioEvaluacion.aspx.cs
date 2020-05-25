@@ -15,7 +15,7 @@ namespace PW_ProyectoTitulacion.Empleados
     public partial class Empleado_InicioEvaluacion : System.Web.UI.Page
     {
         OCKO_StoreProcedureAction spActions = new OCKO_StoreProcedureAction();
-        OCKO_Preguntas preguntasClass = new OCKO_Preguntas();
+        OCKOPreguntas preguntasClass = new OCKOPreguntas();
         OCKOCategoria categoriaClass = new OCKOCategoria();
         OCKO_TblPreguntas preguntasTable = new OCKO_TblPreguntas();
         protected void Page_Load(object sender, EventArgs e)

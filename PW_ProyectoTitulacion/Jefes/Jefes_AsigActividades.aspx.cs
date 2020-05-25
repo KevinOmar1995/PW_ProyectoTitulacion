@@ -11,7 +11,7 @@ namespace PW_ProyectoTitulacion.Jefes
 {
     public partial class Jefes_AsigActividades : System.Web.UI.Page
     {
-        OCKO_Listar listarClass = new OCKO_Listar();
+        OCKOListar listarClass = new OCKOListar();
         OCKO_TblEmpleado empleadoTable = new OCKO_TblEmpleado();
         OCKOAsignacion asignacionClass = new OCKOAsignacion();
         OCKO_TblAsignacion asignacionTable = new OCKO_TblAsignacion();

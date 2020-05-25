@@ -5,14 +5,14 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace PW_ProyectoTitulacion.Jefes
+namespace PW_ProyectoTitulacion.RRHH
 {
-    public partial class Jefes_Inicio : System.Web.UI.Page
+    public partial class RRHH_ERROR : System.Web.UI.Page
     {
+        public string error;
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "Mensaje(asd);", true);
+            error = Session["ERROR_RRHH"].ToString();
 
         }
     }

@@ -57,10 +57,10 @@
     <Compile Include="OCKORespuestas.cs" />
     <Compile Include="OCKOSeccion.cs" />
     <Compile Include="OCKOValidaciones.cs" />
-    <Compile Include="OCKO_EvaluacionEmpleado.cs" />
-    <Compile Include="OCKO_Listar.cs" />
-    <Compile Include="OCKO_Preguntas.cs" />
-    <Compile Include="OCKO_TipoEvaluacion.cs" />
+    <Compile Include="OCKOEvaluacionEmpleado.cs" />
+    <Compile Include="OCKOListar.cs" />
+    <Compile Include="OCKOPreguntas.cs" />
+    <Compile Include="OCKOTipoEvaluacion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

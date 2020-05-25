@@ -7,7 +7,7 @@ using CapaDatos;
 
 namespace CapaNegocio
 {
-    public class OCKO_EvaluacionEmpleado
+    public class OCKOEvaluacionEmpleado
     {
         public static OCKO_EvaluacionDataContext OckoDc = new OCKO_EvaluacionDataContext();
         //Buscar por Id Evaluacion
