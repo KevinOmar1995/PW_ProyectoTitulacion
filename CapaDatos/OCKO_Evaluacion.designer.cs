@@ -3578,6 +3578,8 @@ namespace CapaDatos
 		
 		private string _PrePregunta;
 		
+		private string _PreDescripcion;
+		
 		private int _CodTipoEvaluacion;
 		
 		private System.Nullable<int> _CodCategoria;
@@ -3598,6 +3600,8 @@ namespace CapaDatos
     partial void OnPreIdChanged();
     partial void OnPrePreguntaChanging(string value);
     partial void OnPrePreguntaChanged();
+    partial void OnPreDescripcionChanging(string value);
+    partial void OnPreDescripcionChanged();
     partial void OnCodTipoEvaluacionChanging(int value);
     partial void OnCodTipoEvaluacionChanged();
     partial void OnCodCategoriaChanging(System.Nullable<int> value);
@@ -3649,6 +3653,26 @@ namespace CapaDatos
 					this._PrePregunta = value;
 					this.SendPropertyChanged("PrePregunta");
 					this.OnPrePreguntaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PreDescripcion", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string PreDescripcion
+		{
+			get
+			{
+				return this._PreDescripcion;
+			}
+			set
+			{
+				if ((this._PreDescripcion != value))
+				{
+					this.OnPreDescripcionChanging(value);
+					this.SendPropertyChanging();
+					this._PreDescripcion = value;
+					this.SendPropertyChanged("PreDescripcion");
+					this.OnPreDescripcionChanged();
 				}
 			}
 		}

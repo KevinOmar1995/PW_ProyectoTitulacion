@@ -227,9 +227,7 @@
         <div class="main-container ace-save-state" id="main-container">
 
 
-            <div id="sidebar" class="sidebar                  responsive                    ace-save-state">
-
-
+            <div id="sidebar"  class="sidebar responsive ace-save-state">
                 <ul class="nav nav-list">
                     <li class="active">
                         <a href="index.html">
@@ -460,13 +458,7 @@
                                     Grupo Conceptos Porcentual
                                 </a>
                             </li>
-                            <li class="">
-                                <a href="./RRHH_Periodos.aspx">
-                                    <i class="menu-icon fa fa-pencil orange"></i>
-                                    Periodos
-                                </a>
-                            </li>
-
+                            
                             <li class="">
                                 <a href="./RRHH_CategoriaPreguntas.aspx">
                                     <i class="menu-icon fa fa-pencil orange"></i>
@@ -474,13 +466,7 @@
                                 </a>
                             </li>
 
-                            <li class="">
-                                <a href="./RRHH_ParametrosCalificacion.aspx">
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    Parametros Calificaciòn
-                                </a>
-                                <b class="arrow"></b>
-                            </li>
+                           
 
                         </ul>
                     </li>
@@ -535,7 +521,19 @@
 
                                 <b class="arrow"></b>
                             </li>
-
+                             <li class="">
+                                <a href="./RRHH_Periodos.aspx">
+                                    <i class="menu-icon fa fa-pencil orange"></i>
+                                    Periodos
+                                </a>
+                            </li>
+                             <li class="">
+                                <a href="./RRHH_ParametrosCalificacion.aspx">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    Parametros Calificaciòn
+                                </a>
+                                <b class="arrow"></b>
+                            </li>
                             <li class="">
                                 <a href="form-elements-2.html">
                                     <i class="menu-icon fa fa-caret-right"></i>

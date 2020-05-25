@@ -26,17 +26,27 @@ namespace CapaNegocio
         
         public void enviarEmail(String email, String asusnto, String mensaje)
         {
-            MailMessage mail = new MailMessage("kordonezsystem@gmail.com", email);
-            SmtpClient client = new SmtpClient();
-            client.Port = 587;
-            client.EnableSsl = true;
-            client.DeliveryMethod = SmtpDeliveryMethod.Network;
-            client.UseDefaultCredentials = false;
-            client.Credentials = new System.Net.NetworkCredential("kordonezsystem@gmail.com", "1723520670Kevin");
-            client.Host = "smtp.gmail.com";
-            mail.Subject = asusnto;
-            mail.Body = mensaje;
-            client.Send(mail);
+            //MailMessage mail = new MailMessage("kordonezsystem@gmail.com", email);
+            //SmtpClient client = new SmtpClient();
+            //client.Port = 587;
+            //client.EnableSsl = true;
+            //client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            //client.UseDefaultCredentials = false;
+            //client.Credentials = new System.Net.NetworkCredential("kordonezsystem@gmail.com", "1723520670Kevin");
+            //client.Host = "smtp.gmail.com";
+            //mail.Subject = asusnto;
+            //mail.Body = mensaje;
+            //client.Send(mail);
+            MailMessage emailMessage = new MailMessage();
+            emailMessage.From = new MailAddress("kordonezsystem@gmail.com", "Account2");
+            emailMessage.To.Add(new MailAddress(email, "Account1"));
+            emailMessage.Subject = asusnto;
+            emailMessage.Body = mensaje;
+            emailMessage.Priority = MailPriority.Normal;
+            SmtpClient MailClient = new SmtpClient("smtp.gmail.com", 587);
+            MailClient.Credentials = new System.Net.NetworkCredential("kordonezsystem@gmail.com", "1723520670Kevin");
+            MailClient.EnableSsl = true;
+            MailClient.Send(emailMessage);
 
         }
         public string CrearPasswordTmp(int length)

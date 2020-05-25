@@ -163,6 +163,7 @@
     <Type Name="OCKO_TblPreguntas">
       <Column Name="PreId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="PrePregunta" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="PreDescripcion" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="CodTipoEvaluacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="CodCategoria" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="OCKO_TblPreguntas_OCKO_TblRespuestas" Member="OCKO_TblRespuestas" ThisKey="PreId" OtherKey="CodPregunta" Type="OCKO_TblRespuestas" />

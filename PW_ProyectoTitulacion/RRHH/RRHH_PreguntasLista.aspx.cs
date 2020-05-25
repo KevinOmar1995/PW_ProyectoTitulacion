@@ -71,31 +71,42 @@ namespace PW_ProyectoTitulacion.RRHH
                 {
                     tblPreguntas.PrePregunta = pregunta;
                     tblPreguntas.CodTipoEvaluacion = evaluacion;
+                    tblPreguntas.PreDescripcion = txtDescripcionC.Text;
                     tblPreguntas.CodCategoria = categoria;
                     preguntas.GuardarPregunta(tblPreguntas);
                     //procedimiento almacenado donde guarda las respuestas
                     spActions.GenerarRespuestas();
-                    mensaje = "Pregunta Registrada";
-                    //updPnael.Update();
-                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "Evaluacion('" + mensaje + "');", true);
+                    mensaje = "Pregunta ";
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "MensajeGuardado('" + mensaje + "');", true);
+                    ClientScript.RegisterStartupScript(this.GetType(), "", " setTimeout('window.location.href = window.location.href', 3000);", true);
                 }
             }
             catch (Exception ex)
             {
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert(' Algo Salio Mal" + ex + "');", true);
+                Session["ERROR_RRHH"] = ex;
+                Response.Redirect("RRHH_ERROR.aspx");
             }
         }
 
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
-            OCKO_TblPreguntas pregunta = preguntas.BuscarIdPregunta(Convert.ToInt32(hdId.Value));
-            pregunta.PrePregunta = txtPreguntaEditar.Text;
-            preguntas.EditarPregunta(pregunta);
-            mensaje = "Registro Editado";
-            //updPnael.Update();
-            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "Evaluacion('" + mensaje + "');", true);
-
-
+            try
+            {
+            
+                OCKO_TblPreguntas pregunta = preguntas.BuscarIdPregunta(Convert.ToInt32(hdId.Value));
+                pregunta.PrePregunta = txtPreguntaEditar.Text;
+                pregunta.PreDescripcion = txtDescripcionEdit.Text;
+                preguntas.EditarPregunta(pregunta);
+                mensaje = pregunta.PrePregunta;
+                //updPnael.Update();
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "MensajeEditado('" + mensaje + "');", true);
+                ClientScript.RegisterStartupScript(this.GetType(), "", " setTimeout('window.location.href = window.location.href', 3000);", true);
+            }
+            catch (Exception ex)
+            {
+                Session["ERROR_RRHH"] = ex;
+                Response.Redirect("RRHH_ERROR.aspx");
+            }
         }
 
         protected void grvPreguntas_SelectedIndexChanged(object sender, EventArgs e)
@@ -107,11 +118,12 @@ namespace PW_ProyectoTitulacion.RRHH
                 hdId.Value = id;
                 OCKO_TblPreguntas pregunta = preguntas.BuscarIdPregunta(Convert.ToInt32(hdId.Value));
                 txtPreguntaEditar.Text = pregunta.PrePregunta;
+                txtDescripcionEdit.Text = pregunta.PreDescripcion;
             }
             catch (Exception ex)
             {
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert(' Algo Salio Mal" + ex + "');", true);
-
+                Session["ERROR_RRHH"] = ex;
+                Response.Redirect("RRHH_ERROR.aspx");
             }
         }
     }
