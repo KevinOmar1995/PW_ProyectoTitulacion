@@ -44,7 +44,7 @@
                             <label class="col-sm-4 control-label no-padding-right" for="form-field-username">Cedula</label>
 
                             <div class="col-sm-8">
-                                <asp:TextBox runat="server" ID="txtCedula" enable="false" class="col-xs-12 col-sm-6"></asp:TextBox>
+                                <asp:TextBox runat="server" ID="txtCedula" onkeypress="return soloNumeros(event)" MaxLength="10" required enable="false" class="col-xs-12 col-sm-6"></asp:TextBox>
                             </div>
                         </div>
                         <br />
@@ -54,7 +54,7 @@
                             <label class="col-sm-4 control-label no-padding-right" for="form-field-first">Primer Nombre</label>
 
                             <div class="col-sm-8">
-                                <asp:TextBox runat="server" ID="txtPrimerNombre" class="col-xs-12 col-sm-6"></asp:TextBox>
+                                <asp:TextBox runat="server" ID="txtPrimerNombre" required onkeypress="return soloLetras(event)" MaxLength="30" class="col-xs-12 col-sm-6"></asp:TextBox>
 
                             </div>
                         </div>
@@ -65,7 +65,7 @@
                             <label class="col-sm-4 control-label no-padding-right" for="form-field-first">Segundo Nombre</label>
 
                             <div class="col-sm-8">
-                                <asp:TextBox runat="server" ID="txtSegundoNombre" class="col-xs-12 col-sm-6"></asp:TextBox>
+                                <asp:TextBox runat="server" ID="txtSegundoNombre" required onkeypress="return soloLetras(event)" MaxLength="30" class="col-xs-12 col-sm-6"></asp:TextBox>
                             </div>
                         </div>
                         <br />
@@ -75,7 +75,7 @@
                             <label class="col-sm-4 control-label no-padding-right" for="form-field-first">Primer Apellido</label>
 
                             <div class="col-sm-8">
-                                <asp:TextBox runat="server" ID="txtPrimerApellido" class="col-xs-12 col-sm-6"></asp:TextBox>
+                                <asp:TextBox runat="server" ID="txtPrimerApellido" required onkeypress="return soloLetras(event)" MaxLength="30" class="col-xs-12 col-sm-6"></asp:TextBox>
                             </div>
                         </div>
                         <br />
@@ -85,7 +85,7 @@
                         <div class="form-group">
                             <label class="col-sm-4 control-label no-padding-right" for="form-field-first">Segundo Apellido</label>
                             <div class="col-sm-8">
-                                <asp:TextBox runat="server" ID="txtSegunfoApellido" class="col-xs-12 col-sm-6"></asp:TextBox>
+                                <asp:TextBox runat="server" ID="txtSegunfoApellido" required onkeypress="return soloLetras(event)" MaxLength="30" class="col-xs-12 col-sm-6"></asp:TextBox>
                             </div>
                         </div>
                     </div>
@@ -97,7 +97,7 @@
                     <div class="col-sm-9">
                         <div class="input-medium">
                             <div class="input-group">
-                                <asp:TextBox ID="txtFechaNacimiento" class="col-xs-12 col-sm-20" placeholder="mm/dd/yyyy" TextMode="Date" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtFechaNacimiento"  required class="col-xs-12 col-sm-20" placeholder="mm/dd/yyyy" TextMode="Date" runat="server"></asp:TextBox>
                             </div>
                         </div>
                     </div>
@@ -116,7 +116,7 @@
 
                         &nbsp; &nbsp; &nbsp;
 						<label class="inline">
-                            <asp:RadioButton GroupName="gender" value="2" runat="server" class="lbl middle" ID="radioFemenino"></asp:RadioButton>
+                            <asp:RadioButton GroupName="gender"  value="2" runat="server" class="lbl middle" ID="radioFemenino"></asp:RadioButton>
 
                             <span class="lbl middle">Femenino</span>
                         </label>
@@ -135,9 +135,10 @@
 
                     <div class="col-sm-8">
                         <span class="input-icon input-icon-right">
-                            <asp:TextBox runat="server" ID="txtEmail" class="col-xs-12 col-sm-12"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="txtEmail" onkeyup="validarEmail(this)" class="col-xs-12 col-sm-12"></asp:TextBox>
 
                             <i class="ace-icon fa fa-envelope"></i>
+                            <a id="resultado"></a>
                         </span>
                     </div>
                 </div>
@@ -149,7 +150,7 @@
 
                     <div class="col-sm-9">
                         <span class="input-icon input-icon-right">
-                            <asp:TextBox runat="server" ID="txtDireccion" class="col-xs-12 col-sm-12"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="txtDireccion" required class="col-xs-12 col-sm-12"></asp:TextBox>
                             <i class="ace-icon fa fa-home"></i>
                         </span>
                     </div>
@@ -162,7 +163,7 @@
 
                     <div class="col-sm-9">
                         <span class="input-icon input-icon-right">
-                            <asp:TextBox runat="server" ID="txttelefono" class="col-xs-12 col-sm-12"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="txttelefono" onkeypress="return soloNumeros(event)" MaxLength="10" required class="col-xs-12 col-sm-12"></asp:TextBox>
                             <i class="ace-icon fa fa-phone fa-flip-horizontal"></i>
                         </span>
                     </div>
@@ -174,7 +175,7 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-facebook">Perteneces a :</label>
                     <div class="col-sm-9">
-                        <asp:DropDownList ID="ddlEmpresa" Width="145px" OnSelectedIndexChanged="ddlEmpresa_SelectedIndexChanged" runat="server"></asp:DropDownList>
+                        <asp:DropDownList ID="ddlEmpresa" Width="145px" OnSelectedIndexChanged="ddlEmpresa_SelectedIndexChanged" CssClass="form-control" runat="server"></asp:DropDownList>
                     </div>
                 </div>
                 <br />
@@ -183,7 +184,7 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-facebook">Aplicas Para :</label>
                     <div class="col-sm-9">
-                        <asp:DropDownList ID="ddlCargoAplicar" OnSelectedIndexChanged="ddlCargoAplicar_SelectedIndexChanged" runat="server" Width="145px">
+                        <asp:DropDownList ID="ddlCargoAplicar" OnSelectedIndexChanged="ddlCargoAplicar_SelectedIndexChanged" CssClass="form-control" runat="server" Width="145px">
                             <asp:ListItem Value="Empleado">--Seleccionar--</asp:ListItem>
                             <asp:ListItem Value="Empleado">Empleado</asp:ListItem>
                             <asp:ListItem Value="Jefe">Jefe</asp:ListItem>
@@ -196,7 +197,7 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-facebook">Cargo a Ocupar:</label>
                     <div class="col-sm-9">
-                        <asp:DropDownList ID="ddlCargo" AutoPostBack="true" Width="145px" OnSelectedIndexChanged="ddlCargo_SelectedIndexChanged" runat="server"></asp:DropDownList>
+                        <asp:DropDownList ID="ddlCargo" AutoPostBack="true" CssClass="form-control" Width="145px" OnSelectedIndexChanged="ddlCargo_SelectedIndexChanged" runat="server"></asp:DropDownList>
                     </div>
                 </div>
                 <br />
@@ -205,7 +206,7 @@
                     <asp:Label ID="lblJefeInmediato" runat="server" class="col-sm-3 control-label no-padding-right" Visible="false" Text="Jefe Inmediato"></asp:Label>
 
                     <div class="col-sm-9">
-                        <asp:DropDownList ID="ddljefeInmediato" Visible="false" AutoPostBack="true" Width="145px" OnSelectedIndexChanged="ddljefeInmediato_SelectedIndexChanged" runat="server"></asp:DropDownList>
+                        <asp:DropDownList ID="ddljefeInmediato" Visible="false" CssClass="form-control" AutoPostBack="true" Width="145px" OnSelectedIndexChanged="ddljefeInmediato_SelectedIndexChanged" runat="server"></asp:DropDownList>
                     </div>
                 </div>
 
@@ -230,10 +231,7 @@
         <div class="col-md-offset-3 col-md-9">
 
             <asp:Button Text="Guardar" class="btn btn-success" ID="Guardar" OnClick="Guardar_Click" runat="server" />
-            <button class="btn" type="reset">
-                <i class="ace-icon fa fa-undo bigger-110"></i>
-                Reset
-            </button>
+            
         </div>
     </div>
 </asp:Content>

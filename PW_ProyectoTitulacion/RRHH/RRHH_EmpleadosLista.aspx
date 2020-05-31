@@ -17,11 +17,11 @@
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                             <h4 class="modal-title">
-                                <asp:Label ID="lblModalTitle" runat="server" Text=""></asp:Label></h4>
+                                <asp:Label ID="lblModalTitle" runat="server" Text="Empleados"></asp:Label></h4>
                         </div>
                         <div class="modal-body">
-                            <asp:Label ID="lblModalBody" runat="server" Text="">Elegir Cargo</asp:Label>
-                            <asp:DropDownList ID="dllCargo" AutoPostBack="true" runat="server" OnSelectedIndexChanged="dllCargo_SelectedIndexChanged"></asp:DropDownList>
+                            <asp:Label ID="lblModalBody" runat="server" Text="">Cargo:</asp:Label>
+                            <asp:DropDownList ID="dllCargo" AutoPostBack="true" CssClass="form-control" runat="server" OnSelectedIndexChanged="dllCargo_SelectedIndexChanged"></asp:DropDownList>
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-info" data-dismiss="modal" aria-hidden="true">Close</button>
@@ -36,14 +36,18 @@
     <div style="width:100%;"> 
     <asp:UpdatePanel runat="server" Style="float: left" Width="100%" ID="panel">
         <ContentTemplate>
-            <asp:GridView CssClass="table table-condensed table-hover" Width="100%" ID="GrvCliente" runat="server" OnSelectedIndexChanged="GrvCliente_SelectedIndexChanged" AutoGenerateColumns="False" DataKeyNames="EmpId,CarId" DataSourceID="SqlDataSource1">
+            <asp:GridView CssClass="table table-condensed table-hover" Caption="Empleados" Width="100%" ID="GrvCliente" runat="server" OnSelectedIndexChanged="GrvCliente_SelectedIndexChanged" AutoGenerateColumns="False" DataKeyNames="EmpId,CarId" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" CellPadding="4" ForeColor="#333333" GridLines="None">
+                <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:TemplateField>
                         <ItemTemplate>
                             <%#Container.DataItemIndex +1 %>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:BoundField DataField="EmpId" HeaderStyle-CssClass="hidden" ItemStyle-CssClass="hidden" HeaderText="EmpId" InsertVisible="False" ReadOnly="True" SortExpression="EmpId" />
+                    <asp:BoundField DataField="EmpId" HeaderStyle-CssClass="hidden" ItemStyle-CssClass="hidden" HeaderText="EmpId" InsertVisible="False" ReadOnly="True" SortExpression="EmpId" >
+                    <HeaderStyle CssClass="hidden" />
+                    <ItemStyle CssClass="hidden" />
+                    </asp:BoundField>
                     <asp:BoundField DataField="EmpCedula" HeaderText="Cedula" SortExpression="EmpCedula" />
                     <asp:BoundField DataField="NOMBRES" HeaderText="Nombres" ReadOnly="True" SortExpression="NOMBRES" />
                     <asp:BoundField DataField="Apellidos" HeaderText="Apellidos" ReadOnly="True" SortExpression="Apellidos" />
@@ -53,7 +57,19 @@
                     <asp:BoundField DataField="CarNombre" HeaderText="Cargo" SortExpression="CarNombre" />
                     <asp:BoundField DataField="EmpJefe" HeaderText="EmpJefe" Visible="false" SortExpression="EmpJefe" />
                     <asp:BoundField DataField="CarId" HeaderText="CarId" Visible="false" InsertVisible="False" ReadOnly="True" SortExpression="CarId" />
+                    
                 </Columns>
+
+                <EditRowStyle BackColor="#2461BF" />
+                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="#EFF3FB" />
+                <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                <SortedDescendingHeaderStyle BackColor="#4870BE" />
 
             </asp:GridView>
         </ContentTemplate>

@@ -4,19 +4,23 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Panel runat="server" ID="pnlBotones" style="float:left" Visible="false" Width="90%" >
     <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#editar"><a class="fa fa-pencil"></a>
-       Editar
+       Funciones
     </button>
-    <asp:LinkButton ID="SubmitBtn" runat="server" CssClass="btn btn-small btn-danger"  OnClick="SubmitBtn_Click" ><i class="fa fa-trash"></i>&nbsp;Eliminar</asp:LinkButton>
     </asp:Panel>
 
-    <asp:GridView CssClass="table table-condensed table-hover" ID="grvJefes" runat="server" OnSelectedIndexChanged="grvJefes_SelectedIndexChanged" AutoGenerateColumns="False" DataKeyNames="EmpId" DataSourceID="sdsJefes">
+    <asp:GridView CssClass="table table-condensed table-hover" Caption="Encargados de Area" ID="grvJefes" runat="server" OnSelectedIndexChanged="grvJefes_SelectedIndexChanged" AutoGenerateColumns="False" DataKeyNames="EmpId" DataSourceID="sdsJefes" AllowPaging="True" AllowSorting="True" CellPadding="4" ForeColor="#333333" GridLines="None">
+        <AlternatingRowStyle BackColor="White" />
         <Columns>
              <asp:TemplateField>
                 <ItemTemplate>
                     <%#Container.DataItemIndex +1 %>
                 </ItemTemplate>
             </asp:TemplateField>
-            <asp:BoundField DataField="EmpId"  HeaderStyle-CssClass="hidden" ItemStyle-CssClass="hidden" HeaderText="EmpId" InsertVisible="False" ReadOnly="True" SortExpression="EmpId" />
+            <asp:BoundField DataField="EmpId"  HeaderStyle-CssClass="hidden" ItemStyle-CssClass="hidden" HeaderText="EmpId" InsertVisible="False" ReadOnly="True" SortExpression="EmpId" >
+<HeaderStyle CssClass="hidden"></HeaderStyle>
+
+<ItemStyle CssClass="hidden"></ItemStyle>
+             </asp:BoundField>
             <asp:BoundField DataField="EmpCedula" HeaderText="Cedula" SortExpression="EmpCedula" />
             <asp:BoundField DataField="Nombres" HeaderText="Nombres" ReadOnly="True" SortExpression="Nombres" />
             <asp:BoundField DataField="Apellidos" HeaderText="Apellidos" ReadOnly="True" SortExpression="Apellidos" />
@@ -25,8 +29,21 @@
             <asp:BoundField DataField="EmpTelefono" HeaderText="Telefono" SortExpression="EmpTelefono" />
             <asp:BoundField DataField="CodCargo" HeaderText="CodCargo" SortExpression="CodCargo" Visible="false" />
             <asp:BoundField DataField="CarNombre" HeaderText="Cargo" SortExpression="CarNombre" />
-            <asp:CommandField ShowSelectButton="True"  ControlStyle-CssClass="btn btn-blue" ButtonType="Button" ShowHeader="True" HeaderText=""></asp:CommandField>
+            <asp:CommandField ShowSelectButton="True"  ControlStyle-CssClass="btn btn-blue" ButtonType="Button" ShowHeader="True" HeaderText="">
+<ControlStyle CssClass="btn btn-blue"></ControlStyle>
+             </asp:CommandField>
         </Columns>
+
+        <EditRowStyle BackColor="#2461BF" />
+        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+        <RowStyle BackColor="#EFF3FB" />
+        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+        <SortedAscendingCellStyle BackColor="#F5F7FB" />
+        <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+        <SortedDescendingCellStyle BackColor="#E9EBEF" />
+        <SortedDescendingHeaderStyle BackColor="#4870BE" />
 
     </asp:GridView>
     <asp:SqlDataSource ID="sdsJefes" runat="server" ConnectionString="<%$ ConnectionStrings:OCKO_EvaluacionPersonal %>" SelectCommand="SELECT OCKO_TblEmpleado.EmpId, OCKO_TblEmpleado.EmpCedula, OCKO_TblEmpleado.EmpPrimerNombre + ' ' + OCKO_TblEmpleado.EmpSegundoNombre AS Nombres, OCKO_TblEmpleado.EmpPrimerApellido + ' ' + OCKO_TblEmpleado.EmpSegundoApellidos AS Apellidos, OCKO_TblEmpleado.EmpEmail, OCKO_TblEmpleado.EmpDireccion, OCKO_TblEmpleado.EmpTelefono, OCKO_TblEmpleado.CodCargo, OCKO_TblCargo.CarNombre FROM OCKO_TblEmpleado INNER JOIN OCKO_TblCargo ON OCKO_TblEmpleado.CodCargo = OCKO_TblCargo.CarId WHERE (OCKO_TblEmpleado.EmpJefe = 'Y')"></asp:SqlDataSource>

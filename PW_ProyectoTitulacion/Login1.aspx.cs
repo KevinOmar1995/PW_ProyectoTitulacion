@@ -20,7 +20,7 @@ namespace PW_ProyectoTitulacion
         OCKOEmpleadoUsuario usuarioClass = new OCKOEmpleadoUsuario();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            string a = "";
         }
 
         protected void Login1_Authenticate(object sender, AuthenticateEventArgs e)

@@ -15,7 +15,7 @@ namespace PW_ProyectoTitulacion.RRHH
         OCKO_StoreProcedureAction storeProClass = new OCKO_StoreProcedureAction();
         OCKOCargo cargoClass = new OCKOCargo();
         OCKOValidaciones validacionesClass = new OCKOValidaciones();
-        int Cargo;
+        int Cargo, jefe,Empresa;
         string CargoAplicar,mensaje;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -85,75 +85,95 @@ namespace PW_ProyectoTitulacion.RRHH
         }
         protected void Guardar_Click(object sender, EventArgs e)
         {
-            if (validacionesClass.ValidarCedula(txtCedula.Text))
+            CargoAplicar = ddlCargoAplicar.SelectedValue;
+            Cargo = Convert.ToInt32(ddlCargo.SelectedValue);
+            jefe = Convert.ToInt32(ddljefeInmediato.SelectedValue);
+            Empresa = Convert.ToInt32(ddlEmpresa.SelectedValue);
+
+            if (CargoAplicar != "--Seleccionar--" && Cargo != 0 && jefe != 0 && Empresa != 0)
             {
-                try
+                if (empleadoClass.BuscarCedula(txtCedula.Text))
                 {
-                    CargoAplicar = ddlCargoAplicar.SelectedValue;
-                    Cargo = Convert.ToInt32(ddlCargo.SelectedValue);
-                    OCKO_TblEmpleado empleado = new OCKO_TblEmpleado();
-                    empleado.EmpCedula = txtCedula.Text;
-                    empleado.EmpPrimerNombre = txtPrimerNombre.Text;
-                    empleado.EmpSegundoNombre = txtSegundoNombre.Text;
-                    empleado.EmpPrimerApellido = txtPrimerApellido.Text;
-                    empleado.EmpSegundoApellidos = txtSegunfoApellido.Text;
-                    empleado.EmpEmail = txtEmail.Text;
-                    empleado.EmpDireccion = txtDireccion.Text;
-                    if (RadioMasculino.Checked == true)
-                        empleado.EmpGenero = "M";
-                    else
-                        empleado.EmpGenero = "F";
+                    if (validacionesClass.ValidarCedula(txtCedula.Text))
+                    {
+                        try
+                        {
+                            OCKO_TblEmpleado empleado = new OCKO_TblEmpleado();
+                            empleado.EmpCedula = txtCedula.Text;
+                            empleado.EmpPrimerNombre = txtPrimerNombre.Text;
+                            empleado.EmpSegundoNombre = txtSegundoNombre.Text;
+                            empleado.EmpPrimerApellido = txtPrimerApellido.Text;
+                            empleado.EmpSegundoApellidos = txtSegunfoApellido.Text;
+                            empleado.EmpEmail = txtEmail.Text;
+                            empleado.EmpDireccion = txtDireccion.Text;
+                            if (RadioMasculino.Checked == true)
+                                empleado.EmpGenero = "M";
+                            else
+                                empleado.EmpGenero = "F";
 
-                    empleado.EmpFechaNacimiento = Convert.ToDateTime(txtFechaNacimiento.Text).Date;
-                    empleado.EmpTelefono = txttelefono.Text;
-                    if (CargoAplicar == "Empleado")
-                    {
-                        int jefe = Convert.ToInt32(ddljefeInmediato.SelectedValue);
-                        empleado.EmpJefeId = jefe;
-                        empleado.EmpJefe = "N";
-                    }
-                    else
-                    if (CargoAplicar == "Jefe")
-                    {
-                        empleado.EmpJefe = "Y";
-                    }
-                    empleado.CodCargo = Cargo;
-                    empleado.CodEmpresa = Convert.ToInt32(ddlEmpresa.SelectedValue);
-                    empleado.EmpFechaContratacion = Convert.ToDateTime(DateTime.Today).Date;
-                    empleadoClass.OckoGuardarEmpleado(empleado);
+                            empleado.EmpFechaNacimiento = Convert.ToDateTime(txtFechaNacimiento.Text).Date;
+                            empleado.EmpTelefono = txttelefono.Text;
+                            if (CargoAplicar == "Empleado")
+                            {
 
-                    // insertar Procedure al Nuevo Usuario
-                    if (CargoAplicar == "Empleado")
-                    {
-                        if (Cargo == 1)
-                            storeProClass.GuardaUsuario(5);
-                        else if (Cargo == 2)
-                            storeProClass.GuardaUsuario(6);
-                        else
-                            storeProClass.GuardaUsuario(1);
+                                empleado.EmpJefeId = jefe;
+                                empleado.EmpJefe = "N";
+                            }
+                            else
+                            if (CargoAplicar == "Jefe")
+                            {
+                                empleado.EmpJefe = "Y";
+                            }
+                            empleado.CodCargo = Cargo;
+                            empleado.CodEmpresa = Empresa;
+                            empleado.EmpFechaContratacion = Convert.ToDateTime(DateTime.Today).Date;
+                            empleadoClass.OckoGuardarEmpleado(empleado);
+
+                            // insertar Procedure al Nuevo Usuario
+                            if (CargoAplicar == "Empleado")
+                            {
+                                if (Cargo == 1)
+                                    storeProClass.GuardaUsuario(5);
+                                else if (Cargo == 2)
+                                    storeProClass.GuardaUsuario(6);
+                                else
+                                    storeProClass.GuardaUsuario(1);
+                            }
+                            else
+                            if (CargoAplicar == "Jefe")
+                            {
+                                if (Cargo == 1)
+                                    storeProClass.GuardaUsuario(3);
+                                else if (Cargo == 2)
+                                    storeProClass.GuardaUsuario(4);
+                            }
+                            mensaje = "Empleado Contratado";
+                            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "Mensaje('" + mensaje + "');", true);
+                            Guardar.Enabled = false;
+                        }
+                        catch (Exception ex)
+                        {
+
+                            Session["ERROR_RRHH"] = ex;
+                            Response.Redirect("RRHH_ERROR.aspx");
+                        }
                     }
                     else
-                    if (CargoAplicar == "Jefe")
                     {
-                        if (Cargo == 1)
-                            storeProClass.GuardaUsuario(3);
-                        else if (Cargo == 2)
-                            storeProClass.GuardaUsuario(4);
+                        mensaje = "Cedula Invalida";
+                        ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "Mensaje('" + mensaje + "');", true);
                     }
-                    mensaje = "Empleado Contratado" ;
-                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "Mensaje('" + mensaje + "');", true);
-                    Guardar.Enabled = false;
                 }
-                catch (Exception ex)
+                else
                 {
-                    mensaje = "Algo Salio Mal"+ex;
-                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "Mensaje('" + mensaje + "');", true);
+                    mensaje = "Esta Cedula "+txtCedula.Text+"Ya existe !!";
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "MensajeError('" + mensaje + "');", true);
                 }
             }
             else
             {
-                mensaje = "Cedula Invalida";
-                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "Mensaje('" + mensaje + "');", true);
+                mensaje = "No ha seleccionado algunos items";
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "MensajeError('" + mensaje + "');", true);
             }
         }
     }

@@ -22,15 +22,6 @@ namespace PW_ProyectoTitulacion.RRHH {
         protected global::System.Web.UI.WebControls.Panel pnlBotones;
         
         /// <summary>
-        /// Control SubmitBtn.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton SubmitBtn;
-        
-        /// <summary>
         /// Control grvJefes.
         /// </summary>
         /// <remarks>

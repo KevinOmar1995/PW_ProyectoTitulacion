@@ -27,6 +27,20 @@ namespace CapaNegocio
             return nom;
         }
 
+        public bool BuscarCedula(string cedula)
+        {
+            var nom = OckoDc.OCKO_TblEmpleado.FirstOrDefault(usu => usu.EmpCedula.Equals(cedula));
+            if (nom == null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
+        }
+
         //Crud
         public void OckoGuardarEmpleado(OCKO_TblEmpleado Empleado)
         {
