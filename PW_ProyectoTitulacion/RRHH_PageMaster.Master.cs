@@ -10,8 +10,12 @@ namespace PW_ProyectoTitulacion
 {
     public partial class RRHH_PageMaster : System.Web.UI.MasterPage
     {
-        public String sesion;
+        public String sesion,Empresa, sesionNombre;
+
         OCKOEmpleadoUsuario usu = new OCKOEmpleadoUsuario();
+        OCKO_TblEmpleado empleadoTable = new OCKO_TblEmpleado();
+        OCKO_TblEmpresa empresaTable = new OCKO_TblEmpresa();
+        OCKOEmpresa empresaClass = new OCKOEmpresa();
         OCKO_TblUsuario tblusuario = new OCKO_TblUsuario();
         OCKOTipoEvaluacion evaluacion = new OCKOTipoEvaluacion();
         protected void Page_Load(object sender, EventArgs e)
@@ -25,8 +29,11 @@ namespace PW_ProyectoTitulacion
             if (Session["Username"] != null)
             {
                 tblusuario = usu.OckoBbuscarPorNombre(Session["Username"].ToString()) ;
-
+                empleadoTable = usu.BuscarIdEmpleado(tblusuario.UsuId);
+                empresaTable = empresaClass.BuscarIdEmpresa(Convert.ToInt32(empleadoTable.CodEmpresa));
+                Empresa = empresaTable.EmpNombre;
                 sesion = tblusuario.Usunombre.ToUpper();
+                sesionNombre = empleadoTable.EmpPrimerNombre.ToUpper() + " "+ empleadoTable.EmpPrimerApellido.ToUpper();
             }
             else
             {

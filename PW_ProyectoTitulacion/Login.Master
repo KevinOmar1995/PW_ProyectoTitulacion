@@ -16,9 +16,52 @@
     <!-- text fonts -->
     <link rel="stylesheet" href="assets/css/fonts.googleapis.com.css" />
     <!-- ace styles -->
-    <script src="assets/js/SweetAlert.js"></script>
     <link rel="stylesheet" href="assets/css/ace.min.css" />
+    <script src="../assets/js/SweetAlert.js"></script>
+    <script src="assets/js/SweetAlert.js"></script>
+    <script type="text/javascript">
+        function MensajeError(letra) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops.. ',
+                text: letra,
+            })
+            //window.location.href = window.location.href;
 
+        }
+
+        function MensajeGuardado(letra) {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Nuevo ' + letra + ' ha sido creado',
+                showConfirmButton: false,
+                timer: 3000
+            });
+
+        }
+
+        function MensajeEditado(letra) {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Ha editado ' + letra + ' Correctamente ',
+                showConfirmButton: false,
+                timer: 3000
+            });
+
+        }
+        function MensajeEliminar(letra) {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Se he Eliminado ' + letra + ' Correctamente ',
+                showConfirmButton: false,
+                timer: 3000
+            });
+
+        }
+    </script>
 </head>
 <body class="login-layout">
     <form runat="server">

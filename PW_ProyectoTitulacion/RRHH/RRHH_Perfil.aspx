@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/RRHH_PageMaster.Master" AutoEventWireup="true" CodeBehind="RRHH_Perfil.aspx.cs" Inherits="PW_ProyectoTitulacion.RRHH.RRHH_Perfil" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -65,18 +66,28 @@
                 </div>
 
                 <hr />
+
+
                 <div class="form-group">
-                    <label class="col-sm-3 control-label no-padding-right" for="form-field-date">Fecha Nacimiento</label>
+                    <label class="col-sm-3 control-label no-padding-right">Fecha Nacimiento :</label>
 
                     <div class="col-sm-9">
-                        <div class="input-medium">
-                            <div class="input-group">
-                                <asp:TextBox ID="txtFechaNacimiento" class="col-xs-12 col-sm-20" placeholder="mm/dd/yyyy" TextMode="Date" runat="server"></asp:TextBox>
-                                <span class="input-group-addon">
-                                    <i class="ace-icon fa fa-calendar"></i>
-                                </span>
-                            </div>
-                        </div>
+                        <label class="inline">
+                            <asp:TextBox ID="txtFechaNacimiento" class="lbl middle" runat="server"></asp:TextBox>
+                        </label>
+
+                        &nbsp; &nbsp; &nbsp;
+						<label class="inline">
+                            <asp:ImageButton ID="ImageButton1" class="lbl middle" runat="server" Height="31px" ImageUrl="~/assets/images/gallery/calentar.png" Width="35px" OnClick="ImageButton1_Click" />
+                        </label>
+                        <asp:Calendar ID="calendarFechaNacimiento" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="350px" OnDayRender="calendarFechaNacimiento_DayRender" OnSelectionChanged="calendarFechaNacimiento_SelectionChanged">
+                            <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
+                            <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" VerticalAlign="Bottom" />
+                            <OtherMonthDayStyle ForeColor="#999999" />
+                            <SelectedDayStyle BackColor="#333399" ForeColor="White" />
+                            <TitleStyle BackColor="White" BorderColor="Black" BorderWidth="4px" Font-Bold="True" Font-Size="12pt" ForeColor="#333399" />
+                            <TodayDayStyle BackColor="#CCCCCC" />
+                        </asp:Calendar>
                     </div>
                 </div>
                 <hr />
@@ -160,7 +171,7 @@
                         </span>
                     </div>
                 </div>
-                
+
                 <div class="space-4"></div>
                 <div class="space-10"></div>
             </div>
@@ -186,19 +197,20 @@
                     </div>
 
                     <hr>
-                   
+
                     <div class="row">
                         <div class="col-xs-12 col-sm-8">
                             <div class="form-group">
                                 <label class="col-sm-4 control-label no-padding-right" for="form-field-username"></label>
                                 <div class="col-sm-8">
-                                    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#editar"><a class="fa fa-pencil"></a>
-                                            Cambiar Contraseña
+                                    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#editar">
+                                        <a class="fa fa-pencil"></a>
+                                        Cambiar Contraseña
                                     </button>
                                 </div>
                             </div>
                             <div class="space-10"></div>
-                          
+
                         </div>
                     </div>
                 </div>
@@ -208,16 +220,8 @@
 
     <div class="clearfix form-actions">
         <div class="col-md-offset-3 col-md-9">
-            <button class="btn btn-info" type="button">
-                <i class="ace-icon fa fa-check bigger-110"></i>
-                Save
-            </button>
+            <asp:Button ID="Guardar" class="btn btn-info" runat="server" Text="Guardar" OnClick="Guardar_Click" />
 
-            &nbsp; &nbsp;
-			<button class="btn" type="reset">
-                <i class="ace-icon fa fa-undo bigger-110"></i>
-                Reset
-            </button>
         </div>
     </div>
 
@@ -227,23 +231,31 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5  class="modal-title" id="label">Cambiar Contraseña </h5>
+                    <h5 class="modal-title" id="label">Cambiar Contraseña </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    
-                    <asp:TextBox runat="server" ID="txtContraseñaNueva" CssClass="form-control" placeholder="NUeva Contraseña"/>
-                     <br />
-                    <asp:TextBox runat="server" ID="txtConfirmarContraseña"  CssClass="form-control" placeholder="Confirmar Contraseña"/>
-                    <asp:HiddenField runat="server" ID="hdId"   />
+
+                    <asp:TextBox runat="server" ID="txtContraseñaNueva" CssClass="form-control check-seguridad" placeholder="NUeva Contraseña" />
+                    <br />
+                    <asp:TextBox runat="server" ID="txtConfirmarContraseña" CssClass="form-control" placeholder="Confirmar Contraseña" />
+                    <asp:HiddenField runat="server" ID="hdId" />
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <asp:LinkButton runat="server" CssClass="btn btn-success" OnClick="btnCambiarContraseña_Click" ID="btnCambiarContraseña" Text="Guardar" ></asp:LinkButton>
+                    <asp:LinkButton runat="server" CssClass="btn btn-success" OnClick="btnCambiarContraseña_Click" ID="btnCambiarContraseña" Text="Guardar"></asp:LinkButton>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        $('.check-seguridad').strength({
+            templates: {
+                toggle: ‘< span class= "input-group-addon" > <span class="glyphicon glyphicon-eye-open {toggleClass}"></span></span>’
+        }
+        });
+
+    </script>
 </asp:Content>

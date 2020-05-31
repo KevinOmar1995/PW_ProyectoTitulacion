@@ -66,6 +66,7 @@
       <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -144,19 +145,8 @@
     <Content Include="assets\images\email\email3.png" />
     <Content Include="assets\images\email\email4.png" />
     <Content Include="assets\images\gallery\Calendar.jpg" />
-    <Content Include="assets\images\gallery\image-1.jpg" />
-    <Content Include="assets\images\gallery\image-2.jpg" />
-    <Content Include="assets\images\gallery\image-3.jpg" />
-    <Content Include="assets\images\gallery\image-4.jpg" />
-    <Content Include="assets\images\gallery\image-5.jpg" />
-    <Content Include="assets\images\gallery\image-6.jpg" />
+    <Content Include="assets\images\gallery\calentar.png" />
     <Content Include="assets\images\gallery\img.png" />
-    <Content Include="assets\images\gallery\thumb-1.jpg" />
-    <Content Include="assets\images\gallery\thumb-2.jpg" />
-    <Content Include="assets\images\gallery\thumb-3.jpg" />
-    <Content Include="assets\images\gallery\thumb-4.jpg" />
-    <Content Include="assets\images\gallery\thumb-5.jpg" />
-    <Content Include="assets\images\gallery\thumb-6.jpg" />
     <Content Include="assets\images\placeholder\165x90.png" />
     <Content Include="assets\images\placeholder\255x150.png" />
     <Content Include="assets\images\placeholder\530x270.png" />
@@ -194,6 +184,7 @@
     <Content Include="assets\js\jquery-1.11.3.min.js" />
     <Content Include="assets\js\jquery-2.1.4.min.js" />
     <Content Include="assets\js\jquery-additional-methods.min.js" />
+    <Content Include="assets\js\jquery-strength.js" />
     <Content Include="assets\js\jquery-typeahead.js" />
     <Content Include="assets\js\jquery-ui.custom.min.js" />
     <Content Include="assets\js\jquery-ui.min.js" />
@@ -221,6 +212,7 @@
     <Content Include="assets\js\jquery.validate.min.js" />
     <Content Include="assets\js\markdown.min.js" />
     <Content Include="assets\js\moment.min.js" />
+    <Content Include="assets\js\password_strength.js" />
     <Content Include="assets\js\prettify.min.js" />
     <Content Include="assets\js\respond.min.js" />
     <Content Include="assets\js\select2.min.js" />
@@ -235,6 +227,7 @@
     <Content Include="css\bootstrap-reboot.css" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap1.css" />
+    <Content Include="css\strength.css" />
     <Content Include="Default.aspx" />
     <Content Include="Empleados\Empleado_Asignadas.aspx" />
     <Content Include="Empleados\Empleado_EvaluacionAsignadas.aspx" />
@@ -263,7 +256,6 @@
     <Content Include="RRHH\RRHH_CategoriaPreguntas.aspx" />
     <Content Include="RRHH\RRHH_Configuracion.aspx" />
     <Content Include="RRHH\RRHH_ContratacionBasica.aspx" />
-    <Content Include="RRHH\RRHH_EmployeCreate.aspx" />
     <Content Include="RRHH\RRHH_EmpleadosLista.aspx" />
     <Content Include="RRHH\RRHH_ERROR.aspx" />
     <Content Include="RRHH\RRHH_EvaluacionesPendientes.aspx" />
@@ -544,13 +536,6 @@
     </Compile>
     <Compile Include="RRHH\RRHH_ContratacionBasica.aspx.designer.cs">
       <DependentUpon>RRHH_ContratacionBasica.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="RRHH\RRHH_EmployeCreate.aspx.cs">
-      <DependentUpon>RRHH_EmployeCreate.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="RRHH\RRHH_EmployeCreate.aspx.designer.cs">
-      <DependentUpon>RRHH_EmployeCreate.aspx</DependentUpon>
     </Compile>
     <Compile Include="RRHH\RRHH_EmpleadosLista.aspx.cs">
       <DependentUpon>RRHH_EmpleadosLista.aspx</DependentUpon>

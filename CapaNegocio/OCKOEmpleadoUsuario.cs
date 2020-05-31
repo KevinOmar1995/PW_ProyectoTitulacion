@@ -26,6 +26,7 @@ namespace CapaNegocio
             var nom = OckoDc.OCKO_TblEmpleado.FirstOrDefault(usu => usu.EmpCedula.Equals(cedula));
             return nom;
         }
+
         //Crud
         public void OckoGuardarEmpleado(OCKO_TblEmpleado Empleado)
         {
@@ -58,6 +59,22 @@ namespace CapaNegocio
             var nom = OckoDc.OCKO_TblUsuario.FirstOrDefault(usu => usu.Usunombre.Equals(usuario));
             return nom;
         }
+
+        public bool BuscarUsuario(String usuario)
+        {
+            var nom = OckoDc.OCKO_TblUsuario.FirstOrDefault(usu => usu.Usunombre.Equals(usuario));
+            if (nom != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+           
+        }
+
+
         public OCKO_TblUsuario OckoBuscarPorId(int id)
         {
             var usu = OckoDc.OCKO_TblUsuario.First(u => u.UsuId == id);

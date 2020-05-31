@@ -67,6 +67,24 @@ namespace PW_ProyectoTitulacion.RRHH {
         protected global::System.Web.UI.WebControls.TextBox txtFechaNacimiento;
         
         /// <summary>
+        /// Control ImageButton1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton ImageButton1;
+        
+        /// <summary>
+        /// Control calendarFechaNacimiento.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar calendarFechaNacimiento;
+        
+        /// <summary>
         /// Control radioMasculino.
         /// </summary>
         /// <remarks>
@@ -130,6 +148,15 @@ namespace PW_ProyectoTitulacion.RRHH {
         protected global::System.Web.UI.WebControls.TextBox txtUsuario;
         
         /// <summary>
+        /// Control Guardar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Guardar;
+        
+        /// <summary>
         /// Control txtContraseñaNueva.
         /// </summary>
         /// <remarks>
@@ -139,13 +166,13 @@ namespace PW_ProyectoTitulacion.RRHH {
         protected global::System.Web.UI.WebControls.TextBox txtContraseñaNueva;
         
         /// <summary>
-        /// Control txtConfirmarContraseña  .
+        /// Control txtConfirmarContraseña.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtConfirmarContraseña  ;
+        protected global::System.Web.UI.WebControls.TextBox txtConfirmarContraseña;
         
         /// <summary>
         /// Control hdId.
