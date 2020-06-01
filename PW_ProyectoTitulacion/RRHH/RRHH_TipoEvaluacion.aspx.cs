@@ -17,18 +17,25 @@ namespace PW_ProyectoTitulacion.RRHH
         {
 
         }
-
+        private bool validarCamposCreate()
+        {
+            if (txtEvaluacionCreate.Text == "" || txtEvaDescripcionCreate.Text == "")
+                return false;
+            else
+                return true;
+        }
         protected void SubmitBtn_Click(object sender, EventArgs e)
         {
             
             try
             {
+               
                 bool respuesta;
                 OCKO_TblTipoEvaluacion evaluacion = tipoEvaluacionClass.BuscarIdTipoEvaluacion(Convert.ToInt32(hdId.Value));
                 respuesta = tipoEvaluacionClass.eliminarEvaluacion(evaluacion);
                 if (!respuesta)
                 {
-                    mensaje = "La " + evaluacion.TipEvaluacion + " està atada a una asignaciòn";
+                    mensaje = "La " + evaluacion.TipEvaluacion + " está atada a una asignaciòn";
                     ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "MensajeError('" + mensaje + "');", true);
                 }
                 else
@@ -37,6 +44,8 @@ namespace PW_ProyectoTitulacion.RRHH
                     ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "MensajeEliminar('" + mensaje + "');", true);
                     ClientScript.RegisterStartupScript(this.GetType(), "", " setTimeout('window.location.href = window.location.href', 3000);", true);
                 }
+               
+                
             }
             catch (Exception ex)
             {
@@ -69,18 +78,34 @@ namespace PW_ProyectoTitulacion.RRHH
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-           
+
             try
             {
                 OCKO_TblTipoEvaluacion Evaluacion = new OCKO_TblTipoEvaluacion();
+                if (this.validarCamposCreate())
+                {
 
-                Evaluacion.TipEvaluacion = txtEvaluacionCreate.Text.ToUpper();
-                Evaluacion.TipDescripcion = txtEvaDescripcionCreate.Text.ToUpper();
-
-                tipoEvaluacionClass.GuardarEvaluacion(Evaluacion);
-                mensaje = "Evaluación";
-                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "MensajeGuardado('" + mensaje + "');", true);
-                ClientScript.RegisterStartupScript(this.GetType(), "", " setTimeout('window.location.href = window.location.href', 3000);", true);
+                    if (tipoEvaluacionClass.BuscarEvaluacion(txtEvaluacionCreate.Text))
+                    {
+                        Evaluacion.TipEvaluacion = txtEvaluacionCreate.Text.ToUpper();
+                        Evaluacion.TipDescripcion = txtEvaDescripcionCreate.Text.ToUpper();
+                        tipoEvaluacionClass.GuardarEvaluacion(Evaluacion);
+                        mensaje = "Evaluación";
+                        ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "MensajeGuardado('" + mensaje + "');", true);
+                        ClientScript.RegisterStartupScript(this.GetType(), "", " setTimeout('window.location.href = window.location.href', 3000);", true);
+                    }
+                    else
+                    {
+                        mensaje = "La Evaluacion Ya Existe !!";
+                        ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "MensajeError('" + mensaje + "');", true);
+                        ClientScript.RegisterStartupScript(this.GetType(), "", " setTimeout('window.location.href = window.location.href', 3000);", true);
+                    }
+                }
+                else
+                {
+                    mensaje = "No se acepta campos vacios";
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "MensajeError('" + mensaje + "');", true);
+                }
             }
             catch (Exception ex)
             {

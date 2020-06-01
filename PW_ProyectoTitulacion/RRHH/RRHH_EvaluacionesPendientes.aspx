@@ -2,7 +2,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:GridView CssClass="table table-condensed table-hover" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="TipId" DataSourceID="sqlEvaluaciones">
+    <asp:GridView CssClass="table table-condensed table-hover" caption="Evaluaciones Pendientes"   emptydatatext="No hay Registros." ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="TipId" DataSourceID="sqlEvaluaciones" AllowPaging="True" AllowSorting="True" CellPadding="4" ForeColor="#333333" GridLines="None">
+        <AlternatingRowStyle BackColor="White" />
         <Columns>
              <asp:TemplateField>
                 <ItemTemplate>
@@ -15,6 +16,17 @@
             <asp:BoundField DataField="evaResultado" HeaderText="Resultado" visible="false" SortExpression="evaResultado" />
             <asp:BoundField DataField="TipId" HeaderText="TipId" Visible="false" InsertVisible="False" ReadOnly="True" SortExpression="TipId" />
         </Columns>
+
+        <EditRowStyle BackColor="#2461BF" />
+        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+        <RowStyle BackColor="#EFF3FB" />
+        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+        <SortedAscendingCellStyle BackColor="#F5F7FB" />
+        <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+        <SortedDescendingCellStyle BackColor="#E9EBEF" />
+        <SortedDescendingHeaderStyle BackColor="#4870BE" />
 
     </asp:GridView>
 

@@ -16,6 +16,14 @@ namespace CapaNegocio
             var usu = OckoDc.OCKO_TblTipoEvaluacion.First(u => u.TipId == id);
             return usu;
         }
+        public bool BuscarEvaluacion(string nombre)
+        {
+            var usu = OckoDc.OCKO_TblTipoEvaluacion.FirstOrDefault(u => u.TipEvaluacion.Equals(nombre));
+            if (usu == null)
+                return true;
+            else
+                return false;
+        }
         //Eliminar
 
         //public void eliminarEvaluacion(OCKO_TblTipoEvaluacion usu)
@@ -53,6 +61,7 @@ namespace CapaNegocio
         {
             return OckoDc.OCKO_TblTipoEvaluacion.ToList();
         }
+
 
     }
 }

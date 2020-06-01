@@ -36,7 +36,7 @@
     <div style="width:100%;"> 
     <asp:UpdatePanel runat="server" Style="float: left" Width="100%" ID="panel">
         <ContentTemplate>
-            <asp:GridView CssClass="table table-condensed table-hover" Caption="Empleados" Width="100%" ID="GrvCliente" runat="server" OnSelectedIndexChanged="GrvCliente_SelectedIndexChanged" AutoGenerateColumns="False" DataKeyNames="EmpId,CarId" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" CellPadding="4" ForeColor="#333333" GridLines="None">
+            <asp:GridView CssClass="table table-condensed table-hover" Caption="Empleados" Width="119%" ID="GrvCliente" runat="server" OnSelectedIndexChanged="GrvCliente_SelectedIndexChanged" AutoGenerateColumns="False" DataKeyNames="EmpId,CarId" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" CellPadding="4" ForeColor="#333333" GridLines="None">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:TemplateField>

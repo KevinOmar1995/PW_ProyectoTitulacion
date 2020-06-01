@@ -213,15 +213,6 @@
                 <div class="space-4"></div>
                 <div class="space-10"></div>
                 <div class="space-4"></div>
-                <div class="space-10"></div>
-                <div class="space-4"></div>
-                <div class="space-4"></div>
-                <div class="space-10"></div>
-                <div class="space-4"></div>
-                <div class="space-10"></div>
-                <div class="space-4"></div>
-                <div class="space-10"></div>
-                <div class="space-10"></div>
             </div>
 
         </div>
