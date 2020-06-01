@@ -7,15 +7,30 @@
 
 
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+     <p class="alert alert-info"><b>Asignación por Empleado</b></p>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
-            <asp:DropDownList ID="ddlEvaluaciones" runat="server"></asp:DropDownList>
+            <asp:Panel runat="server" Height="50px">
+                <asp:Table ID="Table1" runat="server" Width="390px">
+                     <asp:TableRow>
+                         <asp:TableCell >
+                                Evaluaciones :
+                                <asp:DropDownList ID="ddlEvaluaciones" runat="server"></asp:DropDownList>
+                         </asp:TableCell>
+                         <asp:TableCell>
+                                        Cedula :
+                                <asp:TextBox ID="TxtCedula" runat="server"></asp:TextBox>
+                         </asp:TableCell>
+                     </asp:TableRow>
+                </asp:Table>
+            </asp:Panel>
+            
             <br>
-            <asp:TextBox ID="TxtCedula" runat="server"></asp:TextBox>
+            
             
             <asp:Label ID="lblMensajevisto" ForeColor="Green" runat="server" Text=""></asp:Label>
             <asp:Label ID="LblMensajeMalo" ForeColor="red" runat="server" Text=""></asp:Label>
-            <asp:GridView CssClass="table table-condensed table-hover" OnSelectedIndexChanged="gvrEmpelados_SelectedIndexChanged" ID="gvrEmpelados" runat="server" AutoGenerateColumns="False" DataKeyNames="EmpId" DataSourceID="SqlDataSource1">
+            <asp:GridView CssClass="table table-condensed table-hover"  caption="Empleado"   emptydatatext="No hay Registros." OnSelectedIndexChanged="gvrEmpelados_SelectedIndexChanged" ID="gvrEmpelados" runat="server" AutoGenerateColumns="False" DataKeyNames="EmpId" DataSourceID="SqlDataSource1">
                 <Columns>
                     <asp:TemplateField>
                         <ItemTemplate>

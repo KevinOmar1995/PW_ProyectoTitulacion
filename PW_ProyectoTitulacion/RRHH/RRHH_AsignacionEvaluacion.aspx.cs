@@ -16,6 +16,7 @@ namespace PW_ProyectoTitulacion.RRHH
         OCKOEvaluacionEmpleado evaEmpleado = new OCKOEvaluacionEmpleado();
         OCKO_TblEvaluacionEmpleado _OCKO_TblEvaluacionEmpleado = new OCKO_TblEvaluacionEmpleado();
         int codevaluacion;
+        string mensaje;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -48,33 +49,44 @@ namespace PW_ProyectoTitulacion.RRHH
             {
                 lblMensajevisto.Text = String.Empty;
                 codevaluacion = Convert.ToInt32(ddlEvaluaciones.SelectedValue);
-                GridViewRow row = gvrEmpelados.SelectedRow;
-                string id = row.Cells[0].Text;
-                int idEmpleado = Convert.ToInt32(id);
-                DateTime tiempo = DateTime.UtcNow;
-                int resultado = 0;
-                _OCKO_TblEvaluacionEmpleado.CodEmpleado = idEmpleado;
-                _OCKO_TblEvaluacionEmpleado.EvaFecha = tiempo;
-                _OCKO_TblEvaluacionEmpleado.EvaResultado = resultado;
-                bool existe = OCKOEvaluacionEmpleado.AsignacionEvaluacion(idEmpleado, codevaluacion);
-                if (!existe)
+                if (codevaluacion != 0)
                 {
-                    evaEmpleado.GuardarEvaluacionEmpleado(_OCKO_TblEvaluacionEmpleado);
-                    lblMensajevisto.ForeColor = System.Drawing.Color.Green;
-                    lblMensajevisto.Text = "Registrado con Exito ";
-                    
+                    GridViewRow row = gvrEmpelados.SelectedRow;
+                    string id = row.Cells[1].Text;
+                    int idEmpleado = Convert.ToInt32(id);
+                    DateTime tiempo = DateTime.UtcNow;
+                    int resultado = 0;
+                    _OCKO_TblEvaluacionEmpleado.CodEmpleado = idEmpleado;
+                    _OCKO_TblEvaluacionEmpleado.EvaFecha = tiempo;
+                    _OCKO_TblEvaluacionEmpleado.EvaResultado = resultado;
+                    bool existe = OCKOEvaluacionEmpleado.AsignacionEvaluacion(idEmpleado, codevaluacion);
+                    if (!existe)
+                    {
+                        evaEmpleado.GuardarEvaluacionEmpleado(_OCKO_TblEvaluacionEmpleado);
+                        mensaje = " Evaluación asignada ";
+                        ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "MensajeGuardado('" + mensaje + "');", true);
+
+                    }
+                    else
+                    {
+                        lblMensajevisto.ForeColor = System.Drawing.Color.Red;
+                        lblMensajevisto.Text = "";
+                        mensaje = "Esta Evaluacion ya ha sido asignada";
+                        ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "MensajeError('" + mensaje + "');", true);
+
+                    }
                 }
                 else
                 {
-                    lblMensajevisto.ForeColor = System.Drawing.Color.Red;
-                    lblMensajevisto.Text = "Evaluacion ya está asignada ";
-                    
+                    mensaje = "Seleccione una Evaluación";
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "MensajeError('" + mensaje + "');", true);
                 }
-                
+
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('Sucedio un Error ');window.location.href='RRHH_AsignacionEvaluacion.aspx';</script>");
+                Session["ERROR_RRHH"] = ex;
+                Response.Redirect("RRHH_ERROR.aspx");
             }
         }
 

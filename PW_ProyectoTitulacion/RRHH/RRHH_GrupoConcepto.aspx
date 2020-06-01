@@ -15,23 +15,39 @@
     </button>
     </asp:Panel>
      <asp:Panel runat="server" style="float:left" Width="100%" ID="p">
-        <asp:GridView CssClass="table table-condensed table-hover" ID="GridView1" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="False" DataKeyNames="GruId" DataSourceID="SqlDataSource1">
+        <asp:GridView CssClass="table table-condensed table-hover" ID="GridView1" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="False" DataKeyNames="GruId" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" CellPadding="4" ForeColor="#333333" GridLines="None">
+            <AlternatingRowStyle BackColor="White" />
             <Columns>
-                    <asp:TemplateField>
+                <asp:TemplateField>
                     <ItemTemplate>
                         <%#Container.DataItemIndex +1 %>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:BoundField DataField="GruId"  HeaderStyle-CssClass="hidden" ItemStyle-CssClass="hidden"   HeaderText="GruId" SortExpression="GruId" />
+                <asp:BoundField DataField="GruId" HeaderStyle-CssClass="hidden" HeaderText="GruId" ItemStyle-CssClass="hidden" SortExpression="GruId">
+                <HeaderStyle CssClass="hidden" />
+                <ItemStyle CssClass="hidden" />
+                </asp:BoundField>
                 <asp:BoundField DataField="GruNombre" HeaderText="GruNombre" SortExpression="GruNombre" />
-                <asp:BoundField DataField="GruMinimo"   HeaderText="Minimo %" SortExpression="Minimo %" ReadOnly="true" /> 
-                <asp:BoundField DataField="GruPeso"   HeaderText="Porcetaje Optimo %" SortExpression="Porcentaje" />
-                <asp:CommandField ShowSelectButton="True"  ControlStyle-CssClass="btn btn-blue" ButtonType="Button" ShowHeader="True" HeaderText=""></asp:CommandField>
+                <asp:BoundField DataField="GruMinimo" HeaderText="Minimo %" ReadOnly="true" SortExpression="Minimo %" />
+                <asp:BoundField DataField="GruPeso" HeaderText="Porcetaje Optimo %" SortExpression="Porcentaje" />
+                <asp:CommandField ButtonType="Button" ControlStyle-CssClass="btn btn-blue" HeaderText="" ShowHeader="True" ShowSelectButton="True">
+                <ControlStyle CssClass="btn btn-blue" />
+                </asp:CommandField>
             </Columns>
+           <EditRowStyle BackColor="#2461BF" />
+        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+        <RowStyle BackColor="#EFF3FB" />
+        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+        <SortedAscendingCellStyle BackColor="#F5F7FB" />
+        <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+        <SortedDescendingCellStyle BackColor="#E9EBEF" />
+        <SortedDescendingHeaderStyle BackColor="#4870BE" />
         </asp:GridView>
     </asp:Panel>
 
-            <div><center>Total Porcentaje  <strong><%=Suma%></strong>/ 100 </center></div>
+            
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
         ConnectionString="<%$ ConnectionStrings:OCKO_EvaluacionPersonal %>" 
         SelectCommand="SELECT OCKO_TblGrupoConceptos.* FROM OCKO_TblGrupoConceptos" >                   
@@ -78,10 +94,6 @@
                 <div class="modal-body">
                     <br />
                     <asp:TextBox runat="server" ID="txtNombreEdit" CssClass="form-control" placeholder="Nombre Grupo"  />
-                    <br />
-                    <asp:TextBox runat="server" ID="txtMinimoEdit"  CssClass="form-control" placeholder="Descripciòn"  />
-                     <br />
-                    <asp:TextBox runat="server" ID="txtPorcentajeEdit" ClientIDMode="Static"  CssClass="m-wrap span12 date form_datetime" placeholder="Fecha Inicio"  /> %
                     <br />
                     
                     <asp:HiddenField runat="server" ID="hdId"   />

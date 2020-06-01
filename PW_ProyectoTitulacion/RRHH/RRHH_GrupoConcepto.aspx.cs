@@ -14,7 +14,6 @@ namespace PW_ProyectoTitulacion.RRHH
         OCKO_TblGrupoConceptos grupoConceptoTable = new OCKO_TblGrupoConceptos();
         String mensaje;
         public int Suma;
-        int SumaVariada;
         protected void Page_Load(object sender, EventArgs e)
         {
             Suma = OCKOGrupoConceptos.SumaPorcentaje();
@@ -38,13 +37,13 @@ namespace PW_ProyectoTitulacion.RRHH
                 hdId.Value = id;
                 OCKO_TblGrupoConceptos grupoPeriodo = grupoConceptoClass.BuscarIdGrupoCategoria(Convert.ToInt32(hdId.Value));
                 txtNombreEdit.Text = grupoPeriodo.GruNombre;
-                txtMinimoEdit.Text = Convert.ToString( grupoPeriodo.GruMinimo);
-                txtPorcentajeEdit.Text = Convert.ToString(grupoPeriodo.GruPeso);
+               // txtMinimoEdit.Text = Convert.ToString( grupoPeriodo.GruMinimo);
+               // txtPorcentajeEdit.Text = Convert.ToString(grupoPeriodo.GruPeso);
             }
             catch (Exception ex)
             {
-                mensaje = "Algo Salio Mal" + ex;
-                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "Mensaje('" + mensaje + "');", true);
+                Session["ERROR_RRHH"] = ex;
+                Response.Redirect("RRHH_ERROR.aspx");
             }
         }
 
@@ -61,14 +60,14 @@ namespace PW_ProyectoTitulacion.RRHH
                     grupoConceptoTable.GruMinimo = Convert.ToInt32(txtMinimo.Text);
                     grupoConceptoTable.GruPeso   = Convert.ToInt32(txtPorcentaje.Text);
                     grupoConceptoClass.GuardarGrupoCategoria(grupoConceptoTable);
-                    mensaje = "Grupo Registrado";
-                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "Mensaje('" + mensaje + "');", true);
+                    mensaje = "Grupo Concepto ";
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "MensajeGuardado('" + mensaje + "');", true);
                 }
             }
             catch (Exception ex)
             {
-                mensaje = "Algo Salio Mal " + ex;
-                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "Mensaje('" + mensaje + "');", true);
+                Session["ERROR_RRHH"] = ex;
+                Response.Redirect("RRHH_ERROR.aspx");
             }
         }
 
@@ -78,17 +77,17 @@ namespace PW_ProyectoTitulacion.RRHH
             {
                 OCKO_TblGrupoConceptos GrupoPeriodoLocal = grupoConceptoClass.BuscarIdGrupoCategoria(Convert.ToInt32(hdId.Value));
                 GrupoPeriodoLocal.GruNombre = txtNombreEdit.Text;
-                GrupoPeriodoLocal.GruMinimo = Convert.ToInt32( txtMinimoEdit.Text);
-                GrupoPeriodoLocal.GruPeso   = Convert.ToInt32(txtPorcentajeEdit.Text);
+                //GrupoPeriodoLocal.GruMinimo = Convert.ToInt32( txtMinimoEdit.Text);
+                //GrupoPeriodoLocal.GruPeso   = Convert.ToInt32(txtPorcentajeEdit.Text);
 
                 grupoConceptoClass.ActualizarGrupoCategoria(GrupoPeriodoLocal);
-                mensaje = "Registro Editado";
-                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "Mensaje('" + mensaje + "');", true);
+                mensaje = " "+GrupoPeriodoLocal.GruNombre;
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "MensajeEditado('" + mensaje + "');", true);
             }
             catch (Exception ex)
             {
-                mensaje = "Algo salio mal " + ex;
-                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "Mensaje('" + mensaje + "');", true);
+                Session["ERROR_RRHH"] = ex;
+                Response.Redirect("RRHH_ERROR.aspx");
             }
         }
 
