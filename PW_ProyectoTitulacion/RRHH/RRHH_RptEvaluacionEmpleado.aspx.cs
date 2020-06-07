@@ -9,16 +9,24 @@ using System.Linq;
 using System.Data.SqlClient;
 using CapaDatos;
 using CapaNegocio;
+
 namespace PW_ProyectoTitulacion.RRHH
 {
-    public partial class RRHH_RptEstadisticos : System.Web.UI.Page
+    public partial class RRHH_RptEvaluacionEmpleado : System.Web.UI.Page
     {
         OCKO_StoreProcedureAction procedureClass = new OCKO_StoreProcedureAction();
-        SqlCommand cmd;
+        public string cedula;
+        public int Evaluacion;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(!IsPostBack)
+            {
+                
+                cedula = Session["Cedula"].ToString();
+                Evaluacion = Convert.ToInt32(Session["Evaluacion"].ToString());
+            }
         }
+
         protected string ObtenerDatos()
         {
             String Strdatos;
@@ -38,7 +46,10 @@ namespace PW_ProyectoTitulacion.RRHH
             //cmd.Parameters.AddWithValue("@evaluacionId", 1);
             //cmd.Connection = conexion;
             //conexion.Open();
-            cmd = procedureClass.TotalesEvaluacion(2);
+           
+            
+               
+            cmd = procedureClass.TotalesEvaluacionxCedula(Evaluacion, cedula);
             Datos.Load(cmd.ExecuteReader());
 
             Strdatos = "[['Tarea', 'Porcentaje'],";
@@ -48,9 +59,19 @@ namespace PW_ProyectoTitulacion.RRHH
                 Strdatos = Strdatos + "'" + dr[0] + "'" + "," + dr[1];
                 Strdatos = Strdatos + "],";
             }
+               
             Strdatos = Strdatos + "]";
-
             return Strdatos;
+        }
+
+        protected void BtnGenerar_Click(object sender, EventArgs e)
+        {
+          
+        }
+
+        protected void Unnamed1_Click(object sender, EventArgs e)
+        {
+            ObtenerDatos();
         }
     }
 }

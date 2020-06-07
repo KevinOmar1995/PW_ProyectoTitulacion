@@ -24,7 +24,7 @@
         <div class="panel panel-primary"> 
             <div class="panel-heading">
                 <asp:scriptmanager runat="server"></asp:scriptmanager>
-                        <h2 class="panel-title"><%if (Session["Categoria"].ToString() == "1") { %> DESEMPEÑO <%} if (Session["Categoria"].ToString() == "2") { %> FACTOR HUMANO - ACTITUD <%} if (Session["Categoria"].ToString() == "3") { %> HABILIDADES <%}%></h2>
+                        <h2 class="panel-title"><%if (Session["Categoria"].ToString() == "1") { %> DESEMPEÑO <%} if (Session["Categoria"].ToString() == "2") { %> FACTOR HUMANO - ACTITUD <%} if (Session["Categoria"].ToString() == "6") { %> HABILIDADES <%}%></h2>
             </div>
             <div class="panel-body">
                  <div class="col-md-11">

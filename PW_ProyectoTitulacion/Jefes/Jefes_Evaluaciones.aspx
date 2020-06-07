@@ -110,7 +110,7 @@ AS Nombres, OCKO_TblEmpleado.EmpCedula, OCKO_TblEmpleado.EmpJefe, OCKO_TblEmplea
  FROM OCKO_TblCargo INNER JOIN OCKO_TblEmpleado ON OCKO_TblCargo.CarId = OCKO_TblEmpleado.CodCargo 
  WHERE (OCKO_TblEmpleado.EmpJefe = N'N') AND (OCKO_TblEmpleado.EmpJefeId = @IdJefe)">
         <SelectParameters>
-            <asp:SessionParameter Name="IdJefe" SessionField="IdJefe" />
+            <asp:SessionParameter Name="IdJefe" SessionField="JefeIdEva" />
         </SelectParameters>
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="sdsEvaluaciones" runat="server" ConnectionString="<%$ ConnectionStrings:OCKO_EvaluacionPersonal %>" 

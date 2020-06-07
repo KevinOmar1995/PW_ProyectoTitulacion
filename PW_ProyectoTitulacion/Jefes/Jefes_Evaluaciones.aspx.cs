@@ -76,6 +76,7 @@ namespace PW_ProyectoTitulacion.Jefes
             {
                 String Strperiodo = "Periodo="+ periodo+"&";
                 String Ruta = Strperiodo+ hd1.Value;
+                Session["Categoria"] = 1;
                 Response.Redirect("Jefes_InicioEvaluacion.aspx?"+ Ruta);
             }
         }

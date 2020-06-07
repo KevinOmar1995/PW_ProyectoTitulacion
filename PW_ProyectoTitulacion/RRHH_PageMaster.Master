@@ -5,7 +5,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta charset="utf-8" />
-    <title>Dashboard - Ace Admin</title>
+    <title>OKSystem-RRHH</title>
 
     <meta name="description" content="overview &amp; stats" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -41,40 +41,40 @@
     </script>
 
    <script>
-  function soloLetras(e) {
-    var key = e.keyCode || e.which,
-      tecla = String.fromCharCode(key).toLowerCase(),
-      letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
-      especiales = [8, 37, 39, 46],
-      tecla_especial = false;
+          function soloLetras(e) {
+            var key = e.keyCode || e.which,
+              tecla = String.fromCharCode(key).toLowerCase(),
+              letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
+              especiales = [8, 37, 39, 46],
+              tecla_especial = false;
 
-    for (var i in especiales) {
-      if (key == especiales[i]) {
-        tecla_especial = true;
-        break;
-      }
-    }
+            for (var i in especiales) {
+              if (key == especiales[i]) {
+                tecla_especial = true;
+                break;
+              }
+            }
 
-    if (letras.indexOf(tecla) == -1 && !tecla_especial) {
-      return false;
-    }
-  }
+            if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+              return false;
+            }
+          }
 
-  function soloNumeros(e) {
-    var key = window.Event ? e.which : e.keyCode;
-    return key >= 48 && key <= 57;
-  }
-  function validarEmail(elemento) {
-    var texto = document.getElementById(elemento.id).value;
-    var regex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+          function soloNumeros(e) {
+            var key = window.Event ? e.which : e.keyCode;
+            return key >= 48 && key <= 57;
+          }
+          function validarEmail(elemento) {
+            var texto = document.getElementById(elemento.id).value;
+            var regex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
 
-    if (!regex.test(texto)) {
-      document.getElementById("resultado").innerHTML = "Correo invalido";
-    } else {
-      document.getElementById("resultado").innerHTML = "";
-    }
-  }
-</script>
+            if (!regex.test(texto)) {
+              document.getElementById("resultado").innerHTML = "Correo invalido";
+            } else {
+              document.getElementById("resultado").innerHTML = "";
+            }
+          }
+        </script>
 
 
 
@@ -463,6 +463,47 @@
                         </a>
 
                         <b class="arrow"></b>
+                         <li class="">
+                                <a href="#" class="dropdown-toggle">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+
+                                    Reportes Desempeño
+									<b class="arrow fa fa-angle-down"></b>
+                                </a>
+
+                                <b class="arrow"></b>
+
+                                <ul class="submenu">
+                                    <li class="">
+                                        <a href="./RRHH_RptEstadisticos.aspx">
+                                            <i class="menu-icon fa fa-caret-right"></i>
+                                            Anual
+                                        </a>
+
+                                        <b class="arrow"></b>
+                                    </li>
+                                     <li data-toggle="modal" data-target="#AddCedula">
+                                        <a href="#">
+                                            <i class="menu-icon fa fa-caret-right"></i>
+                                            Empleado       
+                                        </a>
+
+                                        <b class="arrow"></b>
+                                    </li>
+                                    
+                                      <li class="">
+                                        <a href="RRHH_EvaluacionXCargo.aspx">
+                                            <i class="menu-icon fa fa-caret-right"></i>
+                                            Periodo
+                                        </a>
+
+                                        <b class="arrow"></b>
+                                    </li>
+                                </ul>
+                            </li>
+
+
+
 
                         <ul class="submenu">
                             <li class="">
@@ -473,11 +514,19 @@
 
                                 <b class="arrow"></b>
                             </li>
-
+                              
                             <li class="">
                                 <a href="./RRHH_RptEstadisticaMes.aspx">
                                     <i class="menu-icon fa fa-caret-right"></i>
                                     Estadistica Mensual
+                                </a>
+
+                                <b class="arrow"></b>
+                            </li>
+                            <li class="">
+                                <a href="./RRHH_RptEvaluacionesFormat.aspx">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    Pruebas
                                 </a>
 
                                 <b class="arrow"></b>
@@ -605,13 +654,33 @@
                     </div>
                     <div class="modal-body">
                         <asp:Label ID="Label1" runat="server" Text="">Elegir una Evaluación</asp:Label>
-                      
+                        
                         <asp:DropDownList ID="ddlEvaluacionR" CssClass="form-control" AutoPostBack="true" runat="server" OnSelectedIndexChanged="ddlEvaluacionR_SelectedIndexChanged"></asp:DropDownList>
                     </div>
                 </div>
             </div>
         </div>
-
+         <div class="modal fade" id="AddCedula" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel2">Evaluacion por Empleado</h4>
+                    </div>
+                    <div class="modal-body">
+                        <asp:Label ID="Label2" runat="server" Text="">Elegir una Evaluación</asp:Label>
+                          <br />
+                        <asp:TextBox ID="txtCedula" runat="server"></asp:TextBox>
+                        <br />
+                        <asp:DropDownList ID="ddlEvaluacionCe" CssClass="form-control" runat="server"></asp:DropDownList>
+                    </div>
+                     <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <asp:LinkButton runat="server" CssClass="btn btn-success" OnClick="GuardarFase_Click" ID="GuardarFase" Text="Filtrar" ></asp:LinkButton>
+                </div>
+                </div>
+            </div>
+        </div>
         <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
             <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
         </a>

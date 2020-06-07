@@ -54,11 +54,12 @@ namespace PW_ProyectoTitulacion.RRHH
                     GridViewRow row = gvrEmpelados.SelectedRow;
                     string id = row.Cells[1].Text;
                     int idEmpleado = Convert.ToInt32(id);
-                    DateTime tiempo = DateTime.UtcNow;
+                    DateTime tiempo = DateTime.Now.Date;
                     int resultado = 0;
                     _OCKO_TblEvaluacionEmpleado.CodEmpleado = idEmpleado;
                     _OCKO_TblEvaluacionEmpleado.EvaFecha = tiempo;
                     _OCKO_TblEvaluacionEmpleado.EvaResultado = resultado;
+                    _OCKO_TblEvaluacionEmpleado.CodTipoEvaluacion = codevaluacion;
                     bool existe = OCKOEvaluacionEmpleado.AsignacionEvaluacion(idEmpleado, codevaluacion);
                     if (!existe)
                     {

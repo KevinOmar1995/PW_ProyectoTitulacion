@@ -29,6 +29,22 @@ namespace CapaDatos
             con.CerrarConexion();
         }
 
+        public void ActualizarCompetencias(decimal desempeno, decimal actitud, decimal habilidad, int evaluacion, int codEmpleado)
+        {
+
+            comando.Connection = con.AbrirConexion();
+            comando.CommandText = "OCKO_ActualizarCompeteneicas";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@desempeno", desempeno);
+            comando.Parameters.AddWithValue("@actitud", actitud);
+            comando.Parameters.AddWithValue("@habilidades", habilidad);
+            comando.Parameters.AddWithValue("@evaluacion", evaluacion);
+            comando.Parameters.AddWithValue("@empleado", codEmpleado);
+            comando.ExecuteNonQuery();
+            comando.Parameters.Clear();
+            con.CerrarConexion();
+        }
+
         public decimal puntuacion(int evaluacion, int empleado)
         {
             //int [] resultado ;
@@ -44,7 +60,24 @@ namespace CapaDatos
             {
                 while (reader.Read())
                 {
-                    resultado = Convert.ToDecimal(reader.GetValue(0) is DBNull ? 0 : reader.GetValue(0));
+                    //Desempeño
+                    if (reader.GetValue(1).Equals(1))
+                    {
+                        resultado += Convert.ToDecimal(reader.GetValue(0) is DBNull ? 0 : reader.GetValue(0));
+                        this.ActualizarCompetencias(Convert.ToDecimal(reader.GetValue(0)), 0, 0, evaluacion, empleado);
+                    }
+                    //habilidades
+                    if (reader.GetValue(1).Equals(2))
+                    {
+                        resultado += Convert.ToDecimal(reader.GetValue(0) is DBNull ? 0 : reader.GetValue(0));
+                        this.ActualizarCompetencias(0, 0, Convert.ToDecimal(reader.GetValue(0)), evaluacion, empleado);
+                    }
+                    //Actitud
+                    if (reader.GetValue(1).Equals(3))
+                    {
+                        resultado += Convert.ToDecimal(reader.GetValue(0) is DBNull ? 0 : reader.GetValue(0));
+                        this.ActualizarCompetencias(0, Convert.ToDecimal(reader.GetValue(0)), 0, evaluacion, empleado);
+                    }
                 }
             }
             else
@@ -72,7 +105,7 @@ namespace CapaDatos
             comando.Parameters.Clear();
             con.CerrarConexion();           
         }
-
+        // google Chaert
         public SqlCommand TotalesEvaluacion(int EvaluacionId)
         {
             con.CerrarConexion();
@@ -83,6 +116,19 @@ namespace CapaDatos
   
             return comando;
         }
+
+        public SqlCommand TotalesEvaluacionxCedula(int EvaluacionId =0,string Cedula="")
+        {
+            con.CerrarConexion();
+            comando.Connection = con.AbrirConexion();
+            comando.CommandText = "OCKO_TotalesEvaluacionPorCedula";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@evaluacionId", EvaluacionId);
+            comando.Parameters.AddWithValue("@Cedula", Cedula);
+            return comando;
+        }
+
+        //Google Charte end
 
         public void GenerarRespuestas()
         {

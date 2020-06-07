@@ -21,7 +21,7 @@ namespace PW_ProyectoTitulacion.Jefes
           
             if (!IsPostBack)
             {
-
+                
                 ////////////////////////////////////////////////////////////////////////////////
                 if (Request.QueryString["evaluacion"].ToString() == "" &&
                     Request.QueryString["empleado"].ToString() == "" &&
@@ -46,11 +46,13 @@ namespace PW_ProyectoTitulacion.Jefes
             ProcesoGuardar();
             int sigCategoria = Convert.ToInt32(Session["Categoria"]);
             int siguiente = sigCategoria + 1;
+            if (siguiente == 3)
+                siguiente = 6;
             Session["Categoria"] = siguiente;
 
             String Strperiodo = "Periodo=" + Session["IdPeriodo"] + "&";
             String Ruta = Strperiodo + "evaluacion="+ Session["NoEvaluacion"] + "&empleado="+ Session["IdEmpleado"];
-            if(siguiente==3)
+            if(siguiente==7)
                 Response.Redirect("./Jefes_FinEvaluacion.aspx");
             else
                 Response.Redirect("./Jefes_InicioEvaluacion.aspx?" + Ruta);

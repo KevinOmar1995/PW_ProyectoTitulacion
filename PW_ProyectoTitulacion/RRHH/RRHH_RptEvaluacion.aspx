@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/RRHH_PageMaster.Master" AutoEventWireup="true" CodeBehind="RRHH_RptEstadisticaMes.aspx.cs" Inherits="PW_ProyectoTitulacion.RRHH.RRHH_RptEstadisticaMes" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/RRHH_PageMaster.Master" AutoEventWireup="true" CodeBehind="RRHH_RptEvaluacion.aspx.cs" Inherits="PW_ProyectoTitulacion.RRHH.RRHH_RptEstadisticaMes" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  
     <script type="text/javascript">
       google.charts.load('current', {'packages':['bar']});
       google.charts.setOnLoadCallback(drawChart);

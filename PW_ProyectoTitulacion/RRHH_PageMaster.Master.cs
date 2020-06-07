@@ -56,6 +56,11 @@ namespace PW_ProyectoTitulacion
             ddlEvaluacionR.DataValueField = "TipId";
             ddlEvaluacionR.DataBind();
 
+            ddlEvaluacionCe.DataSource = listaEvaluacion;
+            ddlEvaluacionCe.DataTextField = "TipEvaluacion";
+            ddlEvaluacionCe.DataValueField = "TipId";
+            ddlEvaluacionCe.DataBind();
+
 
         }
 
@@ -67,6 +72,15 @@ namespace PW_ProyectoTitulacion
             HttpContext.Current.Session.Abandon();
             HttpContext.Current.Response.Cookies.Add(new HttpCookie("ASP.NET_SessionId", ""));
             Response.Redirect("/Login1.aspx");
+        }
+
+        protected void GuardarFase_Click(object sender, EventArgs e)
+        {
+            int evaluacion = Convert.ToInt32(ddlEvaluacionCe.SelectedValue);
+            string cedula = txtCedula.Text;
+            Session["Cedula"] = cedula;
+            Session["Evaluacion"] = evaluacion;           
+            Response.Redirect("./RRHH_RptEvaluacionEmpleado.aspx");
         }
 
         protected void dllEvaluacion_SelectedIndexChanged(object sender, EventArgs e)

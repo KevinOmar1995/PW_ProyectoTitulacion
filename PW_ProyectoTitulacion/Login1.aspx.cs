@@ -42,7 +42,8 @@ namespace PW_ProyectoTitulacion
                     {
                         Session["Username"] = reader.GetValue(0);
                         Session["tipo"] = reader.GetValue(1);
-                        Session["Categoria"] = 1;
+                        Session["JefeIdEva"] = reader.GetValue(2);
+                        
 
                         int jefeId = Convert.ToInt32(Session["tipo"].ToString());
                         Session["EmpId"] = reader.GetValue(2);

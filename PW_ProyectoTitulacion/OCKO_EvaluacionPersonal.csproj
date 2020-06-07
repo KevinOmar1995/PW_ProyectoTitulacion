@@ -269,8 +269,10 @@
     <Content Include="RRHH\RRHH_Periodos.aspx" />
     <Content Include="RRHH\RRHH_PreguntasLista.aspx" />
     <Content Include="RRHH\RRHH_RegistrarPreguntas.aspx" />
-    <Content Include="RRHH\RRHH_RptEstadisticaMes.aspx" />
+    <Content Include="RRHH\RRHH_RptEvaluacion.aspx" />
     <Content Include="RRHH\RRHH_RptEstadisticos.aspx" />
+    <Content Include="RRHH\RRHH_RptEvaluacionEmpleado.aspx" />
+    <Content Include="RRHH\RRHH_RptEvaluacionesFormat.aspx" />
     <Content Include="RRHH\RRHH_TipoEvaluacion.aspx" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
@@ -413,16 +415,6 @@
     </Compile>
     <Compile Include="Login.Master.designer.cs">
       <DependentUpon>Login.Master</DependentUpon>
-    </Compile>
-    <Compile Include="OCKO_EvaluacionPersonalDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>OCKO_EvaluacionPersonalDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="OCKO_EvaluacionPersonalDTS.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>OCKO_EvaluacionPersonalDTS.xsd</DependentUpon>
     </Compile>
     <Compile Include="PM\PM_ERROR.aspx.cs">
       <DependentUpon>PM_ERROR.aspx</DependentUpon>
@@ -628,12 +620,12 @@
     <Compile Include="RRHH\RRHH_RegistrarPreguntas.aspx.designer.cs">
       <DependentUpon>RRHH_RegistrarPreguntas.aspx</DependentUpon>
     </Compile>
-    <Compile Include="RRHH\RRHH_RptEstadisticaMes.aspx.cs">
-      <DependentUpon>RRHH_RptEstadisticaMes.aspx</DependentUpon>
+    <Compile Include="RRHH\RRHH_RptEvaluacion.aspx.cs">
+      <DependentUpon>RRHH_RptEvaluacion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="RRHH\RRHH_RptEstadisticaMes.aspx.designer.cs">
-      <DependentUpon>RRHH_RptEstadisticaMes.aspx</DependentUpon>
+    <Compile Include="RRHH\RRHH_RptEvaluacion.aspx.designer.cs">
+      <DependentUpon>RRHH_RptEvaluacion.aspx</DependentUpon>
     </Compile>
     <Compile Include="RRHH\RRHH_RptEstadisticos.aspx.cs">
       <DependentUpon>RRHH_RptEstadisticos.aspx</DependentUpon>
@@ -641,6 +633,20 @@
     </Compile>
     <Compile Include="RRHH\RRHH_RptEstadisticos.aspx.designer.cs">
       <DependentUpon>RRHH_RptEstadisticos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH\RRHH_RptEvaluacionEmpleado.aspx.cs">
+      <DependentUpon>RRHH_RptEvaluacionEmpleado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RRHH\RRHH_RptEvaluacionEmpleado.aspx.designer.cs">
+      <DependentUpon>RRHH_RptEvaluacionEmpleado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RRHH\RRHH_RptEvaluacionesFormat.aspx.cs">
+      <DependentUpon>RRHH_RptEvaluacionesFormat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RRHH\RRHH_RptEvaluacionesFormat.aspx.designer.cs">
+      <DependentUpon>RRHH_RptEvaluacionesFormat.aspx</DependentUpon>
     </Compile>
     <Compile Include="RRHH\RRHH_TipoEvaluacion.aspx.cs">
       <DependentUpon>RRHH_TipoEvaluacion.aspx</DependentUpon>
@@ -670,28 +676,6 @@
     <Content Include="Login.Master" />
     <Content Include="Empleado_PageMaster.Master" />
     <Content Include="Jefes_PageMaster.Master" />
-    <Content Include="OCKO_EvaluacionPersonalDataSet.xsc">
-      <DependentUpon>OCKO_EvaluacionPersonalDataSet.xsd</DependentUpon>
-    </Content>
-    <None Include="OCKO_EvaluacionPersonalDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>OCKO_EvaluacionPersonalDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <Content Include="OCKO_EvaluacionPersonalDataSet.xss">
-      <DependentUpon>OCKO_EvaluacionPersonalDataSet.xsd</DependentUpon>
-    </Content>
-    <Content Include="OCKO_EvaluacionPersonalDTS.xsc">
-      <DependentUpon>OCKO_EvaluacionPersonalDTS.xsd</DependentUpon>
-    </Content>
-    <None Include="OCKO_EvaluacionPersonalDTS.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>OCKO_EvaluacionPersonalDTS.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <Content Include="OCKO_EvaluacionPersonalDTS.xss">
-      <DependentUpon>OCKO_EvaluacionPersonalDTS.xsd</DependentUpon>
-    </Content>
     <None Include="packages.config" />
     <Content Include="RRHH_PageMaster.Master" />
     <Content Include="Principal.Master" />
@@ -712,9 +696,6 @@
       <Project>{a485c6fe-3d96-460d-9418-96eb00f2186c}</Project>
       <Name>OCKO_CapaNegocio</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="RRHH\RRHH_Estadistico.rdlc" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>
