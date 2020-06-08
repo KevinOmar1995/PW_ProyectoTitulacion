@@ -93,22 +93,40 @@
     </button>
     </asp:Panel>
     <asp:Panel runat="server" style="float:left" Width="100%" ID="p">
-        <asp:GridView ID="GridView1" CssClass="table table-condensed table-hover" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="False" DataKeyNames="PerId" DataSourceID="SqlPeriodos">
+        <asp:GridView ID="GridView1" CssClass="table table-condensed table-hover" caption="Periodos"   emptydatatext="No hay Registros." runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="False" DataKeyNames="PerId" DataSourceID="SqlPeriodos" AllowPaging="True" AllowSorting="True" CellPadding="4" ForeColor="#333333" GridLines="None">
+            <AlternatingRowStyle BackColor="White" />
             <Columns>
-                 <asp:TemplateField>
-                <ItemTemplate>
-                    <%#Container.DataItemIndex +1 %>
-                </ItemTemplate>
-            </asp:TemplateField>
-                <asp:BoundField DataField="PerId" HeaderStyle-CssClass="hidden" ItemStyle-CssClass="hidden" HeaderText="PerId" ReadOnly="True" SortExpression="PerId" />
-                <asp:BoundField DataField="PerPeriodo" HeaderText="PerPeriodo" SortExpression="PerPeriodo" />
-                <asp:BoundField DataField="PerDescripcion" HeaderText="PerDescripcion" SortExpression="PerDescripcion" />
-                <asp:BoundField DataField="PerFechaInicio" HeaderText="PerFechaInicio" SortExpression="PerFechaInicio" />
-                <asp:BoundField DataField="PerFechaFin" HeaderText="PerFechaFin" SortExpression="PerFechaFin" />
-                <asp:BoundField DataField="PerEstado" HeaderText="PerEstado" SortExpression="PerEstado" />
-                <asp:CommandField ShowSelectButton="True"  ControlStyle-CssClass="btn btn-blue" ButtonType="Button" ShowHeader="True" HeaderText=""></asp:CommandField>
-        
+                <asp:TemplateField>
+                    <ItemTemplate>
+                        <%#Container.DataItemIndex +1 %>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:BoundField DataField="PerId" HeaderStyle-CssClass="hidden" HeaderText="PerId" ItemStyle-CssClass="hidden" ReadOnly="True" SortExpression="PerId">
+                <HeaderStyle CssClass="hidden" />
+                <ItemStyle CssClass="hidden" />
+                </asp:BoundField>
+                <asp:BoundField DataField="PerPeriodo" HeaderText="Nombre" SortExpression="PerPeriodo" />
+                <asp:BoundField DataField="PerDescripcion" HeaderText="Descripción" SortExpression="PerDescripcion" />
+                <asp:BoundField DataField="PerFechaInicio" DataFormatString="{0:d}"  HeaderText="Fecha Inicio" SortExpression="PerFechaInicio" />
+                <asp:BoundField DataField="PerFechaFin"  DataFormatString="{0:d}" HeaderText="Fecha Fin" SortExpression="PerFechaFin" />
+                <asp:BoundField DataField="PerEstado" HeaderStyle-CssClass="hidden" HeaderText="PerEstado" ItemStyle-CssClass="hidden" SortExpression="PerEstado">
+                <HeaderStyle CssClass="hidden" />
+                <ItemStyle CssClass="hidden" />
+                </asp:BoundField>
+                <asp:CommandField ButtonType="Button" ControlStyle-CssClass="btn btn-blue" HeaderText="" ShowHeader="True" ShowSelectButton="True">
+                <ControlStyle CssClass="btn btn-blue" />
+                </asp:CommandField>
             </Columns>
+            <EditRowStyle BackColor="#2461BF" />
+            <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+            <RowStyle BackColor="#EFF3FB" />
+            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+            <SortedAscendingCellStyle BackColor="#F5F7FB" />
+            <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+            <SortedDescendingCellStyle BackColor="#E9EBEF" />
+            <SortedDescendingHeaderStyle BackColor="#4870BE" />
         </asp:GridView>
         
         <asp:SqlDataSource ID="SqlPeriodos" runat="server" ConnectionString="<%$ ConnectionStrings:OCKO_EvaluacionPersonal %>" SelectCommand="SELECT OCKO_TblPeriodo.* FROM OCKO_TblPeriodo"></asp:SqlDataSource>

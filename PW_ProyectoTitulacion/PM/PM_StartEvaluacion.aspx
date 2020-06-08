@@ -1,25 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Jefes_PageMaster.Master" AutoEventWireup="true" CodeBehind="Jefes_InicioEvaluacion.aspx.cs" Inherits="PW_ProyectoTitulacion.Jefes.Jefes_InicioEvaluacion" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PM_PageMaster.Master" AutoEventWireup="true" CodeBehind="PM_StartEvaluacion.aspx.cs" Inherits="PW_ProyectoTitulacion.PM.PM_StartEvaluacion" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script type="text/javascript">
-        function Evaluacion(letra)
-        {
-            if (confirm(letra))
-            {
-                window.location.href = window.location.href;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
     
-
-
     <div class="container">
         <div class="panel panel-primary"> 
             <div class="panel-heading">
@@ -38,7 +21,7 @@
                               </LayoutTemplate>
                               <ItemTemplate>
                                   <div>
-                                      <strong>  <asp:Label Id="lblIdPregunta" runat="server" HeaderStyle-CssClass="hidden" Text='<%# Eval("PreId") %>'></asp:Label>
+                                      <strong>  <asp:Label Id="lblIdPregunta" runat="server"  style="display:none;" Text='<%# Eval("PreId") %>'></asp:Label>
                                                 <asp:Label Id="lblPregunta" runat="server" Text='<%# Eval("PrePregunta") %>'></asp:Label>  </strong> <br />
                                                 <asp:Label Id="lblDescripcion" runat="server" Text='<%# Eval("PreDescripcion") %>'></asp:Label>
                                               

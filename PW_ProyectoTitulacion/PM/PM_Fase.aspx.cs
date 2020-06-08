@@ -26,8 +26,9 @@ namespace PW_ProyectoTitulacion.PM
                 faseLocal.FasNombre = txtNombreEdit.Text;
                 faseLocal.FasDescripcion = txtDescripcionEdit.Text;
                 fasesClases.ActualizarFases(faseLocal);
-                mensaje = "Fase Editado";
-                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "Mensaje('" + mensaje + "');", true);
+                mensaje = ""+ faseLocal.FasNombre;
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "MensajeEditado('" + mensaje + "');", true);
+                ClientScript.RegisterStartupScript(this.GetType(), "", " setTimeout('window.location.href = window.location.href', 3000);", true);
             }
             catch (Exception ex)
             {
@@ -48,14 +49,16 @@ namespace PW_ProyectoTitulacion.PM
                     faseTable.FasNombre= Fase;
                     faseTable.FasDescripcion= txtDescripcionCreate.Text;
                     fasesClases.GuardarFases(faseTable);
-                    mensaje = "Fase Registrado";
-                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "Mensaje('" + mensaje + "');", true);
+                    mensaje = "Fase";
+
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "MensajeGuardado('" + mensaje + "');", true);
+                    ClientScript.RegisterStartupScript(this.GetType(), "", " setTimeout('window.location.href = window.location.href', 3000);", true);
                 }
             }
             catch (Exception ex)
             {
-                mensaje = "Algo Salio Mal " + ex;
-                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "Mensaje('" + mensaje + "');", true);
+                Session["PM_ERROR"] = ex;
+                Response.Redirect("PM_ERRORaspx");
             }
         }
 
@@ -75,8 +78,8 @@ namespace PW_ProyectoTitulacion.PM
             }
             catch (Exception ex)
             {
-                Session["ERROR_PM"] = ex;
-                Response.Redirect("PM_ERROR.aspx");
+                Session["PM_ERROR"] = ex;
+                Response.Redirect("PM_ERRORaspx");
 
             }
         }
@@ -87,13 +90,16 @@ namespace PW_ProyectoTitulacion.PM
             {
                 OCKO_TblFase fasesLocal = fasesClases.BuscarIdFases(Convert.ToInt32(hdId.Value));
                 fasesClases.EliminarFases(fasesLocal);
-                mensaje = " ¿Esta Seguro de Eliminar  :" + fasesLocal.FasNombre + "?";
-                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "Evaluacion('" + mensaje + "');", true);
+                mensaje = " "+ fasesLocal.FasNombre + "";
+
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "MensajeEliminar('" + mensaje + "');", true);
+                ClientScript.RegisterStartupScript(this.GetType(), "", " setTimeout('window.location.href = window.location.href', 3000);", true);
+
             }
             catch (Exception ex)
             {
-                mensaje = "Algo Salio Mal" + ex;
-                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "Mensaje('" + mensaje + "');", true);
+                Session["PM_ERROR"] = ex;
+                Response.Redirect("PM_ERRORaspx");
             }
         }
     }

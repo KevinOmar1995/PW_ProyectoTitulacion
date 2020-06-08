@@ -80,6 +80,11 @@ namespace PW_ProyectoTitulacion.RRHH
                     ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "MensajeGuardado('" + mensaje + "');", true);
                     ClientScript.RegisterStartupScript(this.GetType(), "", " setTimeout('window.location.href = window.location.href', 3000);", true);
                 }
+                else
+                {
+                    mensaje = "Pregunta ya se encuentra Registrada ";
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "MensajeError('" + mensaje + "');", true);
+                }
             }
             catch (Exception ex)
             {

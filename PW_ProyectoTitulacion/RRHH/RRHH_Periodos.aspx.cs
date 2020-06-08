@@ -35,14 +35,15 @@ namespace PW_ProyectoTitulacion.RRHH
                     tablePeriodo.PerFechaFin    = Convert.ToDateTime(dateFechaFinCreate.Text).Date;
                     tablePeriodo.PerEstado = "A";
                     classPeriodo.GuardarPeriodo(tablePeriodo);
-                    mensaje = "Periodo Registrado";
-                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "Mensaje('" + mensaje + "');", true);
+                    mensaje = "Periodo";
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "MensajeGuardado('" + mensaje + "');", true);
+                    ClientScript.RegisterStartupScript(this.GetType(), "", " setTimeout('window.location.href = window.location.href', 3000);", true);
                 }
             }
             catch (Exception ex)
             {
-                mensaje = "Algo Salio Mal " + ex;
-                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "Mensaje('" + mensaje + "');", true);
+                Session["ERROR_RRHH"] = ex;
+                Response.Redirect("RRHH_ERROR.aspx");
             }
         }
 
@@ -57,13 +58,14 @@ namespace PW_ProyectoTitulacion.RRHH
                 LocalPerido.PerFechaInicio = Convert.ToDateTime(dateFechaInicioEdit.Text).Date; 
                 LocalPerido.PerFechaFin    = Convert.ToDateTime(datefinEdit.Text).Date;
                 classPeriodo.EditarPeriodo(LocalPerido);
-                mensaje = "Registro Editado";
-                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "Mensaje('" + mensaje + "');", true);
+                mensaje = LocalPerido.PerPeriodo;
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "MensajeEditado('" + mensaje + "');", true);
+                ClientScript.RegisterStartupScript(this.GetType(), "", " setTimeout('window.location.href = window.location.href', 3000);", true);
             }
             catch (Exception ex)
             {
-                mensaje = "Algo salio mal " + ex;
-                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "Mensaje('" + mensaje + "');", true);
+                Session["ERROR_RRHH"] = ex;
+                Response.Redirect("RRHH_ERROR.aspx");
             }
         }
 
@@ -73,13 +75,15 @@ namespace PW_ProyectoTitulacion.RRHH
             {
                 OCKO_TblPeriodo PeriodoLocal = classPeriodo.BuscarIdPerido(Convert.ToInt32(hdId.Value));
                 classPeriodo.eliminarPeriodo(PeriodoLocal);
-                mensaje = " ¿Esta Seguro de Eliminar  :" + PeriodoLocal.PerPeriodo + "?";
-                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "Evaluacion('" + mensaje + "');", true);
+                mensaje = " " + PeriodoLocal.PerPeriodo + "";
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "MensajeEliminar('" + mensaje + "');", true);
+                ClientScript.RegisterStartupScript(this.GetType(), "", " setTimeout('window.location.href = window.location.href', 3000);", true);
+
             }
             catch (Exception ex)
             {
-                mensaje = "Algo Salio Mal" + ex;
-                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "Mensaje('" + mensaje + "');", true);
+                Session["ERROR_RRHH"] = ex;
+                Response.Redirect("RRHH_ERROR.aspx");
             }
         }
 
@@ -96,16 +100,15 @@ namespace PW_ProyectoTitulacion.RRHH
                 OCKO_TblPeriodo periodo = classPeriodo.BuscarIdPerido(Convert.ToInt32(hdId.Value));
                 txtNombreEdit.Text = periodo.PerPeriodo;
                 txtDescripcionEdit.Text = periodo.PerDescripcion;
-                fechaIncio = Convert.ToDateTime( periodo.PerFechaInicio);
-                dateFechaInicioEdit.Text = fechaIncio.ToShortDateString();// String.Format("{0:dd/MM/yyyy}", periodo.PerFechaInicio);
-                datefinEdit.Text = String.Format("{0:dd/MM/yyyy}", periodo.PerFechaFin);
-                datefinEdit.Text = periodo.PerFechaFin.ToString();
+
+                dateFechaInicioEdit.Text = Convert.ToDateTime(periodo.PerFechaInicio).ToString("d");// String.Format("{0:dd/MM/yyyy}", periodo.PerFechaInicio);
+                datefinEdit.Text = Convert.ToDateTime(periodo.PerFechaFin).ToString("d");  
 
             }
             catch (Exception ex)
             {
-                mensaje = "Algo Salio Mal" + ex;
-                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "Mensaje('" + mensaje + "');", true);
+                Session["ERROR_RRHH"] = ex;
+                Response.Redirect("RRHH_ERROR.aspx");
             }
         }
 

@@ -244,12 +244,15 @@
     <Content Include="Login1.aspx" />
     <Content Include="PM\PM_ERROR.aspx" />
     <Content Include="PM\PM_Fase.aspx" />
+    <Content Include="PM\PM_FinEvaluacion.aspx" />
     <Content Include="PM\PM_IniciarProyecto.aspx" />
     <Content Include="PM\PM_Inicio.aspx" />
+    <Content Include="PM\PM_InicioEvaluacion.aspx" />
     <Content Include="PM\PM_Modulos.aspx" />
     <Content Include="PM\PM_Procesos.aspx" />
     <Content Include="PM\PM_Proyecto.aspx" />
     <Content Include="PM\PM_Seccion.aspx" />
+    <Content Include="PM\PM_StartEvaluacion.aspx" />
     <Content Include="pruebas\Default.aspx" />
     <Content Include="pruebas\final.aspx" />
     <Content Include="RRHH\RRHH_AsignacionEvaluacion.aspx" />
@@ -430,6 +433,13 @@
     <Compile Include="PM\PM_Fase.aspx.designer.cs">
       <DependentUpon>PM_Fase.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PM\PM_FinEvaluacion.aspx.cs">
+      <DependentUpon>PM_FinEvaluacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PM\PM_FinEvaluacion.aspx.designer.cs">
+      <DependentUpon>PM_FinEvaluacion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PM\PM_IniciarProyecto.aspx.cs">
       <DependentUpon>PM_IniciarProyecto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -443,6 +453,13 @@
     </Compile>
     <Compile Include="PM\PM_Inicio.aspx.designer.cs">
       <DependentUpon>PM_Inicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PM\PM_InicioEvaluacion.aspx.cs">
+      <DependentUpon>PM_InicioEvaluacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PM\PM_InicioEvaluacion.aspx.designer.cs">
+      <DependentUpon>PM_InicioEvaluacion.aspx</DependentUpon>
     </Compile>
     <Compile Include="PM\PM_Modulos.aspx.cs">
       <DependentUpon>PM_Modulos.aspx</DependentUpon>
@@ -471,6 +488,13 @@
     </Compile>
     <Compile Include="PM\PM_Seccion.aspx.designer.cs">
       <DependentUpon>PM_Seccion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PM\PM_StartEvaluacion.aspx.cs">
+      <DependentUpon>PM_StartEvaluacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PM\PM_StartEvaluacion.aspx.designer.cs">
+      <DependentUpon>PM_StartEvaluacion.aspx</DependentUpon>
     </Compile>
     <Compile Include="PM_PageMaster.Master.cs">
       <DependentUpon>PM_PageMaster.Master</DependentUpon>

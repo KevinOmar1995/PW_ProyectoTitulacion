@@ -43,7 +43,8 @@ namespace PW_ProyectoTitulacion.PM
                 procesoLocal.ProDescripcion = txtDescripcionEdit.Text;
                 procesoClass.ActualizarProceso(procesoTable);
                 mensaje = "Proceso Editado";
-                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "Mensaje('" + mensaje + "');", true);
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "MensajeEditado('" + mensaje + "');", true);
+                ClientScript.RegisterStartupScript(this.GetType(), "", " setTimeout('window.location.href = window.location.href', 3000);", true);
             }
             catch (Exception ex)
             {
@@ -68,6 +69,7 @@ namespace PW_ProyectoTitulacion.PM
                     procesoClass.GuardarProceso(procesoTable);
                     mensaje = "Proceso Registrado";
                     ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "Mensaje('" + mensaje + "');", true);
+                    ClientScript.RegisterStartupScript(this.GetType(), "", " setTimeout('window.location.href = window.location.href', 3000);", true);
                 }
             }
             catch (Exception ex)

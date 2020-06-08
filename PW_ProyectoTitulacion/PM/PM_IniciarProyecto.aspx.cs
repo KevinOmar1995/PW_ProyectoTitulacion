@@ -94,7 +94,7 @@ namespace PW_ProyectoTitulacion.PM
                         asignacionTable.AsiAvanceFuncional = int.Parse(Session["ProyectoIdAsignacion"].ToString());
 
                         asignacionClass.GuardarAsignacion(asignacionTable);
-                        mensaje = "Asignación Registrada para cargo FUNCIONAL <br/>";
+                        mensaje = "Asignación Funcional   -  ";
                         ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "Mensaje('" + mensaje + "');", true);
                     }
                     
@@ -111,17 +111,18 @@ namespace PW_ProyectoTitulacion.PM
                         asignacionTableTecnico.AsiAvanceFuncional = int.Parse(Session["ProyectoIdAsignacion"].ToString());
 
                         asignacionClass.GuardarAsignacion(asignacionTableTecnico);
-                        mensaje = "Asignación Registrada para cargo DESARROLLO ";
+                        mensaje += "Asignación Desarrollo ";
                         
                     }
-                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "Mensaje('" + mensaje + "');", true);
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "MensajeGuardado('" + mensaje + "');", true);
+                    ClientScript.RegisterStartupScript(this.GetType(), "", " setTimeout('window.location.href = window.location.href', 3000);", true);
 
 
                 }
                 else
                 {
                     mensaje = "Modulo ya està Registrado";
-                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "Mensaje('" + mensaje + "');", true);
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "MensajeError('" + mensaje + "');", true);
                 }
             }
             catch (Exception ex)
@@ -146,7 +147,7 @@ namespace PW_ProyectoTitulacion.PM
                     asignacionLocalF.CodSeccion = int.Parse(ddlSeccionEdit.SelectedValue);
                     asignacionLocalF.CodJefe = int.Parse(Session["EncargadoFuncional"].ToString());
                     asignacionClass.ActualizarAsignacion(asignacionTable);
-                    mensaje = "Tarea Funcional -";
+                    
                 }
 
                 if (cbxTecnicoEdit.Checked == true)
@@ -158,10 +159,11 @@ namespace PW_ProyectoTitulacion.PM
                     asignacionLocalT.CodSeccion = int.Parse(ddlSeccionEdit.SelectedValue);
                     asignacionLocalT.CodJefe = int.Parse(Session["EncargadoFuncional"].ToString());
                     asignacionClass.ActualizarAsignacion(asignacionTable);
-                    mensaje += " Tarea Tècnica  ";
+                   
                 }
-                mensaje += " Editada Correctamente";
-                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "Mensaje('" + mensaje + "');", true);
+                mensaje += " una Tarea ";
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "MensajeEditado('" + mensaje + "');", true);
+                ClientScript.RegisterStartupScript(this.GetType(), "", " setTimeout('window.location.href = window.location.href', 3000);", true);
 
             }
             catch (Exception ex)
