@@ -60,6 +60,7 @@
             </asp:UpdatePanel>
         </div>
     </div>
+    <p class="alert alert-info"><b>Evaluaciòn Desempeño</b></p>
     <asp:GridView ID="gvrCalificaciones"  runat="server" AutoGenerateColumns="False" DataKeyNames="EmpId" DataSourceID="sdsJefes" GridLines="None" CssClass="table table-condensed table-hover" OnRowDataBound="gvrCalificaciones_RowDataBound">                         
         <Columns>
             <asp:TemplateField>

@@ -4,36 +4,54 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <asp:Panel runat="server" ID="pnlBotones" Style="float: left" Visible="false" Width="90%">
-        <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#editar">
-            <a class="fa fa-pencil"></a>
-            Editar
-        </button>
-        <asp:LinkButton ID="Eliminar" runat="server" CssClass="btn btn-small btn-danger" OnClick="Eliminar_Click"><i class="fa fa-trash"></i>&nbsp;Eliminar</asp:LinkButton>
+     <asp:Panel runat="server" ID="pnlBotones"  style="float:right" Visible="false" Width="90%" >
+    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#editar"><a class="fa fa-pencil"></a>
+       Editar
+    </button>
+   <asp:LinkButton ID="Eliminar" runat="server" CssClass="btn btn-small btn-danger" OnClick="Eliminar_Click"><i class="fa fa-trash"></i>&nbsp;Eliminar</asp:LinkButton>
     </asp:Panel>
-    <asp:Panel runat="server" Style="float: left" Width="10%">
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
-            <a class="fa fa-plus"></a>
-            Crear
-        </button>
+    <asp:Panel runat="server" style="float:left" Width="10%">
+   <button type="button" class="btn btn-success"  data-toggle="modal" data-target="#exampleModal"><a class="fa fa-plus"></a>
+        Crear
+    </button>
     </asp:Panel>
+    <asp:Panel runat="server" style="float:left" Width="100%" >
+	</asp:Panel>
+
+    
 
     <asp:Panel runat="server" style="float:left" Width="100%" ID="panel">
-        <asp:GridView CssClass="table table-condensed table-hover" caption="Proyectos"   emptydatatext="No hay Registros."  ID="grvProyecto" OnSelectedIndexChanged="grvProyecto_SelectedIndexChanged" runat="server" AutoGenerateColumns="False" DataKeyNames="ProId" DataSourceID="sdsProyectos">
+        <asp:GridView CssClass="table table-condensed table-hover" caption="Proyectos"   emptydatatext="No hay Registros."  ID="grvProyecto" OnSelectedIndexChanged="grvProyecto_SelectedIndexChanged" runat="server" AutoGenerateColumns="False" DataKeyNames="ProId" DataSourceID="sdsProyectos" AllowPaging="True" AllowSorting="True" CellPadding="4" ForeColor="#333333" GridLines="None">
+            <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:TemplateField>
                     <ItemTemplate>
                         <%#Container.DataItemIndex +1 %>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:BoundField DataField="ProId" HeaderStyle-CssClass="hidden" ItemStyle-CssClass="hidden" HeaderText="ProId" InsertVisible="False" ReadOnly="True" SortExpression="ProId" />
+                <asp:BoundField DataField="ProId" HeaderStyle-CssClass="hidden" HeaderText="ProId" InsertVisible="False" ItemStyle-CssClass="hidden" ReadOnly="True" SortExpression="ProId">
+                <HeaderStyle CssClass="hidden" />
+                <ItemStyle CssClass="hidden" />
+                </asp:BoundField>
                 <asp:BoundField DataField="ProNombre" HeaderText="Nombre" SortExpression="ProNombre" />
                 <asp:BoundField DataField="ProDescripcion" HeaderText="Descripcion" SortExpression="ProDescripcion" />
-                <asp:BoundField DataField="ProFechaIncio" HeaderText="Fecha Inicio" SortExpression="ProFechaIncio" />
-                <asp:BoundField DataField="ProFechaFinal" HeaderText="Fecha Entrega " SortExpression="ProFechaFinal" />
+                <asp:BoundField DataField="ProFechaIncio" DataFormatString="{0:d}" HeaderText="Fecha Inicio" SortExpression="ProFechaIncio" />
+                <asp:BoundField DataField="ProFechaFinal" DataFormatString="{0:d}" HeaderText="Fecha Entrega " SortExpression="ProFechaFinal" />
                 <asp:BoundField DataField="ProAvance" HeaderText="Avance" SortExpression="ProAvance" />
-                <asp:CommandField ShowSelectButton="True" ControlStyle-CssClass="btn btn-blue" ButtonType="Button" ShowHeader="True" HeaderText=""></asp:CommandField>
+                <asp:CommandField ButtonType="Button" ControlStyle-CssClass="btn btn-blue" HeaderText="" ShowHeader="True" ShowSelectButton="True">
+                <ControlStyle CssClass="btn btn-blue" />
+                </asp:CommandField>
             </Columns>
+            <EditRowStyle BackColor="#2461BF" />
+            <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+            <RowStyle BackColor="#EFF3FB" />
+            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+            <SortedAscendingCellStyle BackColor="#F5F7FB" />
+            <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+            <SortedDescendingCellStyle BackColor="#E9EBEF" />
+            <SortedDescendingHeaderStyle BackColor="#4870BE" />
         </asp:GridView>
 
         <asp:SqlDataSource ID="sdsProyectos" runat="server" ConnectionString="<%$ ConnectionStrings:OCKO_EvaluacionPersonal %>" SelectCommand="SELECT OCKO_TblProyecto.* FROM OCKO_TblProyecto"></asp:SqlDataSource>

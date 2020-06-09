@@ -29,8 +29,8 @@ namespace CapaDatos
             comando.Parameters.Clear();
             con.CerrarConexion();
         }
-
-        public void ActualizarCompetencias(decimal desempeno, decimal actitud, decimal habilidad, int evaluacion, int codEmpleado)
+        //Para Desempeño
+        public void ActualizarDesempeno(decimal desempeno, int evaluacion, int codEmpleado)
         {
             
             SqlCommand comando2 = new SqlCommand();
@@ -38,8 +38,6 @@ namespace CapaDatos
             comando2.CommandText = "OCKO_ActualizarCompeteneicas";
             comando2.CommandType = CommandType.StoredProcedure;
             comando2.Parameters.AddWithValue("@desempeno", desempeno);
-            comando2.Parameters.AddWithValue("@actitud", actitud);
-            comando2.Parameters.AddWithValue("@habilidades", habilidad);
             comando2.Parameters.AddWithValue("@evaluacion", evaluacion);
             comando2.Parameters.AddWithValue("@empleado", codEmpleado);
             comando2.ExecuteNonQuery();
@@ -48,9 +46,42 @@ namespace CapaDatos
           
         }
 
+        public void ActualizarActitud(decimal actitud, int evaluacion, int codEmpleado)
+        {
+
+            SqlCommand comando2 = new SqlCommand();
+            comando2.Connection = con.AbrirConexion();
+            comando2.CommandText = "OCKO_ActualizarActitud";
+            comando2.CommandType = CommandType.StoredProcedure;
+            comando2.Parameters.AddWithValue("@actitud", actitud);
+            comando2.Parameters.AddWithValue("@evaluacion", evaluacion);
+            comando2.Parameters.AddWithValue("@empleado", codEmpleado);
+            comando2.ExecuteNonQuery();
+            comando2.Parameters.Clear();
+            con.CerrarConexion();
+
+        }
+
+        public void ActualizarHabilidad( decimal habilidad, int evaluacion, int codEmpleado)
+        {
+
+            SqlCommand comando2 = new SqlCommand();
+            comando2.Connection = con.AbrirConexion();
+            comando2.CommandText = "OCKO_ActualizarHabilidad";
+            comando2.CommandType = CommandType.StoredProcedure;
+            comando2.Parameters.AddWithValue("@habilidades", habilidad);
+            comando2.Parameters.AddWithValue("@evaluacion", evaluacion);
+            comando2.Parameters.AddWithValue("@empleado", codEmpleado);
+            comando2.ExecuteNonQuery();
+            comando2.Parameters.Clear();
+            con.CerrarConexion();
+
+        }
+
         public decimal puntuacion(int evaluacion, int empleado)
         {
             //int [] resultado ;
+            int finalizar = 0;
             List<customerList> Customers = new List<customerList>(2);
             decimal resultado=0;
             SqlCommand comando = new SqlCommand();
@@ -64,6 +95,7 @@ namespace CapaDatos
             {
                 while (reader.Read())
                 {
+
                     //Desempeño
                     if (reader.GetValue(1).Equals(1))
                     {
@@ -71,7 +103,10 @@ namespace CapaDatos
                         customerList listaDesempeno = new customerList()
                         {
                              Desempeno = Convert.ToDecimal(reader.GetValue(0)),
-                            Actitud=0,Habilidad=0,Evaluacion= evaluacion,CodEmpleado= empleado
+                             Actitud=0,
+                             Habilidad =0,
+                             Evaluacion = evaluacion,
+                             CodEmpleado = empleado
                         };
                         Customers.Add(listaDesempeno);
                         //this.ActualizarCompetencias(Convert.ToDecimal(reader.GetValue(0)), 0, 0, evaluacion, empleado);
@@ -106,6 +141,7 @@ namespace CapaDatos
                         Customers.Add(listaActitud);
                         //this.ActualizarCompetencias(0, Convert.ToDecimal(reader.GetValue(0)), 0, evaluacion, empleado);
                     }
+                    finalizar++;
                 }
             }
             else
@@ -114,9 +150,15 @@ namespace CapaDatos
                 resultado = 0;
             }
             reader.Close();
-            foreach (customerList custoome  in Customers)
+
+            if (finalizar == 3)
             {
-                this.ActualizarCompetencias(custoome.Desempeno, custoome.Actitud, custoome.Habilidad, custoome.Evaluacion, custoome.CodEmpleado);
+                customerList desempeno = Customers[0];
+                this.ActualizarDesempeno(desempeno.Desempeno, desempeno.Evaluacion, desempeno.CodEmpleado);
+                customerList habilidades = Customers[1];
+                this.ActualizarHabilidad(habilidades.Habilidad, habilidades.Evaluacion, habilidades.CodEmpleado);
+                customerList actitud = Customers[2];
+                this.ActualizarActitud(actitud.Actitud, actitud.Evaluacion, actitud.CodEmpleado);
             }
 
             return resultado;

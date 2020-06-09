@@ -116,10 +116,13 @@
     <Content Include="assets\css\images\icon-png.png" />
     <Content Include="assets\css\images\INICIO.png" />
     <Content Include="assets\css\images\meteorshower2.jpg" />
+    <Content Include="assets\css\images\OKSstem.png" />
     <Content Include="assets\css\images\pattern.jpg" />
     <Content Include="assets\css\jquery-ui.custom.min.css" />
     <Content Include="assets\css\jquery-ui.min.css" />
     <Content Include="assets\css\jquery.gritter.min.css" />
+    <Content Include="assets\css\main.css" />
+    <Content Include="assets\css\MoneAdmin.css" />
     <Content Include="assets\css\OCKO_Design.css" />
     <Content Include="assets\css\prettify.min.css" />
     <Content Include="assets\css\select2.min.css" />
@@ -221,6 +224,11 @@
     <Content Include="assets\js\SweetAlert.js" />
     <Content Include="assets\js\tree.min.js" />
     <Content Include="assets\js\wizard.min.js" />
+    <Content Include="assets\plugins\bootstrap\css\bootstrap.css" />
+    <Content Include="assets\plugins\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="assets\plugins\bootstrap\js\bootstrap.min.js" />
+    <Content Include="assets\plugins\Font-Awesome\css\font-awesome.css" />
+    <Content Include="assets\plugins\Font-Awesome\font\fontawesome-webfont.svg" />
     <Content Include="assets\swf\flashExport.swf" />
     <Content Include="cerrar.aspx" />
     <Content Include="css\bootstrap-grid.css" />
@@ -249,6 +257,7 @@
     <Content Include="PM\PM_Inicio.aspx" />
     <Content Include="PM\PM_InicioEvaluacion.aspx" />
     <Content Include="PM\PM_Modulos.aspx" />
+    <Content Include="PM\PM_Perfil.aspx" />
     <Content Include="PM\PM_Procesos.aspx" />
     <Content Include="PM\PM_Proyecto.aspx" />
     <Content Include="PM\PM_Seccion.aspx" />
@@ -467,6 +476,13 @@
     </Compile>
     <Compile Include="PM\PM_Modulos.aspx.designer.cs">
       <DependentUpon>PM_Modulos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PM\PM_Perfil.aspx.cs">
+      <DependentUpon>PM_Perfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PM\PM_Perfil.aspx.designer.cs">
+      <DependentUpon>PM_Perfil.aspx</DependentUpon>
     </Compile>
     <Compile Include="PM\PM_Procesos.aspx.cs">
       <DependentUpon>PM_Procesos.aspx</DependentUpon>
@@ -700,6 +716,13 @@
     <Content Include="Login.Master" />
     <Content Include="Empleado_PageMaster.Master" />
     <Content Include="Jefes_PageMaster.Master" />
+    <Content Include="assets\plugins\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="assets\plugins\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="assets\plugins\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="assets\plugins\Font-Awesome\font\fontawesome-webfont.eot" />
+    <Content Include="assets\plugins\Font-Awesome\font\fontawesome-webfont.ttf" />
+    <Content Include="assets\plugins\Font-Awesome\font\fontawesome-webfont.woff" />
+    <Content Include="assets\plugins\Font-Awesome\font\FontAwesome.otf" />
     <None Include="packages.config" />
     <Content Include="RRHH_PageMaster.Master" />
     <Content Include="Principal.Master" />

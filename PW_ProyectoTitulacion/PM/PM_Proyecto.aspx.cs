@@ -95,8 +95,8 @@ namespace PW_ProyectoTitulacion.PM
                 OCKO_TblProyecto proyecto = proyectoClass.BuscarIdProyecto(Convert.ToInt32(hdId.Value));
                 txtproyectoEdit.Text = proyecto.ProNombre;
                 txtDescripcionEdit.Text = proyecto.ProDescripcion;
-                txtFechaInicioEdit.Text = proyecto.ProFechaIncio.ToString();
-                txtFechafinalEdit.Text = proyecto.ProFechaFinal.ToString();
+                txtFechaInicioEdit.Text = Convert.ToDateTime(proyecto.ProFechaIncio).ToString("d"); 
+                txtFechafinalEdit.Text = Convert.ToDateTime(proyecto.ProFechaFinal).ToString("d"); 
             }
             catch (Exception ex)
             {
