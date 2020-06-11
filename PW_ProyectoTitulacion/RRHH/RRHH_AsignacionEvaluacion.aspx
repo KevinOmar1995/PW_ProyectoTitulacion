@@ -15,11 +15,12 @@
                      <asp:TableRow>
                          <asp:TableCell >
                                 Evaluaciones :
-                                <asp:DropDownList ID="ddlEvaluaciones" runat="server"></asp:DropDownList>
+                                <asp:DropDownList ID="ddlEvaluaciones" CssClass="form-control" runat="server"></asp:DropDownList>
                          </asp:TableCell>
+                          
                          <asp:TableCell>
-                                        Cedula :
-                                <asp:TextBox ID="TxtCedula" runat="server"></asp:TextBox>
+                                Cedula :
+                                <asp:TextBox ID="TxtCedula" CssClass="form-control" onkeypress="return soloNumeros(event)" MaxLength="10" required runat="server"></asp:TextBox>
                          </asp:TableCell>
                      </asp:TableRow>
                 </asp:Table>
@@ -30,14 +31,18 @@
             
             <asp:Label ID="lblMensajevisto" ForeColor="Green" runat="server" Text=""></asp:Label>
             <asp:Label ID="LblMensajeMalo" ForeColor="red" runat="server" Text=""></asp:Label>
-            <asp:GridView CssClass="table table-condensed table-hover"  caption="Empleado"   emptydatatext="No hay Registros." OnSelectedIndexChanged="gvrEmpelados_SelectedIndexChanged" ID="gvrEmpelados" runat="server" AutoGenerateColumns="False" DataKeyNames="EmpId" DataSourceID="SqlDataSource1">
+            <asp:GridView CssClass="table table-condensed table-hover"  caption="Empleado"   emptydatatext="No hay Registros." OnSelectedIndexChanged="gvrEmpelados_SelectedIndexChanged" ID="gvrEmpelados" runat="server" AutoGenerateColumns="False" DataKeyNames="EmpId" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" CellPadding="4" ForeColor="#333333" GridLines="None">
+                <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:TemplateField>
                         <ItemTemplate>
                             <%#Container.DataItemIndex +1 %>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:BoundField DataField="EmpId"  HeaderStyle-CssClass="hidden" ItemStyle-CssClass="hidden" HeaderText="EmpId" InsertVisible="False" ReadOnly="True" SortExpression="EmpId" />
+                    <asp:BoundField DataField="EmpId"  HeaderStyle-CssClass="hidden" ItemStyle-CssClass="hidden" HeaderText="EmpId" InsertVisible="False" ReadOnly="True" SortExpression="EmpId" >
+                    <HeaderStyle CssClass="hidden" />
+                    <ItemStyle CssClass="hidden" />
+                    </asp:BoundField>
                     <asp:BoundField DataField="EmpCedula" HeaderText="Cedula" SortExpression="EmpCedula" />
                     <asp:BoundField DataField="Nombre" HeaderText="Nombres" ReadOnly="True" SortExpression="Nombre" />
                     <asp:BoundField DataField="Apellido" HeaderText="Apellidos" ReadOnly="True" SortExpression="Apellido" />
@@ -45,8 +50,20 @@
                     <asp:BoundField DataField="EmpDireccion" HeaderText="Direccion" SortExpression="EmpDireccion" />
                     <asp:BoundField DataField="EmpTelefono" HeaderText="Telefono" SortExpression="EmpTelefono" />
                     <asp:BoundField DataField="CarNombre" HeaderText="Cargo" SortExpression="CarNombre" />
-                    <asp:CommandField ShowSelectButton="True" ControlStyle-CssClass="btn btn-blue" ButtonType="Button" ShowHeader="True" HeaderText=""></asp:CommandField>
+                    <asp:CommandField ShowSelectButton="True" ControlStyle-CssClass="btn btn-blue" ButtonType="Button" ShowHeader="True" HeaderText="">
+                    <ControlStyle CssClass="btn btn-blue" />
+                    </asp:CommandField>
                 </Columns>
+                <EditRowStyle BackColor="#2461BF" />
+                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="#EFF3FB" />
+                <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                <SortedDescendingHeaderStyle BackColor="#4870BE" />
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:OCKO_EvaluacionPersonal %>" SelectCommand="SELECT OCKO_TblEmpleado.EmpId, OCKO_TblEmpleado.EmpCedula, OCKO_TblEmpleado.EmpPrimerNombre + ' ' + OCKO_TblEmpleado.EmpSegundoNombre AS Nombre, OCKO_TblEmpleado.EmpPrimerNombre + ' ' + OCKO_TblEmpleado.EmpSegundoNombre AS Apellido, OCKO_TblEmpleado.EmpEmail, OCKO_TblEmpleado.EmpDireccion, OCKO_TblEmpleado.EmpTelefono, OCKO_TblCargo.CarNombre FROM OCKO_TblEmpleado INNER JOIN OCKO_TblCargo ON OCKO_TblEmpleado.CodCargo = OCKO_TblCargo.CarId WHERE (OCKO_TblEmpleado.EmpCedula = @cedula)">
                 <SelectParameters>

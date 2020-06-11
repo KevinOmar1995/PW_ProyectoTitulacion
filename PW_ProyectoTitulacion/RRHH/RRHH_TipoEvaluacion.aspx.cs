@@ -11,7 +11,7 @@ namespace PW_ProyectoTitulacion.RRHH
     public partial class RRHH_TipoEvaluacion : System.Web.UI.Page
     {
         OCKOTipoEvaluacion tipoEvaluacionClass = new OCKOTipoEvaluacion();
-        
+        OCKOValidaciones validacionesClass = new OCKOValidaciones();
         String idEvaluacion,mensaje;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -82,7 +82,8 @@ namespace PW_ProyectoTitulacion.RRHH
             try
             {
                 OCKO_TblTipoEvaluacion Evaluacion = new OCKO_TblTipoEvaluacion();
-                if (this.validarCamposCreate())
+                if (validacionesClass.ValidarCamposVacios(txtEvaDescripcionCreate.Text)
+                     && validacionesClass.ValidarCamposVacios(txtEvaluacionCreate.Text))
                 {
 
                     if (tipoEvaluacionClass.BuscarEvaluacion(txtEvaluacionCreate.Text))

@@ -1,17 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/RRHH_PageMaster.Master" AutoEventWireup="true" CodeBehind="RRHH_PreguntasLista.aspx.cs" Inherits="PW_ProyectoTitulacion.RRHH.RRHH_PreguntasLista" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script type="text/javascript">
-        function Evaluacion(letra, parametros) {
-
-            if (confirm(letra)) {
-                window.location.href = window.location.href;
-            }
-            else {
-                return false;
-            }
-        }
-    </script>
+   
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>

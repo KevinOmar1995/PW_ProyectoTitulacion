@@ -28,6 +28,7 @@ namespace PW_ProyectoTitulacion.RRHH
         }
         private void CargarEvaluaciones()
         {
+           
             List<OCKO_TblTipoEvaluacion> listaEvaluacion = new List<OCKO_TblTipoEvaluacion>();
             listaEvaluacion = evaluacion.listaEvaluacion();
             listaEvaluacion.Insert(0, new OCKO_TblTipoEvaluacion() { TipEvaluacion = "--Seleccionar--" });
@@ -74,7 +75,8 @@ namespace PW_ProyectoTitulacion.RRHH
             }
             catch (Exception ex)
             {
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert(' Algo Salio Mal" + ex + "');", true);
+                Session["ERROR_RRHH"] = ex;
+                Response.Redirect("RRHH_ERROR.aspx");
             }
         }
 

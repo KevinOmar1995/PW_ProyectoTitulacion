@@ -1,19 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/RRHH_PageMaster.Master" AutoEventWireup="true" CodeBehind="RRHH_CategoriaPreguntas.aspx.cs" Inherits="PW_ProyectoTitulacion.RRHH.RRHH_CategoriaPreguntas" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script type="text/javascript">
-        function Evaluacion(letra,parametros)
-        {
-             
-            if (confirm(letra))
-            {
-                window.location.href = window.location.href;
-            }
-            else
-            {
-                return false;
-            }
-        }
-    </script>
+    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -29,21 +16,42 @@
     </button>
     </asp:Panel>
    <asp:Panel runat="server" style="float:left" Width="100%" ID="p">
-       <asp:GridView CssClass="table table-condensed table-hover" ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="False" DataKeyNames="CatId,GruId" DataSourceID="SqlCaterogoria">
+       <asp:GridView CssClass="table table-condensed table-hover" ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="False" DataKeyNames="CatId,GruId" DataSourceID="SqlCaterogoria" AllowPaging="True" AllowSorting="True" CellPadding="4" ForeColor="#333333" GridLines="None">
+           <AlternatingRowStyle BackColor="White" />
            <Columns>
-                <asp:TemplateField>
-                <ItemTemplate>
-                    <%#Container.DataItemIndex +1 %>
-                </ItemTemplate>
-            </asp:TemplateField>
-               <asp:BoundField DataField="CatId" HeaderText="CatId"  HeaderStyle-CssClass="hidden" ItemStyle-CssClass="hidden" SortExpression="CatId" ReadOnly="True" />
-               <asp:BoundField DataField="CatNombre"  HeaderStyle-CssClass="hidden" ItemStyle-CssClass="hidden" HeaderText="CatNombre" SortExpression="CatNombre" />
+               <asp:TemplateField>
+                   <ItemTemplate>
+                       <%#Container.DataItemIndex +1 %>
+                   </ItemTemplate>
+               </asp:TemplateField>
+               <asp:BoundField DataField="CatId" HeaderStyle-CssClass="hidden" HeaderText="CatId" ItemStyle-CssClass="hidden" ReadOnly="True" SortExpression="CatId">
+               <HeaderStyle CssClass="hidden" />
+               <ItemStyle CssClass="hidden" />
+               </asp:BoundField>
+               <asp:BoundField DataField="CatNombre" HeaderStyle-CssClass="hidden" HeaderText="CatNombre" ItemStyle-CssClass="hidden" SortExpression="CatNombre">
+               <HeaderStyle CssClass="hidden" />
+               <ItemStyle CssClass="hidden" />
+               </asp:BoundField>
                <asp:BoundField DataField="CatDescripcion" HeaderText="Categoria" SortExpression="CatDescripcion" />
-            
-                <asp:BoundField DataField="GruId" HeaderText="GruId"  HeaderStyle-CssClass="hidden" ItemStyle-CssClass="hidden" SortExpression="GruId" />
-                <asp:BoundField DataField="GruNombre" HeaderText="Grupo" SortExpression="GruNombre" />
-               <asp:CommandField ShowSelectButton="True"  ControlStyle-CssClass="btn btn-blue" ButtonType="Button" ShowHeader="True" HeaderText=""></asp:CommandField>
+               <asp:BoundField DataField="GruId" HeaderStyle-CssClass="hidden" HeaderText="GruId" ItemStyle-CssClass="hidden" SortExpression="GruId">
+               <HeaderStyle CssClass="hidden" />
+               <ItemStyle CssClass="hidden" />
+               </asp:BoundField>
+               <asp:BoundField DataField="GruNombre" HeaderText="Grupo" SortExpression="GruNombre" />
+               <asp:CommandField ButtonType="Button" ControlStyle-CssClass="btn btn-blue" HeaderText="" ShowHeader="True" ShowSelectButton="True">
+               <ControlStyle CssClass="btn btn-blue" />
+               </asp:CommandField>
            </Columns>
+           <EditRowStyle BackColor="#2461BF" />
+           <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+           <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+           <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+           <RowStyle BackColor="#EFF3FB" />
+           <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+           <SortedAscendingCellStyle BackColor="#F5F7FB" />
+           <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+           <SortedDescendingCellStyle BackColor="#E9EBEF" />
+           <SortedDescendingHeaderStyle BackColor="#4870BE" />
        </asp:GridView>
        <asp:SqlDataSource ID="SqlCaterogoria" runat="server" ConnectionString="<%$ ConnectionStrings:OCKO_EvaluacionPersonal %>" SelectCommand="SELECT OCKO_TblCategoriaPregunta.CatNombre, OCKO_TblCategoriaPregunta.CatDescripcion, OCKO_TblCategoriaPregunta.CatId, OCKO_TblGrupoConceptos.GruId, OCKO_TblGrupoConceptos.GruNombre FROM OCKO_TblCategoriaPregunta INNER JOIN OCKO_TblGrupoConceptos ON OCKO_TblCategoriaPregunta.CodGrupoConceptos = OCKO_TblGrupoConceptos.GruId"></asp:SqlDataSource>
    </asp:Panel>
@@ -91,10 +99,10 @@
                     
                     <asp:TextBox runat="server" ID="txtCategoriaEdit" CssClass="form-control" placeholder="Cargo"/>
                      <br />
-                    <asp:TextBox runat="server" ID="txtDescripcionEdit" CssClass="form-control" placeholder="Cargo"/>
+                    <asp:TextBox runat="server" ID="txtDescripcionEdit"  CssClass="form-control" placeholder="Cargo"/>
                     <br />
                     <asp:Label ID="Label1" runat="server" Text="">Grupo Concepto</asp:Label>
-                    <asp:DropDownList ID="dllGrupoConceptoEdit"  runat="server" OnSelectedIndexChanged="dllGrupoConcepto_SelectedIndexChanged"></asp:DropDownList>
+                    <asp:DropDownList ID="dllGrupoConceptoEdit"  runat="server" CssClass="form-control" OnSelectedIndexChanged="dllGrupoConcepto_SelectedIndexChanged"></asp:DropDownList>
                
                     <asp:HiddenField runat="server" ID="hdId"   />
                 </div>

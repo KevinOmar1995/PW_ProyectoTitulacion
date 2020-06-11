@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:GridView CssClass="table table-condensed table-hover" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="parID" DataSourceID="SqlItemsCalificacion">
+    <asp:GridView CssClass="table table-condensed table-hover" caption="Parametros de Calificación"   emptydatatext="No hay Registros." ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="parID" DataSourceID="SqlItemsCalificacion">
         <Columns>
             <asp:TemplateField>
                 <ItemTemplate>

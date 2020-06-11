@@ -461,13 +461,13 @@
 
                             <b class="arrow fa fa-angle-down"></b>
                         </a>
-
+                        <ul class="submenu">
                         <b class="arrow"></b>
                          <li class="">
                                 <a href="#" class="dropdown-toggle">
                                     <i class="menu-icon fa fa-caret-right"></i>
 
-                                    Reportes Desempeño
+                                    Desempeño
 									<b class="arrow fa fa-angle-down"></b>
                                 </a>
 
@@ -502,10 +502,6 @@
                                 </ul>
                             </li>
 
-
-
-
-                        <ul class="submenu">
                             <li class="">
                                 <a href="./RRHH_RptEstadisticos.aspx">
                                     <i class="menu-icon fa fa-caret-right"></i>
@@ -531,8 +527,8 @@
 
                                 <b class="arrow"></b>
                             </li>
-                        </ul>
                     </li>
+                   </ul>
 
                     <li class="">
                         <a href="#" class="dropdown-toggle">
@@ -566,14 +562,7 @@
                                 </a>
                                 <b class="arrow"></b>
                             </li>
-                            <li class="">
-                                <a href="form-elements-2.html">
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    --------------------
-                                </a>
-
-                                <b class="arrow"></b>
-                            </li>
+                            
                         </ul>
                     </li>
 

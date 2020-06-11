@@ -217,6 +217,7 @@
     <Content Include="assets\js\moment.min.js" />
     <Content Include="assets\js\password_strength.js" />
     <Content Include="assets\js\prettify.min.js" />
+    <Content Include="assets\js\query2.js" />
     <Content Include="assets\js\respond.min.js" />
     <Content Include="assets\js\select2.min.js" />
     <Content Include="assets\js\spin.js" />
@@ -723,6 +724,7 @@
     <Content Include="assets\plugins\Font-Awesome\font\fontawesome-webfont.ttf" />
     <Content Include="assets\plugins\Font-Awesome\font\fontawesome-webfont.woff" />
     <Content Include="assets\plugins\Font-Awesome\font\FontAwesome.otf" />
+    <Content Include="assets\js\jquery.datetimepicker.full.min.js" />
     <None Include="packages.config" />
     <Content Include="RRHH_PageMaster.Master" />
     <Content Include="Principal.Master" />

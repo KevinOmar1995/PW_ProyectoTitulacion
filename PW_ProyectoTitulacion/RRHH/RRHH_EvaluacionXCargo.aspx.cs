@@ -14,6 +14,7 @@ namespace PW_ProyectoTitulacion.RRHH
         OCKOCargo cargo = new OCKOCargo();
         OCKOTipoEvaluacion evaluacion = new OCKOTipoEvaluacion();
         OCKO_StoreProcedureAction procedure = new OCKO_StoreProcedureAction();
+        string mensaje;
         protected void Page_Load(object sender, EventArgs e)
         {
             ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal();", true);
@@ -51,7 +52,15 @@ namespace PW_ProyectoTitulacion.RRHH
         protected void dllEvaluacion_SelectedIndexChanged(object sender, EventArgs e)
         {
             int evaluacion1 = Convert.ToInt32(dllEvaluacion.SelectedValue);
-            Session["EvaluacionList"] = evaluacion1;
+            if (evaluacion1 != 0)
+            {
+                Session["EvaluacionList"] = evaluacion1;
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "MensajeError('" + mensaje + "');", true);
+                ClientScript.RegisterStartupScript(this.GetType(), "", " setTimeout('window.location.href = window.location.href', 3000);", true);
+            }
         }
 
         protected void dllCargo_SelectedIndexChanged(object sender, EventArgs e)

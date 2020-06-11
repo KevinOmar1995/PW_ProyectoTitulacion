@@ -16,15 +16,15 @@
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                             <h4 class="modal-title">
-                                <asp:Label ID="lblModalTitle" runat="server" Text=""></asp:Label></h4>
+                                <asp:Label ID="lblModalTitle" runat="server" Text="Asignaciòn por Cargo"></asp:Label></h4>
                         </div>
                         <div class="modal-body">
-                            <asp:Label ID="lblModalBody" runat="server" Text="">Elegir una Evaluación</asp:Label>
-                            <asp:DropDownList ID="dllEvaluacion" AutoPostBack="true" runat="server" OnSelectedIndexChanged="dllEvaluacion_SelectedIndexChanged"></asp:DropDownList>
+                            <asp:Label ID="lblModalBody" runat="server" Text="">Elegir una Evaluación :</asp:Label>
+                            <asp:DropDownList ID="dllEvaluacion" CssClass="form-control" AutoPostBack="true" runat="server" OnSelectedIndexChanged="dllEvaluacion_SelectedIndexChanged"></asp:DropDownList>
                         </div>
                         <div class="modal-body">
-                            <asp:Label ID="Label1" runat="server" Text="">Elegir un Cargo</asp:Label>
-                            <asp:DropDownList ID="dllCargo" AutoPostBack="true" runat="server" OnSelectedIndexChanged="dllCargo_SelectedIndexChanged"></asp:DropDownList>
+                            <asp:Label ID="Label1" runat="server" Text="">Elegir un Cargo :</asp:Label>
+                            <asp:DropDownList ID="dllCargo" CssClass="form-control" AutoPostBack="true" runat="server" OnSelectedIndexChanged="dllCargo_SelectedIndexChanged"></asp:DropDownList>
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-info" data-dismiss="modal" aria-hidden="true">Close</button>

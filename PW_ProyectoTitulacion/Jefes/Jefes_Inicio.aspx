@@ -49,7 +49,5 @@
                         </div>
                     </div>
                 </div>
-     <span class="img-container"> <!-- Inline parent element -->
-            <img src="../assets/css/images/OKSstem.png" class="img-thumbnail" />
-        </span>
+    
 </asp:Content>

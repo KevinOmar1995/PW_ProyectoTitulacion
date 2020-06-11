@@ -148,7 +148,8 @@ namespace PW_ProyectoTitulacion.RRHH
                                     storeProClass.GuardaUsuario(4);
                             }
                             mensaje = "Empleado Contratado";
-                            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "Mensaje('" + mensaje + "');", true);
+                            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "MensajeGuardado('" + mensaje + "');", true);
+                            ClientScript.RegisterStartupScript(this.GetType(), "", " setTimeout('window.location.href = window.location.href', 3000);", true);
                             Guardar.Enabled = false;
                         }
                         catch (Exception ex)
@@ -161,7 +162,7 @@ namespace PW_ProyectoTitulacion.RRHH
                     else
                     {
                         mensaje = "Cedula Invalida";
-                        ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "Mensaje('" + mensaje + "');", true);
+                        ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "MensajeError('" + mensaje + "');", true);
                     }
                 }
                 else

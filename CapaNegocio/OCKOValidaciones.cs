@@ -23,7 +23,16 @@ namespace CapaNegocio
             return resultado;
         }
 
-        
+        public bool ValidarCamposVacios(string texto)
+        {
+            bool respuesta = true;
+            if (texto=="")
+            {
+                respuesta = false;
+            }
+            return respuesta;
+        }
+
         public void enviarEmail(String email, String asusnto, String mensaje)
         {
             //MailMessage mail = new MailMessage("kordonezsystem@gmail.com", email);

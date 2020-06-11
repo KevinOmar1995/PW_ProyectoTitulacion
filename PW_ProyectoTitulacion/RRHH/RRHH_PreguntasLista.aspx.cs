@@ -22,7 +22,7 @@ namespace PW_ProyectoTitulacion.RRHH
                 if (Session["EvaluacionList"] == null)
                 {
                     mensaje = "No se ha seleccionado una Evaluaciòn";
-                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "Evaluacion('"+ mensaje + "');", true);
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "MensajeError('" + mensaje + "');", true);
                 }
                 //valido que tipo de formulario va a ser
                 if (Request.QueryString["e"].ToString() == "t")
@@ -54,9 +54,10 @@ namespace PW_ProyectoTitulacion.RRHH
         {
             OCKO_TblPreguntas pregunta = preguntas.BuscarIdPregunta(Convert.ToInt32(hdId.Value));
             preguntas.eliminarPregunta(pregunta);
-            mensaje = "Pregunta Eliminada";
+            mensaje = " una Pregunta";
             //updPnael.Update();
-            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "Evaluacion('" + mensaje + "');", true);
+            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "MensajeEliminar('" + mensaje + "');", true);
+            ClientScript.RegisterStartupScript(this.GetType(), "", " setTimeout('window.location.href = window.location.href', 3000);", true);
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
