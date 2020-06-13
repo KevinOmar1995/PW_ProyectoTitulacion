@@ -113,37 +113,43 @@
                                             <form>
                                                 <fieldset>
                                                     <label class="block clearfix">
-
-       
-                                                        <span class="block input-icon input-icon-right" >
-                                                            <asp:TextBox ID="txtEmail" runat="server"  placeholder="Email" CssClass="form-control" Width="288px"></asp:TextBox>
+                                                        <span class="block input-icon input-icon-right">
+                                                            <asp:TextBox ID="txtEmail" CssClass="form-control" runat="server"></asp:TextBox>
                                                             <i class="ace-icon fa fa-envelope"></i>
                                                         </span>
                                                     </label>
 
-                                                    <div class="clearfix">
-                                                        <asp:Button ID="LogginButton" runat="server"  Text="Iniciar" class="width-35 pull-right btn btn-sm btn-danger" OnClick="LogginButton_Click" />
-                                                    </div>
+                                                    <asp:LinkButton class="width-35 pull-right btn btn-sm btn-danger" ID="LinkButton1" OnClick="LinkButton1_Click" runat="server">
+                                                        <i class="ace-icon fa fa-lightbulb-o"></i>
+															<span class="bigger-110">Enviar</span>
+                                                    </asp:LinkButton>
+                                                       
                                                 </fieldset>
                                             </form>
                                         </div>
-    <!-- /.widget-main -->
+                                        <!-- /.widget-main -->
 
-    <div class="toolbar center">
-        <a href="#" data-target="#login-box" class="back-to-login-link">Regresar
+                                        <div class="toolbar center">
+                                            <a href="#" data-target="#login-box" class="back-to-login-link">Regresar
 												<i class="ace-icon fa fa-arrow-right"></i>
-        </a>
-    </div>
-    </div><!-- /.widget-body -->
-    </div><!-- /.forgot-box -->
-    </div>
-						</div>
-					</div><!-- /.col -->
-    </div><!-- /.row -->
-    </div><!-- /.main-content -->
-    </div><!-- /.main-container -->
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- /.widget-body -->
+                                </div>
+                                <!-- /.forgot-box -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.main-content -->
+        </div>
+        <!-- /.main-container -->
     </form>
-		<!-- basic scripts -->
+    <!-- basic scripts -->
 
     <!--[if !IE]> -->
     <script src="assets/js/jquery-2.1.4.min.js"></script>

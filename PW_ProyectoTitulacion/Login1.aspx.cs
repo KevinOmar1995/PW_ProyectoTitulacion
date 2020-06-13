@@ -12,7 +12,6 @@ using System.Configuration;
 using CapaDatos;
 using CapaNegocio;
 using System.Text;
-
 namespace PW_ProyectoTitulacion
 {
     public partial class Login1 : System.Web.UI.Page
