@@ -203,7 +203,7 @@
 					<li class="active">
 						<a href="index.html">
 							<i class="menu-icon fa fa-tachometer"></i>
-							<span class="menu-text"> Cosmo Consult </span>
+							<span class="menu-text"><%=Empresa %> </span>
 						</a>
 
 						<b class="arrow"></b>
@@ -357,7 +357,7 @@
 								<i class="ace-icon fa fa-check green"></i>
 								Bienvenido a tú Cuenta
 								<strong class="green">
-									<%=sesion %>  
+									<%=sesionNombre %>  
 								</strong>
 							</div>
 						</div>

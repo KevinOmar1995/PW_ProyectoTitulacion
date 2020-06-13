@@ -10,11 +10,16 @@ namespace PW_ProyectoTitulacion
 {
     public partial class Jefes_PageMaster : System.Web.UI.MasterPage
     {
-        public String sesion;
+        public String sesion, Empresa, sesionNombre;
         OCKOEmpleadoUsuario usu = new OCKOEmpleadoUsuario();
         OCKO_TblUsuario tblusuario = new OCKO_TblUsuario();
         OCKOProyecto proyectoClass = new OCKOProyecto();
         OCKO_TblProyecto proyectoTable = new OCKO_TblProyecto();
+        //
+        OCKO_TblEmpleado empleadoTable = new OCKO_TblEmpleado();
+        OCKO_TblEmpresa empresaTable = new OCKO_TblEmpresa();
+        OCKOEmpresa empresaClass = new OCKOEmpresa();
+        //
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -28,7 +33,11 @@ namespace PW_ProyectoTitulacion
             {
                 tblusuario = usu.OckoBbuscarPorNombre(Session["Username"].ToString());
 
+                empleadoTable = usu.BuscarIdEmpleado(tblusuario.UsuId);
+                empresaTable = empresaClass.BuscarIdEmpresa(Convert.ToInt32(empleadoTable.CodEmpresa));
+                Empresa = empresaTable.EmpNombre;
                 sesion = tblusuario.Usunombre.ToUpper();
+                sesionNombre = empleadoTable.EmpPrimerNombre.ToUpper() + " " + empleadoTable.EmpPrimerApellido.ToUpper();
             }
             else
             {
@@ -67,7 +76,6 @@ namespace PW_ProyectoTitulacion
         {
             try
             {
-
                 int proyecto = Convert.ToInt32(ddlPro.SelectedValue);
                 Session["ProyectoId"] = proyecto;
                 Response.Redirect("./Jefes_AsigActividades.aspx");

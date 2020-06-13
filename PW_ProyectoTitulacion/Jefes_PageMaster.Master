@@ -47,26 +47,94 @@
     <!-- inline styles related to this page -->
 
     <!-- ace settings handler -->
-    <script>
+    <script src="../assets/js/SweetAlert.js"></script>
+   <script>
+          function soloLetras(e) {
+            var key = e.keyCode || e.which,
+              tecla = String.fromCharCode(key).toLowerCase(),
+              letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
+              especiales = [8, 37, 39, 46],
+              tecla_especial = false;
 
-        function alertme() {
-            Swal.fire(
-                'Good job!',
-                'You clicked the button!',
-                'success'
-            )
+            for (var i in especiales) {
+              if (key == especiales[i]) {
+                tecla_especial = true;
+                break;
+              }
+            }
+
+            if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+              return false;
+            }
+          }
+
+          function soloNumeros(e) {
+            var key = window.Event ? e.which : e.keyCode;
+            return key >= 48 && key <= 57;
+          }
+          function validarEmail(elemento) {
+            var texto = document.getElementById(elemento.id).value;
+            var regex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+
+            if (!regex.test(texto)) {
+              document.getElementById("resultado").innerHTML = "Correo invalido";
+            } else {
+              document.getElementById("resultado").innerHTML = "";
+            }
+          }
+        </script>
+
+
+
+
+    <!--[if lte IE 9]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+		<![endif]-->
+    <script type="text/javascript">
+        function MensajeError(letra) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: letra,
+            })
+            //window.location.href = window.location.href;
+
+        }
+
+        function MensajeGuardado(letra) {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Nueva ' + letra + ' ha sido creado',
+                showConfirmButton: false,
+                timer: 3000
+            });
+
+        }
+
+        function MensajeEditado(letra) {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Ha editado ' + letra + ' Correctamente ',
+                showConfirmButton: false,
+                timer: 3000
+            });
+
+        }
+        function MensajeEliminar(letra) {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Se he Eliminado ' + letra + ' Correctamente ',
+                showConfirmButton: false,
+                timer: 3000
+            });
+
         }
     </script>
-    <script>
-        $('#AddDate').on('show.bs.modal', function (e) {
-            alert("Modal Mostrada con Evento de Boostrap");
-        })
 
-        function Mensaje(letra) {
-            alert(letra);
-            window.location.href = window.location.href;
-        }
-    </script>
+  
     <script src="../assets/js/ace-extra.min.js"></script>
     <style>
         .table-condensed tr th {
@@ -125,49 +193,7 @@
                 </div>
 
                 <div class="navbar-buttons navbar-header pull-right" role="navigation">
-                    <ul class="nav ace-nav">
-                        <li class="green dropdown-modal">
-                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                                <i class="ace-icon fa fa-bell icon-animated-bell"></i>
-                                <span class="badge badge-important">1</span>
-                            </a>>
-
-							<ul class="dropdown-menu-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
-                                <li class="dropdown-header">
-                                    <i class="ace-icon fa fa-envelope-o"></i>
-                                    1 Mensaje
-                                </li>
-
-                                <li class="dropdown-content">
-                                    <ul class="dropdown-menu dropdown-navbar">
-
-                                        <li>
-                                            <a href="#" class="clearfix">
-                                                <img src="assets/images/avatars/avatar5.png" class="msg-photo" alt="Fred's Avatar" />
-                                                <span class="msg-body">
-                                                    <span class="msg-title">
-                                                        <span class="blue">RRHH:</span>
-                                                        Realiza tu evaluaciòn
-                                                    </span>
-
-                                                    <span class="msg-time">
-                                                        <i class="ace-icon fa fa-clock-o"></i>
-                                                        <span>10:09 am</span>
-                                                    </span>
-                                                </span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-
-                                <li class="dropdown-footer">
-                                    <a href="inbox.html">See all messages
-										<i class="ace-icon fa fa-arrow-right"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
+                    <ul class="nav ace-nav">   
                         <li class="light-blue dropdown-modal">
                             <a data-toggle="dropdown" href="#" class="dropdown-toggle">
                                 <img class="nav-user-photo" src="../assets/css/images/icon-png.png" />
@@ -180,7 +206,7 @@
                             <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
 
                                 <li>
-                                    <a href="profile.html">
+                                    <a href="./Jefes_Perfil.aspx">
                                         <i class="ace-icon fa fa-user"></i>
                                         Profile
                                     </a>
@@ -208,7 +234,7 @@
                     <li class="active">
                         <a href="index.html">
                             <i class="menu-icon fa fa-tachometer"></i>
-                            <span class="menu-text">Inicio </span>
+                            <span class="menu-text"><%=Empresa %>  </span>
                         </a>
 
                         <b class="arrow"></b>
@@ -401,76 +427,8 @@
 
                                 <b class="arrow"></b>
                             </li>
-
-                            <li class="">
-                                <a href="jqgrid.html">
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    jqGrid plugin
-                                </a>
-
-                                <b class="arrow"></b>
-                            </li>
                         </ul>
                     </li>
-
-                    <li class="">
-                        <a href="#" class="dropdown-toggle">
-                            <i class="menu-icon fa fa-pencil-square-o"></i>
-                            <span class="menu-text">Forms </span>
-
-                            <b class="arrow fa fa-angle-down"></b>
-                        </a>
-
-                        <b class="arrow"></b>
-
-                        <ul class="submenu">
-                            <li class="">
-                                <a href="form-elements.html">
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    Form Elements
-                                </a>
-
-                                <b class="arrow"></b>
-                            </li>
-
-                            <li class="">
-                                <a href="form-elements-2.html">
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    Form Elements 2
-                                </a>
-
-                                <b class="arrow"></b>
-                            </li>
-
-                            <li class="">
-                                <a href="form-wizard.html">
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    Wizard &amp; Validation
-                                </a>
-
-                                <b class="arrow"></b>
-                            </li>
-
-                            <li class="">
-                                <a href="wysiwyg.html">
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    Wysiwyg &amp; Markdown
-                                </a>
-
-                                <b class="arrow"></b>
-                            </li>
-
-                            <li class="">
-                                <a href="dropzone.html">
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    Dropzone File Upload
-                                </a>
-
-                                <b class="arrow"></b>
-                            </li>
-                        </ul>
-                    </li>
-
                 </ul>
 
                 <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
@@ -484,9 +442,9 @@
                         <ul class="breadcrumb">
                             <li>
                                 <i class="ace-icon fa fa-home home-icon"></i>
-                                <a href="#">Inicio</a>
+                                <a href="./Jefes_Inicio.aspx">Inicio</a>
                             </li>
-                            <li class="active">Cuenta</li>
+                           
                         </ul>
                     </div>
 
@@ -502,7 +460,7 @@
                                 <i class="ace-icon fa fa-check green"></i>
                                 Bienvenido a tú Cuenta
 								<strong class="green">
-                                    <%=sesion %>    
+                                    <%=sesionNombre %>    
                                 </strong>
                             </div>
                         </div>

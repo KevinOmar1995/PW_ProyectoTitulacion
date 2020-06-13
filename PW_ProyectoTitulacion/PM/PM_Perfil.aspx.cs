@@ -86,7 +86,8 @@ namespace PW_ProyectoTitulacion.PM
                 empleadoTable.EmpEmail = txtEmail.Text;
                 empleadoTable.EmpDireccion = txtDireccion.Text;
                 empleadoTable.EmpTelefono = txttelefono.Text;
-
+                usuarioTable.Usunombre = txtUsuario.Text;
+                empleadoClass.ActualizarUsuario(usuarioTable);
                 empleadoClass.ActualizarEmpleado(empleadoTable);
                 mensaje = "su Perfil";
                 ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "MensajeEditado('" + mensaje + "');", true);

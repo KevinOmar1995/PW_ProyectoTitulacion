@@ -6,11 +6,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using CapaDatos;
 using CapaNegocio;
-
-
-namespace PW_ProyectoTitulacion.RRHH
+namespace PW_ProyectoTitulacion.Empleados
 {
-    public partial class RRHH_Perfil : System.Web.UI.Page
+    public partial class Empleado_Perfil : System.Web.UI.Page
     {
         OCKOEmpleadoUsuario empleadoClass = new OCKOEmpleadoUsuario();
         OCKO_TblEmpleado empleadoTable = new OCKO_TblEmpleado();
@@ -20,14 +18,12 @@ namespace PW_ProyectoTitulacion.RRHH
         String mensaje;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
                 LlenarDatos();
                 calendarFechaNacimiento.Visible = false;
             }
-           
         }
-
         private void LlenarDatos()
         {
             try
@@ -57,12 +53,12 @@ namespace PW_ProyectoTitulacion.RRHH
 
                 //Seccion de Usuario Y contraseña
                 txtUsuario.Text = usuarioTable.Usunombre;
-                
+
             }
             catch (Exception ex)
             {
-                Session["ERROR_RRHH"] = ex;
-                Response.Redirect("RRHH_ERROR.aspx");
+                Session["ERROR_EMPLEADO"] = ex;
+                Response.Redirect("Empleado_ERROR.aspx");
             }
 
         }
@@ -76,9 +72,9 @@ namespace PW_ProyectoTitulacion.RRHH
                 usuarioTable = empleadoClass.BuscarIdUsuario(EmpdId);
                 if (txtConfirmarContraseña.Text == txtContraseñaNueva.Text)
                 {
-                    
-                    usuarioTable.UsuId          = EmpdId;
-                    usuarioTable.UsuContraseña  = txtContraseñaNueva.Text;
+
+                    usuarioTable.UsuId = EmpdId;
+                    usuarioTable.UsuContraseña = txtContraseñaNueva.Text;
                     empleadoLocalClass.ActualizarUsuario(usuarioTable);
                     mensaje = "su Contraseña";
                     ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "MensajeEditado('" + mensaje + "');", true);
@@ -100,41 +96,15 @@ namespace PW_ProyectoTitulacion.RRHH
             }
             catch (Exception ex)
             {
-                Session["ERROR_RRHH"] = ex;
-                Response.Redirect("RRHH_ERROR.aspx");
-            }
-        }
-
-        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
-        {
-            if (calendarFechaNacimiento.Visible)
-            {
-                calendarFechaNacimiento.Visible = false;
-            }
-            else
-            {
-                calendarFechaNacimiento.Visible = true;
-            }
-        }
-
-        protected void calendarFechaNacimiento_SelectionChanged(object sender, EventArgs e)
-        {
-            txtFechaNacimiento.Text = calendarFechaNacimiento.SelectedDate.ToString("d");
-            calendarFechaNacimiento.Visible = false;
-        }
-
-        protected void calendarFechaNacimiento_DayRender(object sender, DayRenderEventArgs e)
-        {
-            if (e.Day.IsOtherMonth || e.Day.IsWeekend)
-            {
-                e.Day.IsSelectable = false;
-                e.Cell.BackColor = System.Drawing.Color.AliceBlue;
+                Session["ERROR_EMPLEADO"] = ex;
+                Response.Redirect("Empleado_ERROR.aspx");
             }
         }
 
         protected void Guardar_Click(object sender, EventArgs e)
         {
-            try {
+            try
+            {
                 int IdEmp = Convert.ToInt32(hdId.Value);
                 empleadoTable = empleadoClass.BuscarIdEmpleado(IdEmp);
                 usuarioTable = empleadoClass.BuscarIdUsuario(IdEmp);
@@ -153,6 +123,7 @@ namespace PW_ProyectoTitulacion.RRHH
                 empleadoTable.EmpEmail = txtEmail.Text;
                 empleadoTable.EmpDireccion = txtDireccion.Text;
                 empleadoTable.EmpTelefono = txttelefono.Text;
+
                 usuarioTable.Usunombre = txtUsuario.Text;
                 empleadoClass.ActualizarUsuario(usuarioTable);
                 empleadoClass.ActualizarEmpleado(empleadoTable);
@@ -160,11 +131,39 @@ namespace PW_ProyectoTitulacion.RRHH
                 ScriptManager.RegisterStartupScript(Page, Page.GetType(), "confirm", "MensajeEditado('" + mensaje + "');", true);
                 ClientScript.RegisterStartupScript(this.GetType(), "", " setTimeout('window.location.href = window.location.href', 3000);", true);
             }
-            catch (Exception ex )
+            catch (Exception ex)
             {
-                Session["ERROR_RRHH"] = ex;
-                Response.Redirect("RRHH_ERROR.aspx");
+                Session["ERROR_EMPLEADO"] = ex;
+                Response.Redirect("Empleado_ERROR.aspx");
             }
+        }
+
+        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+        {
+
+            if (calendarFechaNacimiento.Visible)
+            {
+                calendarFechaNacimiento.Visible = false;
+            }
+            else
+            {
+                calendarFechaNacimiento.Visible = true;
+            }
+        }
+
+        protected void calendarFechaNacimiento_DayRender(object sender, DayRenderEventArgs e)
+        {
+            if (e.Day.IsOtherMonth || e.Day.IsWeekend)
+            {
+                e.Day.IsSelectable = false;
+                e.Cell.BackColor = System.Drawing.Color.AliceBlue;
+            }
+        }
+
+        protected void calendarFechaNacimiento_SelectionChanged(object sender, EventArgs e)
+        {
+            txtFechaNacimiento.Text = calendarFechaNacimiento.SelectedDate.ToString("d");
+            calendarFechaNacimiento.Visible = false;
         }
     }
 }

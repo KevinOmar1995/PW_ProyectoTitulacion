@@ -56,8 +56,8 @@ namespace PW_ProyectoTitulacion.Jefes
             }
             catch (Exception ex)
             {
-                Session["ERROR_PM"] = ex;
-                Response.Redirect("PM_ERROR.aspx");
+                Session["ERROR_JEFES"] = ex;
+                Response.Redirect("Jefes_ERROR.aspx");
             }
         }
 
@@ -79,8 +79,8 @@ namespace PW_ProyectoTitulacion.Jefes
             }
             catch (Exception ex)
             {
-                Session["ERROR_PM"] = ex;
-                Response.Redirect("PM_ERROR.aspx");
+                Session["ERROR_JEFES"] = ex;
+                Response.Redirect("Jefes_ERROR.aspx");
 
             }
         }

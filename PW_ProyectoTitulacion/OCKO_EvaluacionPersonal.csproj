@@ -231,25 +231,27 @@
     <Content Include="assets\plugins\Font-Awesome\css\font-awesome.css" />
     <Content Include="assets\plugins\Font-Awesome\font\fontawesome-webfont.svg" />
     <Content Include="assets\swf\flashExport.swf" />
-    <Content Include="cerrar.aspx" />
     <Content Include="css\bootstrap-grid.css" />
     <Content Include="css\bootstrap-reboot.css" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap1.css" />
     <Content Include="css\strength.css" />
-    <Content Include="Default.aspx" />
     <Content Include="Empleados\Empleado_Asignadas.aspx" />
+    <Content Include="Empleados\Empleado_ERROR.aspx" />
     <Content Include="Empleados\Empleado_EvaluacionAsignadas.aspx" />
     <Content Include="Empleados\Empleado_EvaluacionPendientes.aspx" />
     <Content Include="Empleados\Empleado_EvaluacionRealizadas.aspx" />
     <Content Include="Empleados\Empleado_Inicio.aspx" />
     <Content Include="Empleados\Empleado_InicioEvaluacion.aspx" />
+    <Content Include="Empleados\Empleado_Perfil.aspx" />
     <Content Include="Index.aspx" />
     <Content Include="Jefes\Jefes_AsigActividades.aspx" />
+    <Content Include="Jefes\Jefes_ERROR.aspx" />
     <Content Include="Jefes\Jefes_Evaluaciones.aspx" />
     <Content Include="Jefes\Jefes_FinEvaluacion.aspx" />
     <Content Include="Jefes\Jefes_Inicio.aspx" />
     <Content Include="Jefes\Jefes_InicioEvaluacion.aspx" />
+    <Content Include="Jefes\Jefes_Perfil.aspx" />
     <Content Include="Login1.aspx" />
     <Content Include="PM\PM_ERROR.aspx" />
     <Content Include="PM\PM_Fase.aspx" />
@@ -303,26 +305,19 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="cerrar.aspx.cs">
-      <DependentUpon>cerrar.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="cerrar.aspx.designer.cs">
-      <DependentUpon>cerrar.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Empleados\Empleado_Asignadas.aspx.cs">
       <DependentUpon>Empleado_Asignadas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Empleados\Empleado_Asignadas.aspx.designer.cs">
       <DependentUpon>Empleado_Asignadas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Empleados\Empleado_ERROR.aspx.cs">
+      <DependentUpon>Empleado_ERROR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Empleados\Empleado_ERROR.aspx.designer.cs">
+      <DependentUpon>Empleado_ERROR.aspx</DependentUpon>
     </Compile>
     <Compile Include="Empleados\Empleado_EvaluacionAsignadas.aspx.cs">
       <DependentUpon>Empleado_EvaluacionAsignadas.aspx</DependentUpon>
@@ -359,6 +354,13 @@
     <Compile Include="Empleados\Empleado_InicioEvaluacion.aspx.designer.cs">
       <DependentUpon>Empleado_InicioEvaluacion.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Empleados\Empleado_Perfil.aspx.cs">
+      <DependentUpon>Empleado_Perfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Empleados\Empleado_Perfil.aspx.designer.cs">
+      <DependentUpon>Empleado_Perfil.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Empleado_PageMaster.Master.cs">
       <DependentUpon>Empleado_PageMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -379,6 +381,13 @@
     </Compile>
     <Compile Include="Jefes\Jefes_AsigActividades.aspx.designer.cs">
       <DependentUpon>Jefes_AsigActividades.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Jefes\Jefes_ERROR.aspx.cs">
+      <DependentUpon>Jefes_ERROR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Jefes\Jefes_ERROR.aspx.designer.cs">
+      <DependentUpon>Jefes_ERROR.aspx</DependentUpon>
     </Compile>
     <Compile Include="Jefes\Jefes_Evaluaciones.aspx.cs">
       <DependentUpon>Jefes_Evaluaciones.aspx</DependentUpon>
@@ -407,6 +416,13 @@
     </Compile>
     <Compile Include="Jefes\Jefes_InicioEvaluacion.aspx.designer.cs">
       <DependentUpon>Jefes_InicioEvaluacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Jefes\Jefes_Perfil.aspx.cs">
+      <DependentUpon>Jefes_Perfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Jefes\Jefes_Perfil.aspx.designer.cs">
+      <DependentUpon>Jefes_Perfil.aspx</DependentUpon>
     </Compile>
     <Compile Include="Jefes_PageMaster.Master.cs">
       <DependentUpon>Jefes_PageMaster.Master</DependentUpon>

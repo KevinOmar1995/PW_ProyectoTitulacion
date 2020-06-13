@@ -5,16 +5,14 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace PW_ProyectoTitulacion
+namespace PW_ProyectoTitulacion.Jefes
 {
-    public partial class cerrar : System.Web.UI.Page
+    public partial class Jefes_ERROR : System.Web.UI.Page
     {
+        public string error;
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session.Clear();
-            Session.RemoveAll();
-            Session.Abandon();
-            Response.Redirect("~/Login.aspx");
+            error = Session["ERROR_JEFES"].ToString();
         }
     }
 }
